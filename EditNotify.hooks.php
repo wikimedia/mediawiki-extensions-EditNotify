@@ -27,7 +27,7 @@ class EditNotifyHooks  {
 			case 'edit-notify':
 				$extra = $event->getExtra();
 				$userId = $extra['user-id'];
-				$user = User::newFromId($userId);
+				$user = $extra['user'];
 				$users[$userId] = $user;
 				break;
 		}
@@ -37,29 +37,20 @@ class EditNotifyHooks  {
 
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId )  {
-		if( $article ) {
+
+		if( $revision ) {
 			EchoEvent::create( array(
 			    'type' => 'edit-notify',
 			    'extra' => array(
-
+			        'user-name' => $user,
+			        'user' => User::newFromName($user),
 			    ),
 
 			));
 		}
 		return true;
-
-
 	}
 
-	public static function onCategoryAfterPageAdded( $category, $wikiPage )  {
-		return true;
-
-	}
-
-	public static function CategoryAfterPageRemoved($category, $wikiPage )  {
-		return true;
-
-	}
 
 
 }

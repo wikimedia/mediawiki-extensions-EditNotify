@@ -25,17 +25,8 @@
 		"EchoGetDefaultNotifiedUsers": [
 			"NotifyMeHooks::onEchoGetDefaultNotifiedUsers"
 		],
-		"PageContentSave": [
-			"EditNotifyhooks::PageContentSave"
-		],
 		"PageContentSaveComplete": [
 			"EditNotifyhooks::onPageContentSaveComplete"
-		],
-		"CategoryAfterPageAdded": [
-			"EditNotifyHooks::onCategoryAfterPageAdded"
-		],
-		"CategoryAfterPageRemoved": [
-			"EditNotifyHooks::onCategoryAfterPageRemoved"
 		]
 	},
 	"MessagesDirs": {
