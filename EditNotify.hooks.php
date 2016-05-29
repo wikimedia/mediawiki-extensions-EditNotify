@@ -27,7 +27,7 @@ class EditNotifyHooks  {
 			case 'edit-notify':
 				$extra = $event->getExtra();
 				$userId = $extra['user-id'];
-				$user = $extra['user'];
+				$user = $extra['user-name'];
 				$users[$userId] = $user;
 				break;
 		}
@@ -37,13 +37,12 @@ class EditNotifyHooks  {
 
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId )  {
-
 		if( $revision ) {
 			EchoEvent::create( array(
 			    'type' => 'edit-notify',
 			    'extra' => array(
 			        'user-name' => $user,
-			        'user' => User::newFromName($user),
+			        'user-id' => User::newFromName($user),
 			    ),
 
 			));
