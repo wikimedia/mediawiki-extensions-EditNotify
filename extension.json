@@ -1,0 +1,67 @@
+{
+	"name": "EditNotify",
+	"version": "0.0.0",
+	"author": [
+		"Abhinand"
+	],
+	"url": "",
+	"descriptionmsg": "editnotify-desc",
+	"license-name": "MIT",
+	"type": "other",
+	"AutoloadClasses": {
+		"EditNotifyHooks": "EditNotify.hooks.php",
+		"SpecialEditNotify": "specials/SpecialEditNotify.php"
+	},
+	"config": {
+		"EditNotifyEnableFoo": true
+	},
+	"ExtensionMessagesFiles": {
+		"EditNotifyAlias": "EditNotify.i18n.alias.php"
+	},
+	"Hooks": {
+		"BeforeCreateEchoEvent": [
+			"NotifyMeHooks::onBeforeCreateEchoEvent"
+		],
+		"EchoGetDefaultNotifiedUsers": [
+			"NotifyMeHooks::onEchoGetDefaultNotifiedUsers"
+		],
+		"PageContentSave": [
+			"EditNotifyhooks::PageContentSave"
+		],
+		"PageContentSaveComplete": [
+			"EditNotifyhooks::onPageContentSaveComplete"
+		],
+		"CategoryAfterPageAdded": [
+			"EditNotifyHooks::onCategoryAfterPageAdded"
+		],
+		"CategoryAfterPageRemoved": [
+			"EditNotifyHooks::onCategoryAfterPageRemoved"
+		]
+	},
+	"MessagesDirs": {
+		"EditNotify": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"ext.editNotify.foo": {
+			"scripts": [
+				"modules/ext.editNotify.js",
+				"modules/ext.editNotify.foo.js"
+			],
+			"styles": [
+				"modules/ext.editNotify.foo.css"
+			],
+			"messages": [],
+			"dependencies": []
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "EditNotify"
+	},
+	"SpecialPages": {
+		"EditNotify": "SpecialEditNotify"
+	},
+	"manifest_version": 1
+}

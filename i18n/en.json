@@ -1,0 +1,15 @@
+{
+  "@metadata": {
+    "authors": []
+  },
+  "editnotify": "EditNotify",
+  "editnotify-desc": "Users are notified when a page is edited.",
+  "editnotify-pagetitle": "Extension: EditNotify",
+  "editnotify-welcome": "Welcome to the special page of EditNotify.",
+  "echo-pref-tooltip-notify-page-edit": "tooltip-notify-page-edit",
+  "editnotify-title-message": "notification title",
+  "editnotify-flyout-message": "Flyout message",
+  "editnotify-email-subject": "email subject",
+  "editnotify-email-body": "Email body message"
+
+}
