@@ -20,13 +20,13 @@
 	},
 	"Hooks": {
 		"BeforeCreateEchoEvent": [
-			"NotifyMeHooks::onBeforeCreateEchoEvent"
+			"EditNotifyHooks::onBeforeCreateEchoEvent"
 		],
 		"EchoGetDefaultNotifiedUsers": [
-			"NotifyMeHooks::onEchoGetDefaultNotifiedUsers"
+			"EditNotifyHooks::onEchoGetDefaultNotifiedUsers"
 		],
 		"PageContentSaveComplete": [
-			"EditNotifyhooks::onPageContentSaveComplete"
+			"EditNotifyHooks::onPageContentSaveComplete"
 		]
 	},
 	"MessagesDirs": {

@@ -37,20 +37,20 @@ class EditNotifyHooks  {
 
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId )  {
-		if( $revision ) {
+
+		if( !$revision ) {
+			return;
+		} else {
 			EchoEvent::create( array(
 			    'type' => 'edit-notify',
+			    'title' => $article ->getTitle(),
 			    'extra' => array(
 			        'user-name' => $user,
-			        'user-id' => User::newFromName($user),
 			    ),
 
 			));
 		}
 		return true;
 	}
-
-
-
 }
 
