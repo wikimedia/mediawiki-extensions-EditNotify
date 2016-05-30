@@ -37,8 +37,7 @@ class EditNotifyHooks  {
 
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId )  {
-
-		if( !$revision ) {
+		if( is_null( $status->getValue()['revision'] ) ) {
 			return;
 		} else {
 			EchoEvent::create( array(
