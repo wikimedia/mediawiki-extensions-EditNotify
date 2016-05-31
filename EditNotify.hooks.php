@@ -27,7 +27,7 @@ class EditNotifyHooks  {
 			case 'edit-notify':
 				$extra = $event->getExtra();
 				$userId = $extra['user-id'];
-				$user = $extra['user-name'];
+				$user = User::newFromId( $userId );
 				$users[$userId] = $user;
 				break;
 		}
@@ -44,11 +44,12 @@ class EditNotifyHooks  {
 			    'type' => 'edit-notify',
 			    'title' => $article ->getTitle(),
 			    'extra' => array(
-			        'user-name' => $user,
+			        'user-id' => $user ->getId(),
 			    ),
 
 			));
 		}
+		print("HEllo");
 		return true;
 	}
 }
