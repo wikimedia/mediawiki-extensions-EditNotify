@@ -9,15 +9,15 @@ class EditNotifyHooks  {
 			'message' => 'editnotify-primary-message',
 			'destination' => 'agent'
 		    ),
-		    'formatter-class' => 'EchoBasicFormatter',
+		    'formatter-class' => 'EchoEditNotifyFormatter',
 		    'title-message' => 'editnotify-title-message',
 		    'title-params' => array( 'agent' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array( 'agent' ),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject',
 		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-batch-body',
-		    'email-body-batch-params' =>  array( 'agent' )
+		    'email-body-batch-params' =>  array( 'title' )
 		);
 		return true;
 	}
@@ -42,14 +42,14 @@ class EditNotifyHooks  {
 		} else {
 			EchoEvent::create( array(
 			    'type' => 'edit-notify',
-			    'title' => $article ->getTitle(),
+			    'title' => $article->getTitle(),
 			    'extra' => array(
-			        'user-id' => $user ->getId(),
+			        'user-id' => $user->getId(),
 			    ),
 
 			));
 		}
-		print("HEllo");
+
 		return true;
 	}
 }

@@ -10,6 +10,7 @@
   "editnotify-title-message": "notification title",
   "editnotify-flyout-message": "Flyout message",
   "editnotify-email-subject": "email subject",
-  "editnotify-email-body": "Email body message"
+  "editnotify-email-body": "Email body message",
+  "title-message": "Page edit done"
 
 }
