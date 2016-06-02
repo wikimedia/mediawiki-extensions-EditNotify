@@ -10,8 +10,7 @@
 	"type": "other",
 	"AutoloadClasses": {
 		"EditNotifyHooks": "EditNotify.hooks.php",
-		"SpecialEditNotify": "specials/SpecialEditNotify.php",
-		"EchoEditNotifyFormatter": "includes/EchoEditNotifyFormatter.php"
+		"SpecialEditNotify": "specials/SpecialEditNotify.php"
 	},
 	"config": {
 		"EditNotifyEnableFoo": true

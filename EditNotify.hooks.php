@@ -9,15 +9,15 @@ class EditNotifyHooks  {
 			'message' => 'editnotify-primary-message',
 			'destination' => 'agent'
 		    ),
-		    'formatter-class' => 'EchoEditNotifyFormatter',
+		    'formatter-class' => 'EchoBasicFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array( 'agent' ),
+		    'title-params' => array( 'agent', 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
 		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject',
 		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-batch-body',
-		    'email-body-batch-params' =>  array( 'title' )
+		    'email-body-batch-params' =>  array( 'agent','title' )
 		);
 		return true;
 	}
@@ -37,12 +37,13 @@ class EditNotifyHooks  {
 
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId )  {
+		$titl = "New notification";
 		if( is_null( $status->getValue()['revision'] ) ) {
 			return;
 		} else {
 			EchoEvent::create( array(
 			    'type' => 'edit-notify',
-			    'title' => $article->getTitle(),
+			    'title' => $titl,
 			    'extra' => array(
 			        'user-id' => $user->getId(),
 			    ),
