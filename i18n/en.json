@@ -11,6 +11,8 @@
   "editnotify-flyout-message": "Flyout message",
   "editnotify-email-subject": "email subject",
   "editnotify-email-body": "Email body message",
-  "title-message": "Page edit done"
-
+  "editnotify-title-template":"Change in Template",
+  "editnotify-flyout-template": "Change in template-flyout message",
+  "editnotify-subject-template": "Template change subject for email",
+  "editnotify-email-batch-template": "Template change batch message"
 }

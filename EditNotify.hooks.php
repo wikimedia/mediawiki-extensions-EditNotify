@@ -19,6 +19,23 @@ class EditNotifyHooks  {
 		    'email-body-batch-message' => 'editnotify-email-batch-body',
 		    'email-body-batch-params' =>  array( 'agent','title' )
 		);
+		$notifications['edit-template'] = array(
+		    'category' => 'system',
+		    'section' => 'alert',
+		    'primary-link' => array(
+			'message' => 'editnotify-primary-message',
+			'destination' => 'agent'
+		    ),
+		    'formatter-class' => 'EchoBasicFormatter',
+		    'title-message' => 'editnotify-title-template',
+		    'title-params' => array( 'agent', 'title' ),
+		    'flyout-message' => 'editnotify-flyout-template',
+		    'flyout-params' => array( 'agent', 'title' ),
+		    'email-subject-message' => 'editnotify-subject-template',
+		    'email-subject-params' => array( 'agent' ),
+		    'email-body-batch-message' => 'editnotify-email-batch-template',
+		    'email-body-batch-params' =>  array( 'agent','title' )
+		);
 		return true;
 	}
 
@@ -50,7 +67,7 @@ class EditNotifyHooks  {
 					if ( strpos( $fieldValue, '{{' ) !== false ) {
 						$dummyPageStructure = new DTPageStructure();
 						$dummyPageStructure->parsePageContents( $fieldValue );
-						if( $pageComponent->mFields[$fieldName] == $dummyPageStructure->mComponents) {
+						if( $pageComponent->mFields[$fieldValue] != $dummyPageStructure->mComponents) {
 							EchoEvent::create(array(
 							    'type' => 'edit-template',
 							    'title' => $pageTitle,
@@ -77,9 +94,6 @@ class EditNotifyHooks  {
 
 			));
 		}
-
-
-
 		return true;
 	}
 
