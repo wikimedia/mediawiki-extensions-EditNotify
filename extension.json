@@ -10,7 +10,8 @@
 	"type": "other",
 	"AutoloadClasses": {
 		"EditNotifyHooks": "EditNotify.hooks.php",
-		"SpecialEditNotify": "specials/SpecialEditNotify.php"
+		"SpecialEditNotify": "specials/SpecialEditNotify.php",
+		"ENPageStructure": "includes/ENPageStructure.php"
 	},
 	"config": {
 		"EditNotifyEnableFoo": true
