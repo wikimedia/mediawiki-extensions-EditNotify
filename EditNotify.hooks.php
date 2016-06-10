@@ -41,6 +41,7 @@ class EditNotifyHooks extends ENPageStructure {
 
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users )  {
 		switch ($event->getType()) {
+			case 'edit-template':
 			case 'edit-notify':
 				$extra = $event->getExtra();
 				$userId = $extra['user-id'];
@@ -55,10 +56,23 @@ class EditNotifyHooks extends ENPageStructure {
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId ) {
 		$title = $article->getTitle();
+		$text = ContentHandler::getContentText( $content );
 		$existingPageStructure = ENPageStructure::newFromTitle( $title );
 		$newPageStructure = new ENPageStructure;
-		$newPageStructure->parsePageContents( $content );
-		if( $newPageStructure == $existingPageStructure ) {
+		$newPageStructure->parsePageContents( $text );
+		if (is_null($status->getValue()['revision'])) {
+			return;
+		} else if( $newPageStructure != $existingPageStructure ) {
+			EchoEvent::create(array(
+			    'type' => 'edit-template',
+			    'title' => $article->getTitle(),
+			    'extra' => array(
+				'user-id' => $user->getId(),
+			    ),
+
+			));
+
+		} else {
 			EchoEvent::create(array(
 			    'type' => 'edit-notify',
 			    'title' => $article->getTitle(),
@@ -67,10 +81,6 @@ class EditNotifyHooks extends ENPageStructure {
 			    ),
 
 			));
-		} else if (is_null($status->getValue()['revision'])) {
-			return;
-		} else {
-
 		}
 		return true;
 	}
