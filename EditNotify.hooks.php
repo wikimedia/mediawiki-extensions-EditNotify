@@ -63,15 +63,27 @@ class EditNotifyHooks extends ENPageStructure {
 		if (is_null($status->getValue()['revision'])) {
 			return;
 		} else if( $newPageStructure != $existingPageStructure ) {
-			EchoEvent::create(array(
-			    'type' => 'edit-template',
-			    'title' => $article->getTitle(),
-			    'extra' => array(
-				'user-id' => $user->getId(),
-			    ),
+			foreach ( $newPageStructure->mComponents as $pageComponent ) {
+				if ($pageComponent->mIsTemplate) {
+					foreach ($pageComponent->mFields as $fieldName => $fieldValue) {
+						if (strpos($fieldValue, '{{') !== false) {
+							$dummyPageStructure = new ENPageStructure();
+							$dummyPageStructure->parsePageContents($fieldValue);
+							if ($pageComponent->mFields[$fieldValue] != $dummyPageStructure->mFields[$fieldValue]) {
+								EchoEvent::create(array(
+								    'type' => 'edit-template',
+								    'title' => $article->getTitle(),
+								    'extra' => array(
+									'user-id' => $user->getId(),
+								    ),
 
-			));
-
+								));
+								return true;
+							}
+						}
+					}
+				}
+			}
 		} else {
 			EchoEvent::create(array(
 			    'type' => 'edit-notify',
@@ -79,7 +91,6 @@ class EditNotifyHooks extends ENPageStructure {
 			    'extra' => array(
 				'user-id' => $user->getId(),
 			    ),
-
 			));
 		}
 		return true;
