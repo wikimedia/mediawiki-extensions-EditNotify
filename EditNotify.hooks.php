@@ -49,26 +49,27 @@ class EditNotifyHooks extends ENPageStructure {
 				$users[$userId] = $user;
 				break;
 		}
-		return true;;;
+		return true;
 	}
 
 
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId ) {
-		$title = $article-> getTitle();
+		$title = $article->getTitle();
 		$text = ContentHandler::getContentText( $content );
 
 		$existingPageStructure = ENPageStructure::newFromTitle( $title );
+
 		$newPageStructure = new ENPageStructure;
+
 		$newPageStructure->parsePageContents( $text );
-		MWDebug::log('your message here');
+
 		if (is_null($status->getValue()['revision'])) {
 			return;
 		} else if( $newPageStructure != $existingPageStructure ) {
 			//$cnt = count($existingPageStructure);
 			$newPageComponent = $newPageStructure->mComponents;
 			$existingPageComponent = $existingPageStructure->mComponents;
-			//$keys = array_keys($newPageStructure->mComponents);
 			for ( $i = 0; $i < count($newPageComponent); $i++ ) {
 
 				if ( $newPageComponent[$i]->mIsTemplate ) {
@@ -78,14 +79,10 @@ class EditNotifyHooks extends ENPageStructure {
 
 					$newFieldValues = array_values( $newPageComponent[$i]->mFields );
 					$existingFieldValues = array_values( $existingPageComponent[$i]->mFields );
-					//file_put_contents('php://stderr', print_r('cybercybercyber', TRUE));
-					//file_put_contents('php://stderr', print_r($newFieldValues, TRUE));
-					//file_put_contents('php://stderr', print_r('fossfossfossfossfoss', TRUE));
-					//file_put_contents('php://stderr', print_r($existingFieldValues, TRUE));
 
 					foreach ( $newFieldValues as $fieldName => $newFieldValue ) {
 							$existingFieldValue = $existingFieldValues[$fieldName];
-							if(strcmp($existingFieldValue,$newFieldValue) == 0) {
+							if(strcmp($existingFieldValue,$newFieldValue) != 0) {
 								//file_put_contents('php://stderr', print_r($newFieldValue, TRUE));
 								//file_put_contents('php://stderr', print_r('burp', TRUE));
 								//file_put_contents('php://stderr', print_r($newFieldValues, TRUE));

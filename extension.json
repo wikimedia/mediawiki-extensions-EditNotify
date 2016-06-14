@@ -11,7 +11,8 @@
 	"AutoloadClasses": {
 		"EditNotifyHooks": "EditNotify.hooks.php",
 		"SpecialEditNotify": "specials/SpecialEditNotify.php",
-		"ENPageStructure": "includes/ENPageStructure.php"
+		"ENPageStructure": "includes/ENPageStructure.php",
+		"ENPageComponent": "includes/ENPageStructure.php"
 	},
 	"config": {
 		"EditNotifyEnableFoo": true

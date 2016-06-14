@@ -125,8 +125,7 @@ class ENPageStructure {
 	public static function newFromTitle( $pageTitle ) {
 		$pageStructure = new ENPageStructure();
 		$pageStructure->mPageTitle = $pageTitle;
-		file_put_contents('php://stderr', print_r('wwwwwwwww', TRUE));
-		file_put_contents('php://stderr', print_r($pageTitle, TRUE));
+
 		if ( method_exists( 'WikiPage', 'getContent' ) ) {
 			$wiki_page = new WikiPage( $pageTitle );
 			$page_contents = $wiki_page->getContent()->getNativeData();
@@ -137,8 +136,6 @@ class ENPageStructure {
 		$pageStructure->parsePageContents( $page_contents );
 		//file_put_contents('php://stderr', print_r('tttttttt', TRUE));
 		//file_put_contents('php://stderr', print_r($page_contents, TRUE));
-		file_put_contents('php://stderr', print_r('uuuuuuuu', TRUE));
-		file_put_contents('php://stderr', print_r($pageStructure, TRUE));
 		// Now, go through the field values and see if any of them
 		// hold template calls - if any of them do, parse the value
 		// as if it's the full contents of a page, and add the
