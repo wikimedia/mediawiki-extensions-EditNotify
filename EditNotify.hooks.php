@@ -49,38 +49,56 @@ class EditNotifyHooks extends ENPageStructure {
 				$users[$userId] = $user;
 				break;
 		}
-		return true;
+		return true;;;
 	}
 
 
 	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
 				$isWatch, $section, $flags, $revision, $status, $baseRevId ) {
-		$title = $article->getTitle();
+		$title = $article-> getTitle();
 		$text = ContentHandler::getContentText( $content );
+
 		$existingPageStructure = ENPageStructure::newFromTitle( $title );
 		$newPageStructure = new ENPageStructure;
 		$newPageStructure->parsePageContents( $text );
+		MWDebug::log('your message here');
 		if (is_null($status->getValue()['revision'])) {
 			return;
 		} else if( $newPageStructure != $existingPageStructure ) {
-			foreach ( $newPageStructure->mComponents as $pageComponent ) {
-				if ($pageComponent->mIsTemplate) {
-					foreach ($pageComponent->mFields as $fieldName => $fieldValue) {
-						if (strpos($fieldValue, '{{') !== false) {
-							$dummyPageStructure = new ENPageStructure();
-							$dummyPageStructure->parsePageContents($fieldValue);
-							if ($pageComponent->mFields[$fieldValue] != $dummyPageStructure->mFields[$fieldValue]) {
+			//$cnt = count($existingPageStructure);
+			$newPageComponent = $newPageStructure->mComponents;
+			$existingPageComponent = $existingPageStructure->mComponents;
+			//$keys = array_keys($newPageStructure->mComponents);
+			for ( $i = 0; $i < count($newPageComponent); $i++ ) {
+
+				if ( $newPageComponent[$i]->mIsTemplate ) {
+
+					//$newFieldNames = array_keys( $newPageComponent[$i]->mFields );
+					$existingFieldNames = array_keys( $existingPageComponent[$i]->mFields );
+
+					$newFieldValues = array_values( $newPageComponent[$i]->mFields );
+					$existingFieldValues = array_values( $existingPageComponent[$i]->mFields );
+					//file_put_contents('php://stderr', print_r('cybercybercyber', TRUE));
+					//file_put_contents('php://stderr', print_r($newFieldValues, TRUE));
+					//file_put_contents('php://stderr', print_r('fossfossfossfossfoss', TRUE));
+					//file_put_contents('php://stderr', print_r($existingFieldValues, TRUE));
+
+					foreach ( $newFieldValues as $fieldName => $newFieldValue ) {
+							$existingFieldValue = $existingFieldValues[$fieldName];
+							if(strcmp($existingFieldValue,$newFieldValue) == 0) {
+								//file_put_contents('php://stderr', print_r($newFieldValue, TRUE));
+								//file_put_contents('php://stderr', print_r('burp', TRUE));
+								//file_put_contents('php://stderr', print_r($newFieldValues, TRUE));
+
 								EchoEvent::create(array(
-								    'type' => 'edit-template',
+								    'type' => 'edit-notify',
 								    'title' => $article->getTitle(),
 								    'extra' => array(
 									'user-id' => $user->getId(),
 								    ),
-
 								));
-								return true;
+
 							}
-						}
 					}
 				}
 			}
