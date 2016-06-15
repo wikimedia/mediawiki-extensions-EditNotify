@@ -27,8 +27,8 @@
 		"EchoGetDefaultNotifiedUsers": [
 			"EditNotifyHooks::onEchoGetDefaultNotifiedUsers"
 		],
-		"PageContentSaveComplete": [
-			"EditNotifyHooks::onPageContentSaveComplete"
+		"PageContentSave" : [
+			"EditNotifyHooks::OnPageContentSave"
 		]
 	},
 	"MessagesDirs": {

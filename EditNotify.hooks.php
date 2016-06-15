@@ -52,61 +52,82 @@ class EditNotifyHooks extends ENPageStructure {
 		return true;
 	}
 
-
-	public static function onPageContentSaveComplete( $article, $user, $content, $summary, $isMinor,
-				$isWatch, $section, $flags, $revision, $status, $baseRevId ) {
-		$title = $article->getTitle();
+	public static function onPageContentSave( &$wikiPage, &$user, &$content, &$summary,
+	                                          $isMinor, $isWatch, $section, &$flags, &$status ) {
+		$title = $wikiPage->getTitle();
 		$text = ContentHandler::getContentText( $content );
 
 		$existingPageStructure = ENPageStructure::newFromTitle( $title );
-
 		$newPageStructure = new ENPageStructure;
-
 		$newPageStructure->parsePageContents( $text );
 
-		if (is_null($status->getValue()['revision'])) {
-			return;
-		} else if( $newPageStructure != $existingPageStructure ) {
-			//$cnt = count($existingPageStructure);
+		 if( $newPageStructure != $existingPageStructure ) {
 			$newPageComponent = $newPageStructure->mComponents;
 			$existingPageComponent = $existingPageStructure->mComponents;
-			for ( $i = 0; $i < count($newPageComponent); $i++ ) {
 
-				if ( $newPageComponent[$i]->mIsTemplate ) {
+				if ( $newPageComponent[0]->mIsTemplate ) {
 
-					//$newFieldNames = array_keys( $newPageComponent[$i]->mFields );
-					$existingFieldNames = array_keys( $existingPageComponent[$i]->mFields );
+					$newField = $newPageComponent[0]->mFields;
+					$existingField = $existingPageComponent[0]->mFields;
 
-					$newFieldValues = array_values( $newPageComponent[$i]->mFields );
-					$existingFieldValues = array_values( $existingPageComponent[$i]->mFields );
+					$newFieldNames = array_keys($newField);
+					$existingFieldNames = array_keys($existingField);
 
-					foreach ( $newFieldValues as $fieldName => $newFieldValue ) {
-							$existingFieldValue = $existingFieldValues[$fieldName];
-							if(strcmp($existingFieldValue,$newFieldValue) != 0) {
-								//file_put_contents('php://stderr', print_r($newFieldValue, TRUE));
-								//file_put_contents('php://stderr', print_r('burp', TRUE));
-								//file_put_contents('php://stderr', print_r($newFieldValues, TRUE));
+					$newFieldValues = array_values($newField);
+					$existingFieldValues = array_values($existingField);
 
-								EchoEvent::create(array(
-								    'type' => 'edit-notify',
-								    'title' => $article->getTitle(),
-								    'extra' => array(
-									'user-id' => $user->getId(),
-								    ),
-								));
+					$fieldNames = array_unique(array_merge($newFieldNames,$existingFieldNames), SORT_REGULAR);
+					$changedFields = $addedFields = $removedFields = array();
 
+					foreach($fieldNames as $key => $Name) {
+
+						// Alert for modified fields
+						if(isset($newField[$Name]) && isset($existingField[$Name])) {
+							if(strcmp($newField[$Name],$existingField[$Name]) !== 0) {
+								// string for the notification part
+								// $changedFields[$Name] = "\"".$existingField[$Name]. "\" was modified to \"".$newField[$Name]."\"";
+								$changedFields[$Name] = $newField[$Name];
 							}
+						}
+
+						// Alert for added fields
+						else if(isset($newField[$Name])) {
+							$addedFields[$Name] = $newField[$Name];
+						}
+
+						// Alert for removed fields
+						else {
+							$removedFields[$Name] = $existingField[$Name];
+						}
 					}
+
+					// Alert - Change Detected in Wiki Template Page
+					if(count($changedFields)+count($addedFields)+count($removedFields) > 0) {
+						EchoEvent::create(array(
+						    'type' => 'edit-template',
+						    'title' => $wikiPage->getTitle(),
+						    'extra' => array(
+							'user-id' => $user->getId(),
+						    ),
+						));
+
+						file_put_contents('php://stderr', print_r($changedFields,TRUE) );
+						file_put_contents('php://stderr', print_r($addedFields,TRUE) );
+						file_put_contents('php://stderr', print_r($removedFields,TRUE) );
+					}
+
 				}
-			}
-		} else {
-			EchoEvent::create(array(
-			    'type' => 'edit-notify',
-			    'title' => $article->getTitle(),
-			    'extra' => array(
-				'user-id' => $user->getId(),
-			    ),
-			));
+
+				// Alert - Change Detected in Wiki Non-Template Page
+				else {
+					EchoEvent::create(array(
+					    'type' => 'edit-notify',
+					    'title' => $wikiPage->getTitle(),
+					    'extra' => array(
+						'user-id' => $user->getId(),
+					    ),
+					));
+				}
 		}
 		return true;
 	}
