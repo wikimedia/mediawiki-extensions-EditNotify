@@ -19,6 +19,7 @@
   "editnotify-subject-template": "Template change subject for email",
   "editnotify-email-batch-template": "Template change batch message",
   "notification-header-edit-notify": "$3 is edited by an user",
-  "notification-header-edit-template": "Template have benn changed in $3",
-  "notification-header-edit-notify-namespace": "Namespace have benn chaged in $3"
+  "notification-header-edit-template": "Template have been changed in $3",
+  "notification-header-edit-notify-namespace": "Namespace have been changed in $3",
+  "notification-header-edit-notify-categories": "Category have been changed in $3"
 }

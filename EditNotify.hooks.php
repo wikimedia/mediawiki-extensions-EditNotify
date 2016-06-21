@@ -57,6 +57,24 @@ class EditNotifyHooks extends ENPageStructure
 		    'email-body-batch-message' => 'editnotify-email-batch-body',
 		    'email-body-batch-params' => array('agent', 'title')
 		);
+		$notifications['edit-notify-categories'] = array(
+		    'category' => 'system',
+		    'section' => 'alert',
+		    'primary-link' => array(
+			'message' => 'editnotify-primary-message',
+			'destination' => 'agent'
+		    ),
+		    'presentation-model' => 'EchoEditNotifyCategoryPresentationModel',
+		    'formatter-class' => 'EchoBasicFormatter',
+		    'title-message' => 'editnotify-title-message',
+		    'title-params' => array('title'),
+		    'flyout-message' => 'editnotify-flyout-message',
+		    'flyout-params' => array('agent', 'title'),
+		    'email-subject-message' => 'editnotify-email-subject',
+		    'email-subject-params' => array('agent'),
+		    'email-body-batch-message' => 'editnotify-email-batch-body',
+		    'email-body-batch-params' => array('agent', 'title')
+		);
 		return true;
 	}
 
@@ -65,6 +83,7 @@ class EditNotifyHooks extends ENPageStructure
 		switch ($event->getType()) {
 			case 'edit-notify':
 			case 'edit-notify-namespace':
+			case 'edit-notify-categories':	
 			case 'edit-template':
 				$extra = $event->getExtra();
 				$userId = $extra['user-id'];
@@ -187,21 +206,16 @@ class EditNotifyHooks extends ENPageStructure
 
 				// get pageid
 				// loop through 2
-				foreach ($wgEditNotify['edit-page']['all-pages'] as $usernotify) {
-					foreach ($usernotify as $userid) {
-						self::PageEditTrigger($title, 'edit-notify', $userid);
+				$categories = $wikiPage->getTitle()->getParentCategories();
+				file_put_contents('php://stderr', print_r($categories,TRUE) );
+				foreach ($categories as $category => $pagename) {
+					foreach ($wgEditNotify['edit-page']['category'][$category] as $usernotifycategory) {
+						foreach ($usernotifycategory as $userid) {
+							file_put_contents('php://stderr', print_r($userid,TRUE) );
+							self::PageEditTrigger($title, 'edit-notify-categories', $userid);
+						}
 					}
 				}
-
-				$namespace = $wikiPage->getTitle()->getNsText();
-				foreach ($wgEditNotify['edit-page']['namespaces'][$namespace] as $usernotifynamespace) {
-					foreach ($usernotifynamespace as $userid) {
-						file_put_contents('php://stderr', print_r($userid,TRUE) );
-						self::PageEditTrigger($title, 'edit-notify-namespace', $userid);
-					}
-				}
-
-
 			}
 		}
 		return true;

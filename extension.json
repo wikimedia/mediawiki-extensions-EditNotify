@@ -14,7 +14,8 @@
 		"ENPageStructure": "includes/ENPageStructure.php",
 		"ENPageComponent": "includes/ENPageStructure.php",
 		"EchoEditNotifyPresentationModel": "includes/EchoEditNotifyPresentationModel.php",
-		"EchoEditNotifyNamespacePresentationModel": "includes/EchoEditNotifyNamespacePresentationModel.php"
+		"EchoEditNotifyNamespacePresentationModel": "includes/EchoEditNotifyNamespacePresentationModel.php",
+		"EchoEditNotifyCategoryPresentationModel": "includes/EchoEditNotifyCategoryPresentationModel.php"
 	},
 	"config": {
 		"EditNotifyEnableFoo": true
