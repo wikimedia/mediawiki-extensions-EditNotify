@@ -206,12 +206,24 @@ class EditNotifyHooks extends ENPageStructure
 
 				// get pageid
 				// loop through 2
+
+				foreach ($wgEditNotify['edit-page']['all-pages'] as $usernotify) {
+					foreach ($usernotify as $userid) {
+						self::PageEditTrigger($title, 'edit-notify', $userid);
+					}
+				}
+
+				$namespace = $wikiPage->getTitle()->getNsText();
+				foreach ($wgEditNotify['edit-page']['namespace'][$namespace] as $usernotifynamespace) {
+					foreach ($usernotifynamespace as $userid) {
+						self::PageEditTrigger($title, 'edit-notify-namespace', $userid);
+					}
+				}
+				
 				$categories = $wikiPage->getTitle()->getParentCategories();
-				file_put_contents('php://stderr', print_r($categories,TRUE) );
 				foreach ($categories as $category => $pagename) {
 					foreach ($wgEditNotify['edit-page']['category'][$category] as $usernotifycategory) {
 						foreach ($usernotifycategory as $userid) {
-							file_put_contents('php://stderr', print_r($userid,TRUE) );
 							self::PageEditTrigger($title, 'edit-notify-categories', $userid);
 						}
 					}
