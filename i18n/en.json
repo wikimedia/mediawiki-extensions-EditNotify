@@ -6,13 +6,19 @@
   "editnotify-desc": "Users are notified when a page is edited.",
   "editnotify-pagetitle": "Extension: EditNotify",
   "editnotify-welcome": "Welcome to the special page of EditNotify.",
+  "editnotify-page-edit-view": "View page edit",
+  "editnotify-page-edit-template-view": "View template change",
+  "editnotify-page-edit-namespace-view": "Namespace of the page is edited",
   "echo-pref-tooltip-notify-page-edit": "tooltip-notify-page-edit",
-  "editnotify-title-message": "notification title",
+  "editnotify-title-message": "A page edit have been made",
   "editnotify-flyout-message": "Flyout message",
   "editnotify-email-subject": "email subject",
   "editnotify-email-body": "Email body message",
   "editnotify-title-template":"Change in Template",
   "editnotify-flyout-template": "Change in template-flyout message",
   "editnotify-subject-template": "Template change subject for email",
-  "editnotify-email-batch-template": "Template change batch message"
+  "editnotify-email-batch-template": "Template change batch message",
+  "notification-header-edit-notify": "$3 is edited by an user",
+  "notification-header-edit-template": "Template have benn changed in $3",
+  "notification-header-edit-notify-namespace": "Namespace have benn chaged in $3"
 }

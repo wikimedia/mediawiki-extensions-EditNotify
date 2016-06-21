@@ -12,7 +12,9 @@
 		"EditNotifyHooks": "EditNotify.hooks.php",
 		"SpecialEditNotify": "specials/SpecialEditNotify.php",
 		"ENPageStructure": "includes/ENPageStructure.php",
-		"ENPageComponent": "includes/ENPageStructure.php"
+		"ENPageComponent": "includes/ENPageStructure.php",
+		"EchoEditNotifyPresentationModel": "includes/EchoEditNotifyPresentationModel.php",
+		"EchoEditNotifyNamespacePresentationModel": "includes/EchoEditNotifyNamespacePresentationModel.php"
 	},
 	"config": {
 		"EditNotifyEnableFoo": true
