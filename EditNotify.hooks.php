@@ -2,8 +2,10 @@
 
 class EditNotifyHooks extends ENPageStructure
 {
-	public static function onBeforeCreateEchoEvent(&$notifications, $notificationCategories) {
-		$notifications['edit-notify'] = array(
+	public static function onBeforeCreateEchoEvent(&$echoNotifications, $echoNotificationCategories) {
+
+		//Echo notification for page edit
+		$echoNotifications['edit-notify'] = array(
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
@@ -21,14 +23,16 @@ class EditNotifyHooks extends ENPageStructure
 		    'email-body-batch-message' => 'editnotify-email-batch-body',
 		    'email-body-batch-params' => array('agent', 'title')
 		);
-		$notifications['edit-template'] = array(
+
+		//Echo notification for template change
+		$echoNotifications['edit-notify-template'] = array(
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
 			'message' => 'editnotify-primary-message',
 			'destination' => 'agent'
 		    ),
-		    'presentation-model' => 'EchoEditNotifyPresentationModel',
+		    'presentation-model' => 'EchoEditNotifyTemplatePresentationModel',
 		    'formatter-class' => 'EchoBasicFormatter',
 		    'title-message' => 'editnotify-title-template',
 		    'title-params' => array('agent', 'title'),
@@ -39,7 +43,8 @@ class EditNotifyHooks extends ENPageStructure
 		    'email-body-batch-message' => 'editnotify-email-batch-template',
 		    'email-body-batch-params' => array('agent', 'title')
 		);
-		$notifications['edit-notify-namespace'] = array(
+		//echo notification for namespace in non template page
+		$echoNotifications['edit-notify-namespace'] = array(
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
@@ -57,7 +62,8 @@ class EditNotifyHooks extends ENPageStructure
 		    'email-body-batch-message' => 'editnotify-email-batch-body',
 		    'email-body-batch-params' => array('agent', 'title')
 		);
-		$notifications['edit-notify-categories'] = array(
+		//echo notification for included categories in non template page
+		$echoNotifications['edit-notify-categories'] = array(
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
@@ -65,6 +71,44 @@ class EditNotifyHooks extends ENPageStructure
 			'destination' => 'agent'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyCategoryPresentationModel',
+		    'formatter-class' => 'EchoBasicFormatter',
+		    'title-message' => 'editnotify-title-message',
+		    'title-params' => array('title'),
+		    'flyout-message' => 'editnotify-flyout-message',
+		    'flyout-params' => array('agent', 'title'),
+		    'email-subject-message' => 'editnotify-email-subject',
+		    'email-subject-params' => array('agent'),
+		    'email-body-batch-message' => 'editnotify-email-batch-body',
+		    'email-body-batch-params' => array('agent', 'title')
+		);
+		//echo notification for namespace in template page
+		$echoNotifications['edit-notify-template-namespace'] = array(
+		    'category' => 'system',
+		    'section' => 'alert',
+		    'primary-link' => array(
+			'message' => 'editnotify-primary-message',
+			'destination' => 'agent'
+		    ),
+		    'presentation-model' => 'EchoEditNotifyTemplateNamespacePresentationModel',
+		    'formatter-class' => 'EchoBasicFormatter',
+		    'title-message' => 'editnotify-title-message',
+		    'title-params' => array('title'),
+		    'flyout-message' => 'editnotify-flyout-message',
+		    'flyout-params' => array('agent', 'title'),
+		    'email-subject-message' => 'editnotify-email-subject',
+		    'email-subject-params' => array('agent'),
+		    'email-body-batch-message' => 'editnotify-email-batch-body',
+		    'email-body-batch-params' => array('agent', 'title')
+		);
+		//echo notification for included categories in template page
+		$echoNotifications['edit-notify-template-category'] = array(
+		    'category' => 'system',
+		    'section' => 'alert',
+		    'primary-link' => array(
+			'message' => 'editnotify-primary-message',
+			'destination' => 'agent'
+		    ),
+		    'presentation-model' => 'EchoEditNotifyTemplateCategoryPresentationModel',
 		    'formatter-class' => 'EchoBasicFormatter',
 		    'title-message' => 'editnotify-title-message',
 		    'title-params' => array('title'),
@@ -84,7 +128,9 @@ class EditNotifyHooks extends ENPageStructure
 			case 'edit-notify':
 			case 'edit-notify-namespace':
 			case 'edit-notify-categories':	
-			case 'edit-template':
+			case 'edit-notify-template':
+			case 'edit-notify-template-namespace':
+			case 'edit-notify-template-category':
 				$extra = $event->getExtra();
 				$userId = $extra['user-id'];
 				$user = User::newFromId($userId);
@@ -121,7 +167,6 @@ class EditNotifyHooks extends ENPageStructure
 
 				$fieldNames = array_unique(array_merge($newFieldNames, $existingFieldNames), SORT_REGULAR);
 				$changedFields = $addedFields = $removedFields = array();
-
 
 
 				foreach ($fieldNames as $key => $Name) {
@@ -173,18 +218,53 @@ class EditNotifyHooks extends ENPageStructure
 				// loop through $modifiedFields
 				//      loop through $modifiedField[$Name]
 				//
-//
-//				if (count($changedFields) + count($addedFields) + count($removedFields) > 0) {
-//					foreach ($wgEditNotify['edit-page']['all-pages'] as $usernotify) {
-//						foreach ($usernotify as $userid) {
-//							self::PageEditTrigger($title, 'edit-template', $userid);
-//
-//						}
-//					}
-//				}
+
+				if (count($changedFields) + count($addedFields) + count($removedFields) > 0) {
+					$templates = $wikiPage->getTitle()->getTemplateLinksFrom()[0]->mTextform;
+					$trackFields = array_keys($wgEditNotify['edit-template-field-name'][$templates]);
+					//trigger to all pages
+					foreach($changedFields as $changedFieldNames => $changedFieldValues) {
+						foreach($trackFields as $trackFieldNames){
+							if($changedFieldNames == $trackFieldNames) {
+								foreach($wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['all-pages'] as $notify) {
+									foreach ($notify as $userids) {
+										self::PageEditTrigger($title, 'edit-notify-template', $userids);
+									}
+								}
+							}
+						}
+					}
+					//trigger the namespace of the page
+					$templateNamespace = $wikiPage->getTitle()->getNsText();
+					foreach($changedFields as $changedFieldNames => $changedFieldValues) {
+						foreach($trackFields as $trackFieldNames){
+							if($changedFieldNames == $trackFieldNames) {
+								foreach($wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['namespace'][$templateNamespace] as $namespaceNotify) {
+									foreach ($namespaceNotify as $namespaceUser) {
+										self::PageEditTrigger($title, 'edit-notify-template-namespace', $namespaceUser);
+									}
+								}
+							}
+						}
+					}
+					//trigger the categories in which the page is included
+					$templateCategories = $wikiPage->getTitle()->getParentCategories();
+					foreach ($templateCategories as $templateCategory => $templatePagename) {
+						foreach ($changedFields as $changedFieldNames => $changedFieldValues) {
+							foreach ($trackFields as $trackFieldNames) {
+								if ($changedFieldNames == $trackFieldNames) {
+									foreach ($wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['category'][$templateCategory] as $categoryNotify) {
+										foreach ($categoryNotify as $categoryUser) {
+											self::PageEditTrigger($title, 'edit-notify-template-category', $categoryUser);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
 
 			}
-
 			//file_put_contents('php://stderr', print_r($changedFields,TRUE) );
 
 
@@ -207,19 +287,22 @@ class EditNotifyHooks extends ENPageStructure
 				// get pageid
 				// loop through 2
 
+				//trigger for page edit to all pages
 				foreach ($wgEditNotify['edit-page']['all-pages'] as $usernotify) {
 					foreach ($usernotify as $userid) {
 						self::PageEditTrigger($title, 'edit-notify', $userid);
 					}
 				}
 
+				//trigger namespace of the page
 				$namespace = $wikiPage->getTitle()->getNsText();
 				foreach ($wgEditNotify['edit-page']['namespace'][$namespace] as $usernotifynamespace) {
 					foreach ($usernotifynamespace as $userid) {
 						self::PageEditTrigger($title, 'edit-notify-namespace', $userid);
 					}
 				}
-				
+
+				//trigger the incuded categories
 				$categories = $wikiPage->getTitle()->getParentCategories();
 				foreach ($categories as $category => $pagename) {
 					foreach ($wgEditNotify['edit-page']['category'][$category] as $usernotifycategory) {
@@ -230,6 +313,7 @@ class EditNotifyHooks extends ENPageStructure
 				}
 			}
 		}
+
 		return true;
 	}
 
@@ -249,5 +333,4 @@ class EditNotifyHooks extends ENPageStructure
 
 
 }
-
 

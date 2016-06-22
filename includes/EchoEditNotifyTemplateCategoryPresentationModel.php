@@ -1,7 +1,7 @@
 <?php
 
 
-class EchoEditNotifyPresentationModel extends EchoEventPresentationModel {
+class EchoEditNotifyTemplateCategoryPresentationModel extends EchoEventPresentationModel {
 	public function getIconType() {
 		return 'placeholder';
 	}

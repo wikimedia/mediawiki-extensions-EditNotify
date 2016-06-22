@@ -1,14 +1,14 @@
 <?php
 
 
-class EchoEditTemplatePresentationModel extends EchoEventPresentationModel {
+class EchoEditNotifyTemplateNamespacePresentationModel extends EchoEventPresentationModel {
 	public function getIconType() {
 		return 'placeholder';
 	}
 	public function getPrimaryLink() {
 		return array(
-		    'url' => SpecialPage::getTitleFor( 'EditNotify' )->getFullURL(),
-		    'label' => $this->msg( 'editnotify-page-edit-template-view' )->text(),
+		    'url' => SpecialPage::getTitleFor( 'EditNotify' ),
+		    'label' => $this->msg( 'editnotify-page-edit-view' )->text(),
 		);
 	}
 
