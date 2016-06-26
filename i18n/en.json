@@ -23,5 +23,8 @@
   "notification-header-edit-notify-namespace": "Namespace have been changed in $3",
   "notification-header-edit-notify-categories": "Category have been changed in $3",
   "notification-header-edit-notify-template-namespace": "Template in the namespace have been changed in $3",
-  "notification-header-edit-notify-template-category": "Template in the category have been changed in $3"
+  "notification-header-edit-notify-template-category": "Template in the category have been changed in $3",
+  "notification-header-edit-notify-template-value": "Template field name to a specific field value changed in $3",
+  "notification-header-edit-notify-template-value-namespace": "Template field name to a specific field value in a namespace changed in $3",
+  "notification-header-edit-notify-template-value-category": "Template field name to a specific field value in a category changed in $3"
 }

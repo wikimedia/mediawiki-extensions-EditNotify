@@ -18,7 +18,12 @@
 		"EchoEditNotifyCategoryPresentationModel": "includes/EchoEditNotifyCategoryPresentationModel.php",
 		"EchoEditNotifyTemplatePresentationModel": "includes/EchoEditNotifyTemplatePresentationModel.php",
 		"EchoEditNotifyTemplateNamespacePresentationModel": "includes/EchoEditNotifyTemplateNamespacePresentationModel.php",
-		"EchoEditNotifyTemplateCategoryPresentationModel": "includes/EchoEditNotifyTemplateCategoryPresentationModel.php"
+		"EchoEditNotifyTemplateCategoryPresentationModel": "includes/EchoEditNotifyTemplateCategoryPresentationModel.php",
+		"EchoEditNotifyTemplateValuePresentationModel": "includes/EchoEditNotifyTemplateValuePresentationModel.php",
+		"EchoEditNotifyTemplateValueNamespacePresentationModel": "includes/EchoEditNotifyTemplateValueNamespacePresentationModel.php",
+		"EchoEditNotifyTemplateValueCategoryPresentationModel": "includes/EchoEditNotifyTemplateValueCategoryPresentationModel.php"
+
+
 	},
 	"config": {
 		"EditNotifyEnableFoo": true
