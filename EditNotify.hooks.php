@@ -183,7 +183,7 @@ class EditNotifyHooks extends ENPageStructure
 		switch ($event->getType()) {
 			case 'edit-notify':
 			case 'edit-notify-namespace':
-			case 'edit-notify-categories':	
+			case 'edit-notify-categories':
 			case 'edit-notify-template':
 			case 'edit-notify-template-namespace':
 			case 'edit-notify-template-category':
@@ -287,9 +287,14 @@ class EditNotifyHooks extends ENPageStructure
 					$templateNotification = true;
 					$templateFieldNotification = true;
 					$notification = true;
+					$templateValueNamespaceUser1 = $templateValueNamespaceUser2 = array();
+					$templateValueCategoryUser1 = $templateValueCategoryUser2 = array();
+					$templateNamespaceUser1 = $templateNamespaceUser2 = array();
+					$templateCategoryUser1 = $templateCategoryUser2 = array();
+
 
 					//Notification for change of template field to a specific value in namespace
-
+					//1
 					if ( $templateNamespace ) {
 						foreach($changedFields as $changedFieldName => $changedFieldValue) {
 							foreach($trackFields as $trackFieldName){
@@ -301,17 +306,23 @@ class EditNotifyHooks extends ENPageStructure
 											foreach($wgEditNotify['edit-template-field-name-value'][$templates][$trackFieldName][$trackFieldValue]['namespace'] as $templateValueNotifyNamespace) {
 												foreach ($templateValueNotifyNamespace as $templateValueNamespaceUser) {
 													foreach ( $templateValueNamespaceUser as $templateValueNamespaceUserids ) {
-														file_put_contents( 'php://stderr', print_r( $templateValueNamespaceUserids, true ) );
-														self::PageEditTrigger( $title, 'edit-notify-template-value-namespace', $templateValueNamespaceUserids );
 														$templateNotification = false;
+														$templateValueNamespaceUser1[] = $templateValueNamespaceUserids;
+														//array_push($templateValueArray, $templateValueNamespaceUserids);
 													}
 												}
 											}
-//											foreach ($wgEditNotify['all-changes']['namespace'][$templateNamespace] as $notifyNamespace) {
-//												foreach ($notifyNamespace as $userIdNotifyNamespace) {
-//													self::PageEditTrigger($title, 'edit-notify-template-value-namespace', $userIdNotifyNamespace);
-//												}
-//											}
+											foreach ($wgEditNotify['all-changes']['namespace'][$templateNamespace] as $notifyNamespace) {
+												foreach ($notifyNamespace as $userIdNotifyNamespace) {
+													$templateValueNamespaceUser2[] = $userIdNotifyNamespace;
+								 				}
+											}
+											$templateValueNamspace = array_unique(array_merge($templateValueNamespaceUser1,$templateValueNamespaceUser2), SORT_REGULAR);
+											foreach ($templateValueNamspace as $userIdTemplateValueNamespace) {
+												self::PageEditTrigger($title, 'edit-notify-template-value-namespace', $userIdTemplateValueNamespace);
+												//file_put_contents( 'php://stderr', print_r( $userIdTemplateValueNamespace, true ) );
+
+											}
 										}
 									}
 
@@ -322,7 +333,7 @@ class EditNotifyHooks extends ENPageStructure
 					}
 
 					//Notification for change of template field to a specific value in categories
-
+					//2
 					if ( $templateCategories ) {
 						foreach ($templateCategories as $templateValueCategory => $templateValuePagename) {
 							foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
@@ -334,19 +345,24 @@ class EditNotifyHooks extends ENPageStructure
 											if ( $changedFields[$trackFieldName] == $trackFieldValue ) {
 												foreach ( $wgEditNotify['edit-template-field-name-value'][$templates][$trackFieldName][$trackFieldValue]['category'][$templateValueCategory] as $templateValueNotifyCategory ) {
 													foreach ( $templateValueNotifyCategory as $templateValueCategoryUser ) {
-														file_put_contents( 'php://stderr', print_r( $templateValueCategoryUser, true ) );
-														self::PageEditTrigger( $title, 'edit-notify-template-value-category', $templateValueCategoryUser );
+														//file_put_contents( 'php://stderr', print_r( $templateValueCategoryUser, true ) );
 														$templateNotification = false;
-
+														$templateValueCategoryUser1[] = $templateValueCategoryUser;
 													}
 												}
-//												foreach ($templateCategories as $category => $pagename) {
-//													foreach ($wgEditNotify['all-changes']['category'][$category] as $notifyCategory) {
-//														foreach ($notifyCategory as $userIdNotifyCategory) {
-//															self::PageEditTrigger($title, 'edit-notify-template-value-category', $userIdNotifyCategory);
-//														}
-//													}
-//												}
+												foreach ($templateCategories as $category => $pagename) {
+													foreach ($wgEditNotify['all-changes']['category'][$category] as $notifyCategory) {
+														foreach ($notifyCategory as $userIdNotifyCategory) {
+															$templateValueCategoryUser2[] = $userIdNotifyCategory;
+														}
+													}
+												}
+
+												$templateValueCategoryUserArray = array_unique(array_merge($templateValueCategoryUser1,$templateValueCategoryUser2), SORT_REGULAR);
+												foreach ($templateValueCategoryUserArray as $userIdTemplateValueCategory) {
+													self::PageEditTrigger( $title, 'edit-notify-template-value-category', $userIdTemplateValueCategory );
+												}
+												unset($templateValueCategoryUser1, $templateValueCategoryUser2, $templateValueCategoryUserArray);
 											}
 										}
 									}
@@ -357,6 +373,7 @@ class EditNotifyHooks extends ENPageStructure
 					}
 
 					//trigger notification for change in template field to specific template field value
+					//3
 					if ( $templateNotification && $templateNamespace ) {
 						//trigger notification for change in namespace
 						foreach($changedFields as $changedFieldNames => $changedFieldValues) {
@@ -364,20 +381,26 @@ class EditNotifyHooks extends ENPageStructure
 								if($changedFieldNames == $trackFieldNames) {
 									foreach($wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['namespace'][$templateNamespace] as $namespaceNotify) {
 										foreach ($namespaceNotify as $namespaceUser) {
-											self::PageEditTrigger($title, 'edit-notify-template-namespace', $namespaceUser);
 											$templateFieldNotification = false;
+											$templateNamespaceUser1[] = $namespaceUser;
 										}
 									}
-//									foreach ($wgEditNotify['all-changes']['namespace'][$templateNamespace] as $notifyNamespace) {
-//										foreach ($notifyNamespace as $userIdNotifyNamespace) {
-//											self::PageEditTrigger($title, 'edit-notify-template-namespace', $userIdNotifyNamespace);
-//										}
-//									}
+									foreach ($wgEditNotify['all-changes']['namespace'][$templateNamespace] as $notifyNamespace) {
+										foreach ($notifyNamespace as $userIdNotifyNamespace) {
+											$templateNamespaceUser2[] = $userIdNotifyNamespace;
+										}
+									}
+									$templateNamespaceUserArray = array_unique(array_merge($templateNamespaceUser1,$templateNamespaceUser2), SORT_REGULAR);
+									foreach ($templateNamespaceUserArray as $userIdTemplateNamespace) {
+										self::PageEditTrigger( $title, 'edit-notify-template-namespace', $userIdTemplateNamespace );
+										//file_put_contents( 'php://stderr', print_r( $userIdTemplateNamespace, true ) );
+									}
 								}
 							}
 						}
 					}
 
+					//4
 					if ( $templateNotification && $templateCategories ) {
 						//trigger notification for change in categories
 						foreach ($templateCategories as $templateCategory => $templatePagename) {
@@ -386,17 +409,22 @@ class EditNotifyHooks extends ENPageStructure
 									if ($changedFieldNames == $trackFieldNames) {
 										foreach ($wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['category'][$templateCategory] as $categoryNotify) {
 											foreach ($categoryNotify as $categoryUser) {
-												self::PageEditTrigger($title, 'edit-notify-template-category', $categoryUser);
 												$templateFieldNotification = false;
+												$templateCategoryUser1[] = $categoryUser;
 											}
 										}
-//										foreach ($templateCategories as $category => $pagename) {
-//											foreach ($wgEditNotify['all-changes']['category'][$category] as $notifyCategory) {
-//												foreach ($notifyCategory as $userIdNotifyCategory) {
-//													self::PageEditTrigger($title, 'edit-notify-template-category', $userIdNotifyCategory);
-//												}
-//											}
-//										}
+										foreach ($templateCategories as $category => $pagename) {
+											foreach ($wgEditNotify['all-changes']['category'][$category] as $notifyCategory) {
+												foreach ($notifyCategory as $userIdNotifyCategory) {
+													$templateCategoryUser2[] = $userIdNotifyCategory;
+												}
+											}
+										}
+										$templateCategoryUserArray = array_unique(array_merge($templateCategoryUser1,$templateCategoryUser2), SORT_REGULAR);
+										foreach ($templateCategoryUserArray as $userIdTemplateValueCategory) {
+											self::PageEditTrigger($title, 'edit-notify-template-category', $userIdTemplateValueCategory);
+										}
+										unset($templateCategoryUser1, $templateCategoryUser2, $templateCategoryUserArray);
 									}
 								}
 							}
@@ -413,7 +441,7 @@ class EditNotifyHooks extends ENPageStructure
 										if($changedFields[$trackFieldName] == $trackFieldValue) {
 											foreach($wgEditNotify['edit-template-field-name-value'][$templates][$trackFieldName][$trackFieldValue]['all-pages'] as $notify) {
 												foreach ($notify as $templateValueUserids) {
-													file_put_contents('php://stderr', print_r($templateValueUserids,TRUE) );
+													//file_put_contents('php://stderr', print_r($templateValueUserids,TRUE) );
 													self::PageEditTrigger($title, 'edit-notify-template-value', $templateValueUserids);
 													$notification = false;
 												}
@@ -484,7 +512,7 @@ class EditNotifyHooks extends ENPageStructure
 						}
 					}
 					$notification = false;
-					file_put_contents('php://stderr', print_r('namespace',TRUE) );
+					//file_put_contents('php://stderr', print_r('namespace',TRUE) );
 
 				}
 
@@ -497,7 +525,7 @@ class EditNotifyHooks extends ENPageStructure
 						}
 					}
 					$notification = false;
-					file_put_contents('php://stderr', print_r('cat',TRUE) );
+					//file_put_contents('php://stderr', print_r('cat',TRUE) );
 
 				}
 
@@ -508,7 +536,7 @@ class EditNotifyHooks extends ENPageStructure
 							self::PageEditTrigger($title, 'edit-notify', $userIdNotify);
 						}
 					}
-					file_put_contents('php://stderr', print_r('edit',TRUE) );
+					//file_put_contents('php://stderr', print_r('edit',TRUE) );
 
 				}
 			}
@@ -524,7 +552,7 @@ class EditNotifyHooks extends ENPageStructure
 		        'title' => $pagetitle,
 			'user-id' => $userid,
 		    ),
-		    'agent' => User::newFromName($userid),
+		    'agent' => User::newFromName($userid)
 		));
 		//file_put_contents('php://stderr', print_r('PageTitle',TRUE) );
 		//file_put_contents('php://stderr', print_r($pagetitle,TRUE) );
