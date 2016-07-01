@@ -128,14 +128,16 @@ class ENPageStructure {
 
 		if ( method_exists( 'WikiPage', 'getContent' ) ) {
 			$wiki_page = new WikiPage( $pageTitle );
-			$page_contents = $wiki_page->getContent()->getNativeData();
+			if ( $wiki_page->getContent() )
+				$page_contents = $wiki_page->getContent()->getNativeData();
+			else
+				$page_contents = null;
 		} else {
 			$article = new Article( $pageTitle );
 			$page_contents = $article->getContent();
 		}
 		$pageStructure->parsePageContents( $page_contents );
 		//file_put_contents('php://stderr', print_r('tttttttt', TRUE));
-		//file_put_contents('php://stderr', print_r($page_contents, TRUE));
 		// Now, go through the field values and see if any of them
 		// hold template calls - if any of them do, parse the value
 		// as if it's the full contents of a page, and add the

@@ -14,6 +14,7 @@ class EchoEditNotifyNamespacePresentationModel extends EchoEventPresentationMode
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
 		$msg->params( $this->event->getExtraParam( 'title' ) );
+		$msg->params( $this->event->getExtraParam( 'change' ) );
 		return $msg;
 	}
 

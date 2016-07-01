@@ -7,7 +7,7 @@ class EchoEditNotifyTemplateValueNamespacePresentationModel extends EchoEventPre
 	}
 	public function getPrimaryLink() {
 		return array(
-		    'url' => SpecialPage::getTitleFor( 'EditNotify' ),
+		    'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
 		    'label' => $this->msg( 'editnotify-page-edit-view' )->text(),
 		);
 	}
@@ -15,7 +15,12 @@ class EchoEditNotifyTemplateValueNamespacePresentationModel extends EchoEventPre
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
 		$msg->params( $this->event->getExtraParam( 'title' ) );
-		return $msg;
+		$msg->params( $this->event->getExtraParam( 'field-name' ) );
+		$msg->params( $this->event->getExtraParam( 'new-field-value' ) );
+		$msg->params( $this->event->getExtraParam( 'existing-field-value' ) );
+		$msg->params( $this->event->getExtraParam( 'template' ) );
+		$msg->params( $this->event->getExtraParam( 'change' ) );
+		return $msg; 
 	}
 
 }

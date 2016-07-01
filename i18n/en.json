@@ -19,13 +19,13 @@
   "editnotify-flyout-template": "Change in template-flyout message",
   "editnotify-subject-template": "Template change subject for email",
   "editnotify-email-batch-template": "Template change batch message",
-  "notification-header-edit-notify": "$3 is edited by an user",
-  "notification-header-edit-notify-template": "Template have been changed in $3",
-  "notification-header-edit-notify-namespace": "Namespace have been changed in $3",
-  "notification-header-edit-notify-categories": "$4 have been changed in $3",
-  "notification-header-edit-notify-template-namespace": "Template in the namespace have been changed in $3",
-  "notification-header-edit-notify-template-category": "Template in the category have been changed in $3",
-  "notification-header-edit-notify-template-value": "Template field name to a specific field value changed in $3",
-  "notification-header-edit-notify-template-value-namespace": "Template field name to a specific field value in a namespace changed in $3",
-  "notification-header-edit-notify-template-value-category": "Template field name to a specific field value in a category changed in $3"
+  "notification-header-edit-notify": "$3 have been edited",
+  "notification-header-edit-notify-namespace": "A edit have been done in page $3 in namespace:$4",
+  "notification-header-edit-notify-categories": "A edit have been done in page $3 in $4",
+  "notification-header-edit-notify-template": "Value of $4 have been changed from $6 to $5 in Template:$7 in page $3(fieldvalue)",
+  "notification-header-edit-notify-template-namespace": "Value of $4 have been changed from $6 to $5 in Template:$7 in page $3 in namespace $8 (fieldvalue)",
+  "notification-header-edit-notify-template-category": "Value of $4 have been changed from $6 to $5 in Template:$7 in page $3 in $8 (fieldvalue)",
+  "notification-header-edit-notify-template-value": "Value of $4 have been changed from $6 to $5 in Template:$7 in page $3(field-value)",
+  "notification-header-edit-notify-template-value-namespace": "Value of $4 have been changed from $6 to $5 in Template:$7 in page $3 in namespace $8 (field-name-value)",
+  "notification-header-edit-notify-template-value-category": "Value of $4 have been changed from $6 to $5 in Template:$7 in page $3 in $8(field-name-value)"
 }
