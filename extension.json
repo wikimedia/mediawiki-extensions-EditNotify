@@ -21,9 +21,9 @@
 		"EchoEditNotifyTemplateCategoryPresentationModel": "includes/EchoEditNotifyTemplateCategoryPresentationModel.php",
 		"EchoEditNotifyTemplateValuePresentationModel": "includes/EchoEditNotifyTemplateValuePresentationModel.php",
 		"EchoEditNotifyTemplateValueNamespacePresentationModel": "includes/EchoEditNotifyTemplateValueNamespacePresentationModel.php",
-		"EchoEditNotifyTemplateValueCategoryPresentationModel": "includes/EchoEditNotifyTemplateValueCategoryPresentationModel.php"
-
-
+		"EchoEditNotifyTemplateValueCategoryPresentationModel": "includes/EchoEditNotifyTemplateValueCategoryPresentationModel.php",
+		"EchoEditNotifyFormatter": "includes/formatters/EchoEditNotifyFormatter.php",
+		"EchoEditNotifyTemplateFormatter": "includes/formatters/EchoEditNotifyTemplateFormatter.php"
 	},
 	"config": {
 		"EditNotifyEnableFoo": true
@@ -38,7 +38,7 @@
 		"EchoGetDefaultNotifiedUsers": [
 			"EditNotifyHooks::onEchoGetDefaultNotifiedUsers"
 		],
-		"PageContentSave" : [
+		"PageContentSave": [
 			"EditNotifyHooks::OnPageContentSave"
 		]
 	},
