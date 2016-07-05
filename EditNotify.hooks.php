@@ -9,7 +9,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'section' => 'alert',
 		    'primary-link' => array(
 				'message' => 'editnotify-primary-message',
-				'destination' => 'agent'
+				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyPresentationModel',
 		    'formatter-class' => 'EchoEditNotifyFormatter',
@@ -28,8 +28,8 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-				'message' => 'editnotify-primary-message',
-				'destination' => 'agent'
+				'message' => 'editnotify-primary-message-namespace',
+				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyNamespacePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyFormatter',
@@ -48,8 +48,8 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-				'message' => 'editnotify-primary-message',
-				'destination' => 'agent'
+				'message' => 'editnotify-primary-message-category',
+				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyCategoryPresentationModel',
 		    'formatter-class' => 'EchoEditNotifyFormatter',
@@ -67,8 +67,8 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-			'message' => 'editnotify-primary-message',
-			'destination' => 'agent'
+				'message' => 'editnotify-primary-message-template',
+				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplatePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
@@ -87,8 +87,8 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-			'message' => 'editnotify-primary-message',
-			'destination' => 'agent'
+				'message' => 'editnotify-primary-message-template-namespace',
+				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplateNamespacePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
@@ -106,11 +106,11 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-			'message' => 'editnotify-primary-message',
-			'destination' => 'agent'
+				'message' => 'editnotify-primary-message-template-category',
+				'destination' => 'title'
 		    ),
-		    'presentation-model' => 'EchoEditNotifyTemplateCategoryPresentationModel',
-		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
+			'presentation-model' => 'EchoEditNotifyTemplateCategoryPresentationModel',
+			'formatter-class' => 'EchoEditNotifyTemplateFormatter',
 		    'title-message' => 'editnotify-title-message',
 		    'title-params' => array('title'),
 		    'flyout-message' => 'editnotify-flyout-message',
@@ -125,8 +125,8 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-			'message' => 'editnotify-primary-message',
-			'destination' => 'agent'
+				'message' => 'editnotify-primary-message-template-value',
+				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplateValuePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
@@ -144,8 +144,8 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-			'message' => 'editnotify-primary-message',
-			'destination' => 'agent'
+				'message' => 'editnotify-primary-message-template-value-namespace',
+				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplateValueNamespacePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
@@ -164,7 +164,7 @@ class EditNotifyHooks extends ENPageStructure {
 			'section' => 'alert',
 			'primary-link' => array(
 				'message' => 'editnotify-primary-message-template-value-category',
-				'destination' => 'agent'
+				'destination' => 'title'
 			),
 			'presentation-model' => 'EchoEditNotifyTemplateValueCategoryPresentationModel',
 			'formatter-class' => 'EchoEditNotifyTemplateFormatter',
@@ -504,14 +504,11 @@ class EditNotifyHooks extends ENPageStructure {
 						foreach ( $wgEditNotify['all-changes']['category'][$category] as $notifyCategory ) {
 							foreach ( $notifyCategory as $userIdNotifyCategory ) {
 								self::PageEditTrigger( $title, 'edit-notify-category', $userIdNotifyCategory, $category );
-								file_put_contents('php://stderr', print_r('categorynetr ',TRUE) );
 
 							}
 						}
 					}
 					$notification = false;
-					file_put_contents('php://stderr', print_r('category',TRUE) );
-
 				}
 
 				if ( $namespace ) {
@@ -522,8 +519,6 @@ class EditNotifyHooks extends ENPageStructure {
 						}
 					}
 					$notification = false;
-					file_put_contents('php://stderr', print_r('namepsace',TRUE) );
-
 				}
 
 				if ( $notification ) {
@@ -533,7 +528,6 @@ class EditNotifyHooks extends ENPageStructure {
 							self::PageEditTrigger( $title, 'edit-notify', $userIdNotify, 'null' );
 						}
 					}
-					file_put_contents('php://stderr', print_r('page edit notification',TRUE) );
 				}
 			}
 		}
@@ -549,6 +543,7 @@ class EditNotifyHooks extends ENPageStructure {
 				'user-id' => $userid,
 				'change' => $change
 			),
+			'title' => $pagetitle,
 			'agent' => User::newFromName( $userid )
 		) );
 		//file_put_contents('php://stderr', print_r('PageTitle',TRUE) );
@@ -568,10 +563,9 @@ class EditNotifyHooks extends ENPageStructure {
 				'template' => $template,
 				'change' => $change,
 			),
+			'title' => $pagetitle,
 			'agent' => User::newFromName( $userid )
 		) );
-		//file_put_contents('php://stderr', print_r('PageTitle',TRUE) );
-		//file_put_contents('php://stderr', print_r($pagetitle,TRUE) );
 	}
 
 	//3
@@ -587,10 +581,9 @@ class EditNotifyHooks extends ENPageStructure {
 				'template' => $template,
 				'change' => $change
 			),
+			'title' => $pagetitle,
 			'agent' => User::newFromName( $userid )
 		) );
-		//file_put_contents('php://stderr', print_r('PageTitle',TRUE) );
-		//file_put_contents('php://stderr', print_r($pagetitle,TRUE) );
 	}
 
 }
