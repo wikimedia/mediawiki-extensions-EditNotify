@@ -14,13 +14,13 @@ class EditNotifyHooks extends ENPageStructure {
 		    'presentation-model' => 'EchoEditNotifyPresentationModel',
 		    'formatter-class' => 'EchoEditNotifyFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array('title'),
+		    'title-params' => array( 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array('agent', 'title'),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-allpages',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-allpages',
-		    'email-body-batch-params' => array('agent', 'title', 'change')
+		    'email-body-batch-params' => array( 'title', 'change' )
 		);
 
 		//echo notification for namespace in non template page
@@ -34,13 +34,13 @@ class EditNotifyHooks extends ENPageStructure {
 		    'presentation-model' => 'EchoEditNotifyNamespacePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array('title'),
+		    'title-params' => array( 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array('agent', 'title'),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-namespace',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-namespace',
-		    'email-body-batch-params' => array('agent', 'title', 'change')
+		    'email-body-batch-params' => array( 'title', 'change' )
 		);
 
 		//echo notification for included categories in non template page
@@ -54,13 +54,13 @@ class EditNotifyHooks extends ENPageStructure {
 		    'presentation-model' => 'EchoEditNotifyCategoryPresentationModel',
 		    'formatter-class' => 'EchoEditNotifyFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array('title'),
+		    'title-params' => array( 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array('agent', 'title'),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-category',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-category',
-		    'email-body-batch-params' => array('agent', 'title', 'change')
+		    'email-body-batch-params' => array( 'title', 'change' )
 		);
 		//Echo notification for template change
 		$echoNotifications['edit-notify-template'] = array(
@@ -72,14 +72,14 @@ class EditNotifyHooks extends ENPageStructure {
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplatePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
-		    'title-message' => 'editnotify-title-template',
-		    'title-params' => array('agent', 'title'),
-		    'flyout-message' => 'editnotify-flyout-template',
-		    'flyout-params' => array('agent', 'title'),
+		    'title-message' => 'editnotify-title-message',
+		    'title-params' => array( 'agent', 'title' ),
+		    'flyout-message' => 'editnotify-flyout-templa',
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-template-allpages',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-template-allpages',
-		    'email-body-batch-params' => array('agent', 'title', 'field-name', 'new-field-value', 'existing-field-value', 'template', 'change')
+		    'email-body-batch-params' => array( 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title' )
 		);
 
 		//echo notification for namespace in template page
@@ -93,13 +93,13 @@ class EditNotifyHooks extends ENPageStructure {
 		    'presentation-model' => 'EchoEditNotifyTemplateNamespacePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array('title'),
+		    'title-params' => array( 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array('agent', 'title'),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-template-namespace',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-template-namespace',
-		    'email-body-batch-params' => array('agent', 'title', 'field-name', 'new-field-value', 'existing-field-value', 'template', 'change')
+		    'email-body-batch-params' => array( 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title', 'change' )
 		);
 		//echo notification for included categories in template page
 		$echoNotifications['edit-notify-template-category'] = array(
@@ -112,13 +112,13 @@ class EditNotifyHooks extends ENPageStructure {
 			'presentation-model' => 'EchoEditNotifyTemplateCategoryPresentationModel',
 			'formatter-class' => 'EchoEditNotifyTemplateFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array('title'),
+		    'title-params' => array( 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array('agent', 'title'),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-template-category',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-template-category',
-		    'email-body-batch-params' => array('agent', 'title', 'field-name', 'new-field-value', 'existing-field-value', 'template', 'change')
+		    'email-body-batch-params' => array( 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title', 'change' )
 		);
 		//notifiation for template field name to specific template value for all pages
 		$echoNotifications['edit-notify-template-value'] = array(
@@ -131,13 +131,13 @@ class EditNotifyHooks extends ENPageStructure {
 		    'presentation-model' => 'EchoEditNotifyTemplateValuePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array('title'),
+		    'title-params' => array( 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array('agent', 'title'),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-template-value-allpages',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-template-value-allpages',
-		    'email-body-batch-params' => array('agent', 'title', 'field-name', 'new-field-value', 'existing-field-value', 'template', 'change')
+		    'email-body-batch-params' => array( 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title' )
 		);
 		//notification for change in template field to a specific template value in a namespace
 		$echoNotifications['edit-notify-template-value-namespace'] = array(
@@ -150,13 +150,13 @@ class EditNotifyHooks extends ENPageStructure {
 		    'presentation-model' => 'EchoEditNotifyTemplateValueNamespacePresentationModel',
 		    'formatter-class' => 'EchoEditNotifyTemplateFormatter',
 		    'title-message' => 'editnotify-title-message',
-		    'title-params' => array('title'),
+		    'title-params' => array( 'title' ),
 		    'flyout-message' => 'editnotify-flyout-message',
-		    'flyout-params' => array('agent', 'title'),
+		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-template-value-namesapce',
-		    'email-subject-params' => array('agent'),
+		    'email-subject-params' => array( 'agent' ),
 		    'email-body-batch-message' => 'editnotify-email-body-template-value-namespace',
-		    'email-body-batch-params' => array('agent', 'title', 'field-name', 'new-field-value', 'existing-field-value', 'template', 'change')
+		    'email-body-batch-params' => array( 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title', 'change' )
 		);
 		//notification for change in template field to a specific template value in a category
 		$echoNotifications['edit-notify-template-value-category'] = array(
@@ -169,13 +169,13 @@ class EditNotifyHooks extends ENPageStructure {
 			'presentation-model' => 'EchoEditNotifyTemplateValueCategoryPresentationModel',
 			'formatter-class' => 'EchoEditNotifyTemplateFormatter',
 			'title-message' => 'editnotify-title-message',
-			'title-params' => array('title'),
+			'title-params' => array( 'title' ),
 			'flyout-message' => 'editnotify-flyout-message',
-			'flyout-params' => array('agent', 'title'),
+			'flyout-params' => array( 'agent', 'title' ),
 			'email-subject-message' => 'editnotify-email-subject-template-value-category',
-			'email-subject-params' => array('agent'),
+			'email-subject-params' => array( 'agent' ),
 			'email-body-batch-message' => 'editnotify-email-body-template-value-category',
-			'email-body-batch-params' => array('agent', 'title', 'field-name', 'new-field-value', 'existing-field-value', 'template', 'change' )
+			'email-body-batch-params' => array( 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title', 'change' )
 		);
 		return true;
 	}
