@@ -22,6 +22,9 @@ class EchoEditNotifyTemplateValueCategoryPresentationModel extends EchoEventPres
 		$msg->params( $this->event->getExtraParam( 'change' ) );
 		return $msg;
 	}
+	public function canRender() {
+		return (bool)$this->event->getTitle() && parent::canRender();
+	}
 
 }
 
