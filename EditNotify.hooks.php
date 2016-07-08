@@ -173,7 +173,7 @@ class EditNotifyHooks extends ENPageStructure {
 			'title-params' => array( 'title' ),
 			'flyout-message' => 'editnotify-flyout-message',
 			'flyout-params' => array( 'title' ),
-			'payload' => array( 'summary' ),
+			'payload' => array( 'field-name' ),
 			'email-subject-message' => 'editnotify-email-subject-template-value-category',
 			'email-subject-params' => array( 'agent' ),
 			'email-body-batch-message' => 'editnotify-email-body-template-value-category',
@@ -416,10 +416,7 @@ class EditNotifyHooks extends ENPageStructure {
 													$templateCategoryUser2[] = $userIdNotifyCategory;
 												}
 											}
-											file_put_contents('php://stderr', print_r($templateCategoryUser1, TRUE));
-											file_put_contents('php://stderr', print_r($templateCategoryUser2, TRUE));
 											$templateCategoryUserArray = array_unique( array_merge( $templateCategoryUser1, $templateCategoryUser2 ), SORT_REGULAR );
-											file_put_contents('php://stderr', print_r($templateCategoryUserArray, TRUE));
 										}
 									}
 								}
@@ -552,8 +549,6 @@ class EditNotifyHooks extends ENPageStructure {
 			'title' => $pagetitle,
 			'agent' => User::newFromName( $userid )
 		) );
-		//file_put_contents('php://stderr', print_r('PageTitle',TRUE) );
-		//file_put_contents('php://stderr', print_r($pagetitle,TRUE) );
 	}
 
 	//2
@@ -585,7 +580,6 @@ class EditNotifyHooks extends ENPageStructure {
 				'new-field-value' => $existingFieldValue,
 				'existing-field-value' => $newFieldValue,
 				'template' => $template,
-				'section-text' => $templateFieldName
 			),
 			'title' => $pagetitle,
 			'agent' => User::newFromName( $userid )

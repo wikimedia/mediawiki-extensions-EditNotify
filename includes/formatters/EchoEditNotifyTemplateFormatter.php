@@ -22,8 +22,8 @@ class EchoEditNotifyTemplateFormatter extends EchoBasicFormatter {
 	}
 	protected function formatPayload( $payload, $event, $user ) {
 		switch ( $payload ) {
-			case 'summary':
-				$name = $event->getExtraParam( 'section-text' );
+			case 'field-name':
+				$name = $event->getExtraParam( 'field-name' );
 				return $name;
 				break;
 			default:
