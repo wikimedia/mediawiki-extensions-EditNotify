@@ -20,16 +20,5 @@ class EchoEditNotifyTemplateFormatter extends EchoBasicFormatter {
 			parent::processParam( $event, $param, $message, $user );
 		}
 	}
-	protected function formatPayload( $payload, $event, $user ) {
-		switch ( $payload ) {
-			case 'field-name':
-				$name = $event->getExtraParam( 'field-name' );
-				return $name;
-				break;
-			default:
-				return parent::formatPayload( $payload, $event, $user );
-				break;
-		}
-	}
 	
 }

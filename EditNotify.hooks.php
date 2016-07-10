@@ -562,7 +562,7 @@ class EditNotifyHooks extends ENPageStructure {
 				'new-field-value' => $existingFieldValue,
 				'existing-field-value' => $newFieldValue,
 				'template' => $template,
-				'change' => $change,
+				'change' => $change
 			),
 			'title' => $pagetitle,
 			'agent' => User::newFromName( $userid )
@@ -580,6 +580,7 @@ class EditNotifyHooks extends ENPageStructure {
 				'new-field-value' => $existingFieldValue,
 				'existing-field-value' => $newFieldValue,
 				'template' => $template,
+				'change' => $change
 			),
 			'title' => $pagetitle,
 			'agent' => User::newFromName( $userid )
