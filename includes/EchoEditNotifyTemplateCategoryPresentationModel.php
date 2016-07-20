@@ -8,7 +8,7 @@ class EchoEditNotifyTemplateCategoryPresentationModel extends EchoEventPresentat
 	public function getPrimaryLink() {
 		return array(
 		    'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
-		    'label' => $this->msg( 'editnotify-page-edit-view' )->text(),
+		    'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
 		);
 	}
 

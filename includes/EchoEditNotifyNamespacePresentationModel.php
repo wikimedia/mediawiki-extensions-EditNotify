@@ -6,8 +6,8 @@ class EchoEditNotifyNamespacePresentationModel extends EchoEventPresentationMode
 	}
 	public function getPrimaryLink() {
 		return array(
-		    'url' => SpecialPage::getTitleFor( 'EditNotify' )->getFullURL(),
-		    'label' => $this->msg( 'editnotify-page-edit-namespace-view' )->text(),
+		    'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
+		    'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
 		);
 	}
 

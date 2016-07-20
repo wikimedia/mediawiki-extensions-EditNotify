@@ -7,8 +7,8 @@ class EchoEditNotifyPresentationModel extends EchoEventPresentationModel {
 	}
 	public function getPrimaryLink() {
 		return array(
-		    'url' => SpecialPage::getTitleFor( 'EditNotify' ),
-		    'label' => $this->msg( 'editnotify-page-edit-view' )->text(),
+		    'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
+		    'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
 		);
 	}
 

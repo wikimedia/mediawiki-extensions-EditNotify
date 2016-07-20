@@ -8,7 +8,7 @@ class EchoEditNotifyTemplateValuePresentationModel extends EchoEventPresentation
 	public function getPrimaryLink() {
 		return array(
 		    'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
-		    'label' => $this->msg( 'editnotify-page-edit-view' )->text(),
+		    'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
 		);
 	}
 
@@ -19,6 +19,7 @@ class EchoEditNotifyTemplateValuePresentationModel extends EchoEventPresentation
 		$msg->params( $this->event->getExtraParam( 'new-field-value' ) );
 		$msg->params( $this->event->getExtraParam( 'template' ) );
 		$msg->params( $this->event->getExtraParam( 'title' ) );
+		$msg->params( $this->event->getExtraParam( 'change' ) );
 		return $msg;
 	}
 
