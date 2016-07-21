@@ -64,8 +64,5 @@
 		"localBasePath": "",
 		"remoteExtPath": "EditNotify"
 	},
-	"SpecialPages": {
-		"EditNotify": "SpecialEditNotify"
-	},
 	"manifest_version": 1
 }
