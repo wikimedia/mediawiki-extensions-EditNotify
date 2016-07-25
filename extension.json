@@ -22,7 +22,9 @@
 		"EchoEditNotifyTemplateValuePresentationModel": "includes/EchoEditNotifyTemplateValuePresentationModel.php",
 		"EchoEditNotifyTemplateValueNamespacePresentationModel": "includes/EchoEditNotifyTemplateValueNamespacePresentationModel.php",
 		"EchoEditNotifyTemplateValueCategoryPresentationModel": "includes/EchoEditNotifyTemplateValueCategoryPresentationModel.php",
+		"EchoEditNotifyPageCreatePresentationModel": "includes/EchoEditNotifyPageCreatePresentationModel.php",
 		"EchoEditNotifyFormatter": "includes/formatters/EchoEditNotifyFormatter.php",
+		"EchoEditNotifyPageCreateFormatter": "includes/formatters/EchoEditNotifyPageCreateFormatter.php",
 		"EchoEditNotifyTemplateFormatter": "includes/formatters/EchoEditNotifyTemplateFormatter.php"
 	},
 	"config": {
@@ -38,8 +40,8 @@
 		"EchoGetDefaultNotifiedUsers": [
 			"EditNotifyHooks::onEchoGetDefaultNotifiedUsers"
 		],
-		"PageContentSave": [
-			"EditNotifyHooks::OnPageContentSave"
+		"PageContentInsertComplete": [
+			"EditNotifyHooks::onPageContentInsertComplete"
 		]
 	},
 	"MessagesDirs": {

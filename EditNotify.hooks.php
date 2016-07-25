@@ -2,6 +2,25 @@
 
 class EditNotifyHooks extends ENPageStructure {
 	public static function onBeforeCreateEchoEvent( &$echoNotifications, $echoNotificationCategories ) {
+		//Echo notification for page edit
+		$echoNotifications['edit-notify-page-create'] = array(
+			'category' => 'system',
+			'section' => 'alert',
+			'primary-link' => array(
+				'message' => 'editnotify-primary-message',
+				'destination' => 'title'
+			),
+			'presentation-model' => 'EchoEditNotifyPageCreatePresentationModel',
+			'formatter-class' => 'EchoEditNotifyPageCreateFormatter',
+			'title-message' => 'editnotify-title-message-page-create',
+			'title-params' => array( 'title' ),
+			'flyout-message' => 'editnotify-flyout-message-page-create',
+			'flyout-params' => array( 'agent', 'title' ),
+			'email-subject-message' => 'editnotify-email-subject-message-page-create',
+			'email-subject-params' => array( 'agent', 'title' ),
+			'email-body-batch-message' => 'editnotify-email-body-message-page-create',
+			'email-body-batch-params' => array( 'title' )
+		);
 
 		//Echo notification for page edit
 		$echoNotifications['edit-notify'] = array(
@@ -67,7 +86,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-				'message' => 'editnotify-primary-message-template',
+				'message' => 'editnotify-primary-message',
 				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplatePresentationModel',
@@ -87,7 +106,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-				'message' => 'editnotify-primary-message-template',
+				'message' => 'editnotify-primary-message',
 				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplateNamespacePresentationModel',
@@ -106,7 +125,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-				'message' => 'editnotify-primary-message-template',
+				'message' => 'editnotify-primary-message',
 				'destination' => 'title'
 		    ),
 			'presentation-model' => 'EchoEditNotifyTemplateCategoryPresentationModel',
@@ -125,7 +144,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-				'message' => 'editnotify-primary-message-template-value',
+				'message' => 'editnotify-primary-message',
 				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplateValuePresentationModel',
@@ -144,7 +163,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'category' => 'system',
 		    'section' => 'alert',
 		    'primary-link' => array(
-				'message' => 'editnotify-primary-message-template-value',
+				'message' => 'editnotify-primary-message',
 				'destination' => 'title'
 		    ),
 		    'presentation-model' => 'EchoEditNotifyTemplateValueNamespacePresentationModel',
@@ -164,7 +183,7 @@ class EditNotifyHooks extends ENPageStructure {
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => array(
-				'message' => 'editnotify-primary-message-template-value',
+				'message' => 'editnotify-primary-message',
 				'destination' => 'title'
 			),
 			'presentation-model' => 'EchoEditNotifyTemplateValueCategoryPresentationModel',
@@ -193,6 +212,7 @@ class EditNotifyHooks extends ENPageStructure {
 			case 'edit-notify-template-value':
 			case 'edit-notify-template-value-namespace':
 			case 'edit-notify-template-value-category':
+			case 'edit-notify-page-create':
 				$extra = $event->getExtra();
 				$userId = $extra['user-id'];
 				$user = User::newFromId( $userId );
@@ -415,7 +435,7 @@ class EditNotifyHooks extends ENPageStructure {
 								}
 							}
 						}
-						
+
 
 						//trigger notification for change in template field value
 						//4 fieldname namespace
@@ -610,5 +630,30 @@ class EditNotifyHooks extends ENPageStructure {
 		) );
 	}
 
-}
+	public static function onPageContentInsertComplete( $wikiPage, User $user, $content, $summary, $isMinor,$isWatch, $section, $flags, Revision $revision ) {
+		global $wgEditNotify;
+		$createPageNotify = array();
+		$title = $wikiPage->getTitle();
 
+
+		foreach($wgEditNotify['create-page'] as $notifyUsers) {
+			foreach ($notifyUsers as $userId) {
+				$createPageNotify[] = $userId;
+			}
+		}
+		$createPageNotify = array_unique($createPageNotify);
+		foreach ($createPageNotify as $notifyUser) {
+			EchoEvent::create( array(
+				'type' => 'edit-notify-page-create',
+				'extra' => array(
+					'title' => $title,
+					'user-id' => $notifyUser,
+				),
+				'title' => $title,
+				'agent' => User::newFromName( $notifyUser ),
+			) );
+		}
+
+	}
+
+}
