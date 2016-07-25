@@ -37,7 +37,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'flyout-message' => 'editnotify-flyout-message',
 		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-message',
-		    'email-subject-params' => array( 'agent' ),
+		    'email-subject-params' => array( 'agent', 'title' ),
 		    'email-body-batch-message' => 'editnotify-email-body-message',
 		    'email-body-batch-params' => array( 'title', 'change' )
 		);
@@ -57,7 +57,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'flyout-message' => 'editnotify-flyout-message',
 		    'flyout-params' => array( 'agent' ),
 		    'email-subject-message' => 'editnotify-email-subject-message',
-		    'email-subject-params' => array( 'agent' ),
+		    'email-subject-params' => array( 'agent', 'title' ),
 		    'email-body-batch-message' => 'editnotify-email-body-message',
 		    'email-body-batch-params' => array( 'title', 'change' )
 		);
@@ -77,7 +77,7 @@ class EditNotifyHooks extends ENPageStructure {
 		    'flyout-message' => 'editnotify-flyout-message',
 		    'flyout-params' => array( 'agent', 'title' ),
 		    'email-subject-message' => 'editnotify-email-subject-message',
-		    'email-subject-params' => array( 'agent' ),
+		    'email-subject-params' => array( 'agent', 'title' ),
 		    'email-body-batch-message' => 'editnotify-email-body-message',
 		    'email-body-batch-params' => array( 'title', 'change' )
 		);
@@ -224,6 +224,8 @@ class EditNotifyHooks extends ENPageStructure {
 	}
 
 	public static function onPageContentSave( &$wikiPage, &$user, &$content, &$summary, $isMinor, $isWatch, $section, &$flags, &$status ) {
+
+
 		global $wgEditNotify;
 		$title = $wikiPage->getTitle();
 		$text = ContentHandler::getContentText( $content );
@@ -235,7 +237,6 @@ class EditNotifyHooks extends ENPageStructure {
 		if ( $newPageStructure != $existingPageStructure ) {
 			$newPageComponent = $newPageStructure->mComponents;
 			$existingPageComponent = $existingPageStructure->mComponents;
-
 			if(isset($newPageComponent[0])) {
 
 				if ( $newPageComponent[0]->mIsTemplate ) {
@@ -425,7 +426,7 @@ class EditNotifyHooks extends ENPageStructure {
 												$notifiedTemplateValueUsers = array_diff( $templateValueAllPagesArray, $notifiedTemplateValueUsers);
 
 												foreach ( $notifiedTemplateValueUsers as $userIdTemplateValueAllPages ) {
-													self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value', $userIdTemplateValueAllPages, $trackFieldName, $trackFieldValue, $templates, $existingField[$trackFieldName], 'null' );
+													self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value', $userIdTemplateValueAllPages, $trackFieldName, $trackFieldValue, $templates, $existingField[$trackFieldName], 'all pages' );
 												}
 												unset( $templateValueAllPages1, $templateValueAllPages2, $templateValueAllPagesArray );
 												$templateFieldNotification = false;
@@ -521,7 +522,7 @@ class EditNotifyHooks extends ENPageStructure {
 											$notifiedTemplateUsers = array_diff( $notifiedTemplateUsers, $notifiedTemplateUsers);
 
 											foreach ( $notifiedTemplateUsers as $userIdTemplateAllPages ) {
-												self::TemplateFieldTrigger( $title, 'edit-notify-template', $userIdTemplateAllPages, $changedFieldNames, $changedFieldValues, $templates, $existingField[$changedFieldNames], 'null' );
+												self::TemplateFieldTrigger( $title, 'edit-notify-template', $userIdTemplateAllPages, $changedFieldNames, $changedFieldValues, $templates, $existingField[$changedFieldNames], 'all pages' );
 											}
 											unset( $templateAllPages1, $templateAllPages2, $userIdTemplateAllPages );
 										}
@@ -531,7 +532,6 @@ class EditNotifyHooks extends ENPageStructure {
 						}
 					}
 				} else {
-
 					//notification for non template pages
 					$namespace = $wikiPage->getTitle()->getNsText();
 					$categories = $wikiPage->getTitle()->getParentCategories();
@@ -539,25 +539,28 @@ class EditNotifyHooks extends ENPageStructure {
 
 					if ( $namespace ) {
 						//trigger namespace of the page
-						foreach ( $wgEditNotify['all-changes']['namespace'][$namespace] as $notifyNamespace ) {
-							foreach ( $notifyNamespace as $userIdNotifyNamespace ) {
-								self::PageEditTrigger( $title, 'edit-notify-namespace', $userIdNotifyNamespace, $namespace );
-								$namespaceUserArray[] = $userIdNotifyNamespace;
+						if ( isset( $wgEditNotify['all-changes']['namespace'][$namespace] ) ) {
+							foreach ( $wgEditNotify['all-changes']['namespace'][$namespace] as $notifyNamespace ) {
+								foreach ( $notifyNamespace as $userIdNotifyNamespace ) {
+									self::PageEditTrigger( $title, 'edit-notify-namespace', $userIdNotifyNamespace, $namespace );
+									$namespaceUserArray[] = $userIdNotifyNamespace;
+								}
 							}
 						}
 					}
 
-
 					if ( $categories ) {
 						//trigger notification for the categories
 						foreach ( $categories as $category => $pagename ) {
-							foreach ( $wgEditNotify['all-changes']['category'][$category] as $notifyCategory ) {
-								foreach ( $notifyCategory as $userIdNotifyCategory ) {
-									$categoryUserArray[] = $userIdNotifyCategory;
+							if ( isset( $wgEditNotify['all-changes']['category'][$category] ) ) {
+								foreach ( $wgEditNotify['all-changes']['category'][$category] as $notifyCategory ) {
+									foreach ( $notifyCategory as $userIdNotifyCategory ) {
+										$categoryUserArray[] = $userIdNotifyCategory;
+									}
 								}
 							}
 						}
-						$categoryUserArray = array_unique(array_diff($categoryUserArray, $namespaceUserArray));
+						$categoryUserArray = array_unique( array_diff( $categoryUserArray, $namespaceUserArray ) );
 						foreach ( $categoryUserArray as $categoryUser ) {
 							self::PageEditTrigger( $title, 'edit-notify-category', $categoryUser, $category );
 						}
@@ -570,9 +573,9 @@ class EditNotifyHooks extends ENPageStructure {
 						}
 					}
 
-					$allPagesUserArray = array_unique(array_diff($allPagesUserArray, $notifiedUsers));
-					foreach ($allPagesUserArray as $notify ) {
-						self::PageEditTrigger( $title, 'edit-notify', $notify, 'null' );
+					$allPagesUserArray = array_unique( array_diff( $allPagesUserArray, $notifiedUsers ) );
+					foreach ( $allPagesUserArray as $notify ) {
+						self::PageEditTrigger( $title, 'edit-notify', $notify, 'all pages' );
 					}
 				}
 			}
