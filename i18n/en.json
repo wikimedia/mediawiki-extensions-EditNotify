@@ -1,6 +1,8 @@
 {
   "@metadata": {
-    "authors": ["Abhinand"]
+    "authors": [
+      "Abhinand"
+    ]
   },
   "editnotify-desc": "Extension for page creation or editing notification",
   "editnotify-page-edit-label": "View changes",

@@ -40,11 +40,11 @@
 		"EchoGetDefaultNotifiedUsers": [
 			"EditNotifyHooks::onEchoGetDefaultNotifiedUsers"
 		],
-		"PageContentInsertComplete": [
-			"EditNotifyHooks::onPageContentInsertComplete"
+		"PageContentSave": [
+			"EditNotifyHooks::onPageContentSave"
 		],
-        "PageContentSave": [
-	        "EditNotifyHooks::onPageContentSave"
+		"PageContentSaveComplete": [
+			"EditNotifyHooks::onPageContentSaveComplete"
 		]
 	},
 	"MessagesDirs": {
