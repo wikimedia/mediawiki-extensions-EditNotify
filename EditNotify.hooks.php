@@ -339,9 +339,7 @@ class EditNotifyHooks extends ENPageStructure {
 							$categorylinks = $dbr->tableName( 'categorylinks' );
 
 							$templateCategories = array();
-							$fieldValueNamespaceUser1 = $fieldValueNamespaceUser2 = array();
 							$fieldValueNamespaceUserArray = array();
-							$fieldValueCategoryUser1 = $fieldValueCategoryUser2 = array();
 							$templateValueAllPages1 = $templateValueAllPages2 = array();
 							$templateNamespaceUser1 = $templateNamespaceUser2 = array();
 							$templateCategoryUser1 = $templateCategoryUser2 = array();
@@ -351,7 +349,10 @@ class EditNotifyHooks extends ENPageStructure {
 							$categoryTemplateValueUserNotify = $categoryTemplateUserNotify = array();
 
 							$templateFieldNotifiedUserArray = array();
-
+							$handleTemplateFieldNamespaceAlert = false;
+							$handleNamespace = false;
+							$handleTemplateFieldCategoryAlert = false;
+							$handleCategory = false;
 
 							//Notification for change of template field to a specific value in namespace
 							//1
@@ -371,119 +372,66 @@ class EditNotifyHooks extends ENPageStructure {
 								$templateCategories = array();
 							}
 
-
-							//Checks if the page has namespace
+							//Produce notification for change in a template field to a template value
 							if ( $templateNamespace ) {
 								foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
 									foreach ( $wgEditNotifyAlerts as $fieldValueNamespaceAlert ) {
-
+										//Checking if the 'action' is string or array of string
 										if ( is_array( $fieldValueNamespaceAlert['action'] ) ) {
 											if ( in_array( 'edit', $fieldValueNamespaceAlert['action'] ) ) {
-
-												//checks if the namespace of the page is array
-												if ( isset( $fieldValueNamespaceAlert['namespace'] ) ) {
-													if ( is_array( $fieldValueNamespaceAlert['namespace'] ) ) {
-														if ( in_array( $templateNamespace, $fieldValueNamespaceAlert['namespace'] ) ) {
-
-															if ( isset( $fieldValueNamespaceAlert['template'] ) && isset( $fieldValueNamespaceAlert['templateField'] ) && isset( $fieldValueNamespaceAlert['templateFieldValue'] ) ) {
-																if ( $fieldValueNamespaceAlert['template'] == $template && $fieldValueNamespaceAlert['templateField'] == $changedFieldName && $fieldValueNamespaceAlert['templateFieldValue'] == $changedFieldValue ) {
-
-																	foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsers ) {
-																		$fieldValueNamespaceUser1[] = $fieldValueNamespaceUsers;
-																	}
-																}
-															} else {
-
-																//getting the users who siged up for namespace notification
-																foreach ( $fieldValueNamespaceAlert['users'] as $editNamespaceUsers ) {
-																	$fieldValueNamespaceUser2[] = $editNamespaceUsers;
-																}
-															}
-															$fieldValueNamespaceUserArray = array_unique( array_merge( $fieldValueNamespaceUser1, $fieldValueNamespaceUser2 ), SORT_REGULAR );
-														}
-													} else {
-														if ( $fieldValueNamespaceAlert['namespace'] == $templateNamespace ) {
-															//executes if namespace key is not array
-
-															if ( isset( $fieldValueNamespaceAlert['template'] ) && isset( $fieldValueNamespaceAlert['templateField'] ) && isset( $fieldValueNamespaceAlert['templateFieldValue'] ) ) {
-																if ( $fieldValueNamespaceAlert['template'] == $template && $fieldValueNamespaceAlert['templateField'] == $changedFieldName && $fieldValueNamespaceAlert['templateFieldValue'] == $changedFieldValue ) {
-
-																	foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsers ) {
-																		$fieldValueNamespaceUser1[] = $fieldValueNamespaceUsers;
-																	}
-																}
-															} else {
-																//getting the users who signed up for namespace notification
-																foreach ( $fieldValueNamespaceAlert['users'] as $editNamespaceUsers ) {
-																	$fieldValueNamespaceUser2[] = $editNamespaceUsers;
-																}
-															}
-															$fieldValueNamespaceUserArray = array_unique( array_merge( $fieldValueNamespaceUser1, $fieldValueNamespaceUser2 ), SORT_REGULAR );
-														}
-													}
-												}
+												$handleTemplateFieldNamespaceAlert = true;
 											}
 										} else {
 											if ( $fieldValueNamespaceAlert['action'] == 'edit' ) {
+												$handleTemplateFieldNamespaceAlert = true;
+											}
+										}
+										//check for template, template field and template value
+										if ( $handleTemplateFieldNamespaceAlert ) {
 
-												//checks if the namespace of the page is array
+											if ( isset( $fieldValueNamespaceAlert['template'] ) && isset( $fieldValueNamespaceAlert['templateField'] ) && isset( $fieldValueNamespaceAlert['templateFieldValue'] ) ) {
+												if ( $fieldValueNamespaceAlert['template'] == $template && $fieldValueNamespaceAlert['templateField'] == $changedFieldName && $fieldValueNamespaceAlert['templateFieldValue'] == $changedFieldValue ) {
+													$handleNamespace = true;
+												}
+											}
+
+											//getting users who signed up for all changes
+											if ( !isset( $fieldValueNamespaceAlert['template'] ) && !isset( $fieldValueNamespaceAlert['templateField'] ) ) {
+												$handleNamespace = true;
+											}
+
+											//Check for the namespace and get users from the array
+											if ( $handleNamespace ) {
 												if ( isset( $fieldValueNamespaceAlert['namespace'] ) ) {
 													if ( is_array( $fieldValueNamespaceAlert['namespace'] ) ) {
 														if ( in_array( $templateNamespace, $fieldValueNamespaceAlert['namespace'] ) ) {
 
-															if ( isset( $fieldValueNamespaceAlert['template'] ) && isset( $fieldValueNamespaceAlert['templateField'] ) && isset( $fieldValueNamespaceAlert['templateFieldValue'] ) ) {
-																if ( $fieldValueNamespaceAlert['template'] == $template && $fieldValueNamespaceAlert['templateField'] == $changedFieldName && $fieldValueNamespaceAlert['templateFieldValue'] == $changedFieldValue ) {
-
-																	foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsers ) {
-																		$fieldValueNamespaceUser1[] = $fieldValueNamespaceUsers;
-																	}
-																}
-															} else {
-
-																foreach ( $fieldValueNamespaceAlert['users'] as $editNamespaceUsers ) {
-																	$fieldValueNamespaceUser2[] = $editNamespaceUsers;
-																}
-
+															foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsername ) {
+																$fieldValueNamespaceUserArray[] = $fieldValueNamespaceUsername;
 															}
-															$fieldValueNamespaceUserArray = array_unique( array_merge( $fieldValueNamespaceUser1, $fieldValueNamespaceUser2 ), SORT_REGULAR );
 														}
 													} else {
 														if ( $fieldValueNamespaceAlert['namespace'] == $templateNamespace ) {
-															//executes if namespace is not array
 
-
-															if ( isset( $fieldValueNamespaceAlert['template'] ) && isset( $fieldValueNamespaceAlert['templateField'] ) && isset( $fieldValueNamespaceAlert['templateFieldValue'] ) ) {
-																if ( $fieldValueNamespaceAlert['template'] == $template && $fieldValueNamespaceAlert['templateField'] == $changedFieldName && $fieldValueNamespaceAlert['templateFieldValue'] == $changedFieldValue ) {
-
-																	foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsers ) {
-																		$fieldValueNamespaceUser1[] = $fieldValueNamespaceUsers;
-																	}
-																}
-															} else {
-
-																//getting the users who signed up for namespace notification
-																foreach ( $fieldValueNamespaceAlert['users'] as $editNamespaceUsers ) {
-																	$fieldValueNamespaceUser2[] = $editNamespaceUsers;
-																}
-
+															foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsername ) {
+																$fieldValueNamespaceUserArray[] = $fieldValueNamespaceUsername;
 															}
-															$fieldValueNamespaceUserArray = array_unique( array_merge( $fieldValueNamespaceUser1, $fieldValueNamespaceUser2 ), SORT_REGULAR );
 														}
-														$fieldValueNamespaceUserArray = array_unique( array_merge( $fieldValueNamespaceUser1, $fieldValueNamespaceUser2 ), SORT_REGULAR );
 													}
 												}
 											}
 										}
 									}
+									$fieldValueNamespaceUserArray = array_unique( $fieldValueNamespaceUserArray );
 									foreach ( $fieldValueNamespaceUserArray as $fieldValueNamespaceUser ) {
+
 										self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value-namespace', $fieldValueNamespaceUser, $changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $templateNamespace );
 									}
 								}
 							}
 
-
 							if ( $templateCategories ) {
-								foreach ($templateCategories as $fieldValueCategory => $fieldValuePage) {
+								foreach ( $templateCategories as $fieldValueCategory => $fieldValuePage ) {
 									foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
 
 										foreach ( $wgEditNotifyAlerts as $fieldValueCategoryAlert ) {
@@ -491,281 +439,57 @@ class EditNotifyHooks extends ENPageStructure {
 											if ( is_array( $fieldValueCategoryAlert['action'] ) ) {
 												if ( in_array( 'edit', $fieldValueCategoryAlert['action'] ) ) {
 
-													//checks if the category of the page is array
-													if ( isset( $fieldValueCategoryAlert['category'] ) ) {
-														if ( is_array( $fieldValueCategoryAlert['category'] ) ) {
-															if ( in_array( $fieldValueCategory, $fieldValueCategoryAlert['category'] ) ) {
 
-																if ( isset( $fieldValueCategoryAlert['template'] ) && isset( $fieldValueCategoryAlert['templateField'] ) && isset( $fieldValueCategoryAlert['templateFieldValue'] ) ) {
-																	if ( $fieldValueCategoryAlert['template'] == $template && $fieldValueCategoryAlert['templateField'] == $changedFieldName && $fieldValueCategoryAlert['templateFieldValue'] == $changedFieldValue ) {
-
-																		foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsers ) {
-																			$fieldValueCategoryUser1[] = $fieldValueCategoryUsers;
-																		}
-																	}
-																} else {
-
-																	//getting the users who siged up for category notification
-																	foreach ( $fieldValueCategoryAlert['users'] as $editCategoryUsers ) {
-																		$fieldValueCategoryUser2[] = $editCategoryUsers;
-																	}
-																}
-																$fieldValueCategoryUserArray = array_unique( array_merge( $fieldValueCategoryUser1, $fieldValueCategoryUser2 ), SORT_REGULAR );
-															}
-														} else {
-															if ( $fieldValueCategoryAlert['category'] == $fieldValueCategory ) {
-																//executes if category key is not array
-
-																if ( isset( $fieldValueCategoryAlert['template'] ) && isset( $fieldValueCategoryAlert['templateField'] ) && isset( $fieldValueCategoryAlert['templateFieldValue'] ) ) {
-																	if ( $fieldValueCategoryAlert['template'] == $template && $fieldValueCategoryAlert['templateField'] == $changedFieldName && $fieldValueCategoryAlert['templateFieldValue'] == $changedFieldValue ) {
-
-																		foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsers ) {
-																			$fieldValueCategoryUser1[] = $fieldValueCategoryUsers;
-																		}
-																	}
-																} else {
-
-																	//getting the users who siged up for category notification
-																	foreach ( $fieldValueCategoryAlert['users'] as $editCategoryUsers ) {
-																		$fieldValueCategoryUser2[] = $editCategoryUsers;
-																	}
-																}
-
-																$fieldValueCategoryUserArray = array_unique( array_merge( $fieldValueCategoryUser1, $fieldValueCategoryUser2 ), SORT_REGULAR );
-															}
-														}
-													}
+													$handleTemplateFieldCategoryAlert = true;
 												}
 											} else {
 												if ( $fieldValueCategoryAlert['action'] == 'edit' ) {
 
-													//checking if the category of the page is present in the array
+													$handleTemplateFieldCategoryAlert = true;
+												}
+
+												if ( $handleTemplateFieldCategoryAlert ) {
+
+													if ( isset( $fieldValueCategoryAlert['template'] ) && isset( $fieldValueCategoryAlert['templateField'] ) && isset( $fieldValueCategoryAlert['templateFieldValue'] ) ) {
+														if ( $fieldValueCategoryAlert['template'] == $template && $fieldValueCategoryAlert['templateField'] == $changedFieldName && $fieldValueCategoryAlert['templateFieldValue'] == $changedFieldValue ) {
+															$handleCategory = true;
+														}
+													}
+
+													if ( !isset( $fieldValueCategoryAlert['template'] ) && !isset( $fieldValueCategoryAlert['templateField'] ) ) {
+														$handleCategory = true;
+													}
+												}
+
+												if ( $handleCategory ) {
+
 													if ( isset( $fieldValueCategoryAlert['category'] ) ) {
 														if ( is_array( $fieldValueCategoryAlert['category'] ) ) {
 															if ( in_array( $fieldValueCategory, $fieldValueCategoryAlert['category'] ) ) {
 
-																if ( isset( $fieldValueCategoryAlert['template'] ) && isset( $fieldValueCategoryAlert['templateField'] ) && isset( $fieldValueCategoryAlert['templateFieldValue'] ) ) {
-																	if ( $fieldValueCategoryAlert['template'] == $template && $fieldValueCategoryAlert['templateField'] == $changedFieldName && $fieldValueCategoryAlert['templateFieldValue'] == $changedFieldValue ) {
+																foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsername ) {
+																	$fieldValueCategoryUserArray[] = $fieldValueCategoryUsername;
+																}
+															} else {
+																if ( $fieldValueCategoryAlert['category'] == $fieldValueCategory ) {
 
-																		foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsers ) {
-																			$fieldValueCategoryUser1[] = $fieldValueCategoryUsers;
-																		}
-																	}
-																} else {
-
-																	//getting the users who singed up for category notification
-																	foreach ( $fieldValueCategoryAlert['users'] as $editCategoryUsers ) {
-																		$fieldValueCategoryUser2[] = $editCategoryUsers;
+																	foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsername ) {
+																		$fieldValueCategoryUserArray[] = $fieldValueCategoryUsername;
 																	}
 																}
-																$fieldValueCategoryUserArray = array_unique( array_merge( $fieldValueCategoryUser1, $fieldValueCategoryUser2 ), SORT_REGULAR );
-															}
-														} else {
-															if ( $fieldValueCategoryAlert['category'] == $fieldValueCategory ) {
-																//executes if category key is not array
-																if ( isset( $fieldValueCategoryAlert['template'] ) && isset( $fieldValueCategoryAlert['templateField'] ) && isset( $fieldValueCategoryAlert['templateFieldValue'] ) ) {
-																	if ( $fieldValueCategoryAlert['template'] == $template && $fieldValueCategoryAlert['templateField'] == $changedFieldName && $fieldValueCategoryAlert['templateFieldValue'] == $changedFieldValue ) {
-
-																		foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsers ) {
-																			$fieldValueCategoryUser1[] = $fieldValueCategoryUsers;
-																		}
-																	}
-																} else {
-
-																	//getting the users who singed up for category notification
-																	foreach ( $fieldValueCategoryAlert['users'] as $editCategoryUsers ) {
-																		$fieldValueCategoryUser2[] = $editCategoryUsers;
-																	}
-																}
-																$fieldValueCategoryUserArray = array_unique( array_merge( $fieldValueCategoryUser1, $fieldValueCategoryUser2 ), SORT_REGULAR );
 															}
 														}
 													}
+
 												}
 											}
 										}
-
+										foreach ( $fieldValueCategoryUserArray as $notifyFieldValueCategoryUser ) {
+											self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value-namespace', $notifyFieldValueCategoryUser, $changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $fieldValueCategory );
+										}
 									}
-
-								}
-								//removing the users who are notified for change in template field value in a category
-								$templateFieldNotifiedUserArray = array_diff($fieldValueCategoryUserArray,$fieldValueNamespaceUserArray);
-								foreach ( $templateFieldNotifiedUserArray as $notifyFieldValueCategoryUser ) {
-									self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value-namespace', $notifyFieldValueCategoryUser, $changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $fieldValueCategory );
 								}
 							}
-
-
-								//Notification for change of template field to a specific value in categories
-								//2
-							/*	if ( $templateCategories ) {
-									foreach ( $templateCategories as $templateValueCategory => $templateValuePagename ) {
-										foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
-											foreach ( $trackFields as $trackFieldName ) {
-												if ( $changedFieldName == $trackFieldName ) {
-													if ( isset( $wgEditNotify['edit-template-field-name-value'][$templates] ) ) {
-														$trackFieldValues = array_keys( $wgEditNotify['edit-template-field-name-value'][$templates][$trackFieldName] );
-														//there will be only one trackFieldValue
-														foreach ( $trackFieldValues as $trackFieldValue ) {
-															if ( $changedFields[$trackFieldName] == $trackFieldValue ) {
-																foreach ( $wgEditNotify['edit-template-field-name-value'][$templates][$trackFieldName][$trackFieldValue]['category'][$templateValueCategory] as $templateValueNotifyCategory ) {
-																	foreach ( $templateValueNotifyCategory as $templateValueCategoryUsers ) {
-																		$templateValueCategoryUser1[] = $templateValueCategoryUsers;
-																	}
-																}
-
-																foreach ( $wgEditNotify['all-changes']['category'][$templateValueCategory] as $notifyCategory ) {
-																	foreach ( $notifyCategory as $editNotifyCategoryUsers ) {
-																		$templateValueCategoryUser2[] = $editNotifyCategoryUsers;
-																	}
-																}
-
-																$templateValueCategoryUserArray = array_unique( array_merge( $templateValueCategoryUser1, $templateValueCategoryUser2 ), SORT_REGULAR );
-
-																$templateFieldNotification = false;
-															}
-														}
-													}
-												}
-											}
-										}
-									}
-									$categoryTemplateValueUserNotify = array_diff( $templateValueCategoryUserArray, $templateValueNamespaceUserArray );
-									foreach ( $categoryTemplateValueUserNotify as $userTemplateValueCategory ) {
-										self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value-category', $userTemplateValueCategory, $changedFieldName, $changedFieldValue, $templates, $existingField[$changedFieldName], $templateValueCategory );
-									}
-								}
-
-								//3
-								$notifiedTemplateValueUsers = array_unique( array_merge( $templateValueCategoryUserArray, $templateValueNamespaceUserArray ), SORT_REGULAR );
-
-								foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
-									foreach ( $trackFields as $trackFieldName ) {
-										if ( $changedFieldName == $trackFieldName ) {
-											if ( isset( $wgEditNotify['edit-template-field-name-value'][$templates] ) ) {
-												$trackFieldValues = array_keys( $wgEditNotify['edit-template-field-name-value'][$templates][$trackFieldName] );
-												//there will be only one trackFieldValue
-												foreach ( $trackFieldValues as $trackFieldValue ) {
-													if ( $changedFields[$trackFieldName] == $trackFieldValue ) {
-														foreach ( $wgEditNotify['edit-template-field-name-value'][$templates][$trackFieldName][$trackFieldValue]['all-pages'] as $notify ) {
-															foreach ( $notify as $templateValueAllPagesUsers ) {
-																$templateValueAllPages1[] = $templateValueAllPagesUsers;
-															}
-														}
-
-														foreach ( $wgEditNotify['all-changes']['all-pages'] as $notify ) {
-															foreach ( $notify as $editNotifyUsers ) {
-																$templateValueAllPages2[] = $editNotifyUsers;
-															}
-														}
-														$templateValueAllPagesArray = array_unique( array_merge( $templateValueAllPages1, $templateValueAllPages2 ), SORT_REGULAR );
-														$notifiedTemplateValueUsers = array_diff( $templateValueAllPagesArray, $notifiedTemplateValueUsers );
-
-														foreach ( $notifiedTemplateValueUsers as $userTemplateValueAllPages ) {
-															self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value', $userTemplateValueAllPages, $trackFieldName, $trackFieldValue, $templates, $existingField[$trackFieldName], 'all pages' );
-														}
-														unset( $templateValueAllPages1, $templateValueAllPages2, $templateValueAllPagesArray );
-														$templateFieldNotification = false;
-													}
-												}
-											}
-										}
-									}
-								}
-
-								//trigger notification for change in template field value
-								//4 fieldname namespace
-								if ( $templateFieldNotification && $templateNamespace ) {
-									//trigger notification for change in namespace
-									foreach ( $changedFields as $changedFieldNames => $changedFieldValues ) {
-										foreach ( $trackFields as $trackFieldNames ) {
-											if ( $changedFieldNames == $trackFieldNames ) {
-												if ( isset( $wgEditNotify['edit-template-field-name'][$templates] ) ) {
-													foreach ( $wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['namespace'][$templateNamespace] as $namespaceNotify ) {
-														foreach ( $namespaceNotify as $templateNamespaceUser ) {
-															$templateNamespaceUser1[] = $templateNamespaceUser;
-														}
-													}
-													foreach ( $wgEditNotify['all-changes']['namespace'][$templateNamespace] as $notifyNamespace ) {
-														foreach ( $notifyNamespace as $editnotifyNamespaceUsers ) {
-															$templateNamespaceUser2[] = $editnotifyNamespaceUsers;
-														}
-													}
-
-													$templateNamespaceUserArray = array_unique( array_merge( $templateNamespaceUser1, $templateNamespaceUser2 ), SORT_REGULAR );
-
-
-													foreach ( $templateNamespaceUserArray as $userTemplateNamespace ) {
-														self::TemplateFieldTrigger( $title, 'edit-notify-template-namespace', $userTemplateNamespace, $changedFieldNames, $changedFieldValues, $templates, $existingField[$changedFieldNames], $templateNamespace );
-
-													}
-												}
-											}
-										}
-									}
-								}
-
-								//5  fieldname category
-								if ( $templateFieldNotification && $templateCategories ) {
-									//trigger notification for change in categories
-									foreach ( $templateCategories as $templateCategory => $templatePageName ) {
-										foreach ( $changedFields as $changedFieldNames => $changedFieldValues ) {
-											foreach ( $trackFields as $trackFieldNames ) {
-												if ( $changedFieldNames == $trackFieldNames ) {
-													if ( isset( $wgEditNotify['edit-template-field-name'][$templates] ) ) {
-														foreach ( $wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['category'][$templateCategory] as $categoryNotify ) {
-															foreach ( $categoryNotify as $templateCategoryUsers ) {
-																$templateCategoryUser1[] = $templateCategoryUsers;
-															}
-														}
-														foreach ( $wgEditNotify['all-changes']['category'][$templateCategory] as $notifyCategory ) {
-															foreach ( $notifyCategory as $editNotifyCategoryUsers ) {
-																$templateCategoryUser2[] = $editNotifyCategoryUsers;
-															}
-														}
-														$templateCategoryUserArray = array_unique( array_merge( $templateCategoryUser1, $templateCategoryUser2 ), SORT_REGULAR );
-													}
-												}
-											}
-										}
-									}
-									$categoryTemplateUserNotify = array_diff( $templateCategoryUserArray, $templateNamespaceUserArray );
-									foreach ( $categoryTemplateUserNotify as $userTemplateCategory ) {
-										self::TemplateFieldTrigger( $title, 'edit-notify-template-category', $userTemplateCategory, $changedFieldNames, $changedFieldValues, $templates, $existingField[$changedFieldNames], $templateCategory );
-									}
-								}
-								$notifiedTemplateUsers = array_unique( array_merge( $categoryTemplateUserNotify, $templateNamespaceUserArray ), SORT_REGULAR );
-
-								//6  fieldname all pages
-								if ( $templateFieldNotification ) {
-									//trigger notification for change in template field to specific template field value
-									foreach ( $changedFields as $changedFieldNames => $changedFieldValues ) {
-										foreach ( $trackFields as $trackFieldNames ) {
-											if ( $changedFieldNames == $trackFieldNames ) {
-												if ( isset( $wgEditNotify['edit-template-field-name'][$templates] ) ) {
-													foreach ( $wgEditNotify['edit-template-field-name'][$templates][$trackFieldNames]['all-pages'] as $templateFieldNotify ) {
-														foreach ( $templateFieldNotify as $templateAllPagesUsers ) {
-															$templateAllPages1[] = $templateAllPagesUsers;
-														}
-													} //notification those who signed up for for all-changes
-													foreach ( $wgEditNotify['all-changes']['all-pages'] as $notify ) {
-														foreach ( $notify as $editNotifyUsers ) {
-															$templateAllPages2[] = $editNotifyUsers;
-														}
-													}
-
-													$templateAllPagesArray = array_unique( array_merge( $templateAllPages1, $templateAllPages2 ), SORT_REGULAR );
-													$notifiedTemplateUsers = array_diff( $templateAllPagesArray, $notifiedTemplateUsers );
-
-													foreach ( $notifiedTemplateUsers as $userTemplateAllPages ) {
-														self::TemplateFieldTrigger( $title, 'edit-notify-template', $userTemplateAllPages, $changedFieldNames, $changedFieldValues, $templates, $existingField[$changedFieldNames], 'all pages' );
-													}
-													unset( $templateAllPages1, $templateAllPages2, $userTemplateAllPages );
-												}
-											}
-										}
-									}
-								}*/
 						}
 					} else {
 						//notification for non template pages
