@@ -340,19 +340,17 @@ class EditNotifyHooks extends ENPageStructure {
 
 							$templateCategories = array();
 							$fieldValueNamespaceUserArray = array();
-							$templateValueAllPages1 = $templateValueAllPages2 = array();
-							$templateNamespaceUser1 = $templateNamespaceUser2 = array();
-							$templateCategoryUser1 = $templateCategoryUser2 = array();
-
-							$templateAllPages1 = $templateAllPages2 = array();
 							$fieldValueCategoryUserArray = $templateCategoryUserArray = array();
-							$categoryTemplateValueUserNotify = $categoryTemplateUserNotify = array();
 
 							$templateFieldNotifiedUserArray = array();
+							$notifiedTemplateFieldUsers = array();
+							$fieldValueAllPagesUserArray = array();
 							$handleTemplateFieldNamespaceAlert = false;
-							$handleNamespace = false;
+							$handleNamespaceNotification = false;
 							$handleTemplateFieldCategoryAlert = false;
-							$handleCategory = false;
+							$handleCategoryNotification = false;
+							$handleTemplateFieldAllPagesAlert = false;
+							$handleAllPagesNotification = false;
 
 							//Notification for change of template field to a specific value in namespace
 							//1
@@ -388,21 +386,24 @@ class EditNotifyHooks extends ENPageStructure {
 										}
 										//check for template, template field and template value
 										if ( $handleTemplateFieldNamespaceAlert ) {
+											$handleNamespaceNotification = false;
 
-											if ( isset( $fieldValueNamespaceAlert['template'] ) && isset( $fieldValueNamespaceAlert['templateField'] ) && isset( $fieldValueNamespaceAlert['templateFieldValue'] ) ) {
+											if ( array_key_exists( 'template', $fieldValueNamespaceAlert ) && array_key_exists( 'templateField', $fieldValueNamespaceAlert ) && array_key_exists( 'templateFieldValue', $fieldValueNamespaceAlert ) ) {
 												if ( $fieldValueNamespaceAlert['template'] == $template && $fieldValueNamespaceAlert['templateField'] == $changedFieldName && $fieldValueNamespaceAlert['templateFieldValue'] == $changedFieldValue ) {
-													$handleNamespace = true;
+													$handleNamespaceNotification = true;
 												}
 											}
 
 											//getting users who signed up for all changes
-											if ( !isset( $fieldValueNamespaceAlert['template'] ) && !isset( $fieldValueNamespaceAlert['templateField'] ) ) {
-												$handleNamespace = true;
+											if ( ( array_key_exists( 'template', $fieldValueNamespaceAlert ) && array_key_exists( 'templateField', $fieldValueNamespaceAlert ) ) == false ) {
+												$handleNamespaceNotification = true;
 											}
 
 											//Check for the namespace and get users from the array
-											if ( $handleNamespace ) {
-												if ( isset( $fieldValueNamespaceAlert['namespace'] ) ) {
+											if ( $handleNamespaceNotification ) {
+												$handleNamespaceNotification = false;
+
+												if ( array_key_exists( 'namespace', $fieldValueNamespaceAlert ) ) {
 													if ( is_array( $fieldValueNamespaceAlert['namespace'] ) ) {
 														if ( in_array( $templateNamespace, $fieldValueNamespaceAlert['namespace'] ) ) {
 
@@ -423,10 +424,11 @@ class EditNotifyHooks extends ENPageStructure {
 										}
 									}
 									$fieldValueNamespaceUserArray = array_unique( $fieldValueNamespaceUserArray );
-									foreach ( $fieldValueNamespaceUserArray as $fieldValueNamespaceUser ) {
 
+									foreach ( $fieldValueNamespaceUserArray as $fieldValueNamespaceUser ) {
 										self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value-namespace', $fieldValueNamespaceUser, $changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $templateNamespace );
 									}
+									$templateFieldNotification = false;
 								}
 							}
 
@@ -439,7 +441,6 @@ class EditNotifyHooks extends ENPageStructure {
 											if ( is_array( $fieldValueCategoryAlert['action'] ) ) {
 												if ( in_array( 'edit', $fieldValueCategoryAlert['action'] ) ) {
 
-
 													$handleTemplateFieldCategoryAlert = true;
 												}
 											} else {
@@ -447,47 +448,107 @@ class EditNotifyHooks extends ENPageStructure {
 
 													$handleTemplateFieldCategoryAlert = true;
 												}
+											}
 
-												if ( $handleTemplateFieldCategoryAlert ) {
+											if ( $handleTemplateFieldCategoryAlert ) {
+												$handleCategoryNotification = false;
 
-													if ( isset( $fieldValueCategoryAlert['template'] ) && isset( $fieldValueCategoryAlert['templateField'] ) && isset( $fieldValueCategoryAlert['templateFieldValue'] ) ) {
-														if ( $fieldValueCategoryAlert['template'] == $template && $fieldValueCategoryAlert['templateField'] == $changedFieldName && $fieldValueCategoryAlert['templateFieldValue'] == $changedFieldValue ) {
-															$handleCategory = true;
-														}
-													}
-
-													if ( !isset( $fieldValueCategoryAlert['template'] ) && !isset( $fieldValueCategoryAlert['templateField'] ) ) {
-														$handleCategory = true;
+												if ( array_key_exists( 'template', $fieldValueCategoryAlert ) && array_key_exists( 'templateField', $fieldValueCategoryAlert ) && array_key_exists( 'templateFieldValue', $fieldValueCategoryAlert ) ) {
+													if ( $fieldValueCategoryAlert['template'] == $template && $fieldValueCategoryAlert['templateField'] == $changedFieldName && $fieldValueCategoryAlert['templateFieldValue'] == $changedFieldValue ) {
+														$handleCategoryNotification = true;
 													}
 												}
 
-												if ( $handleCategory ) {
+												if ( ( array_key_exists( 'template', $fieldValueCategoryAlert ) && array_key_exists( 'templateField', $fieldValueCategoryAlert ) ) == false ) {
+													$handleCategoryNotification = true;
+												}
 
-													if ( isset( $fieldValueCategoryAlert['category'] ) ) {
+												if ( $handleCategoryNotification ) {
+													$handleCategoryNotification = false;
+
+													if ( array_key_exists( 'category', $fieldValueCategoryAlert ) ) {
 														if ( is_array( $fieldValueCategoryAlert['category'] ) ) {
 															if ( in_array( $fieldValueCategory, $fieldValueCategoryAlert['category'] ) ) {
 
 																foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsername ) {
 																	$fieldValueCategoryUserArray[] = $fieldValueCategoryUsername;
 																}
-															} else {
-																if ( $fieldValueCategoryAlert['category'] == $fieldValueCategory ) {
+															}
+														} else {
+															if ( $fieldValueCategoryAlert['category'] == $fieldValueCategory ) {
 
-																	foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsername ) {
-																		$fieldValueCategoryUserArray[] = $fieldValueCategoryUsername;
-																	}
+																foreach ( $fieldValueCategoryAlert['users'] as $fieldValueCategoryUsername ) {
+																	$fieldValueCategoryUserArray[] = $fieldValueCategoryUsername;
 																}
 															}
 														}
 													}
-
 												}
 											}
 										}
+
+										$fieldValueCategoryUserArray = array_unique( array_diff( $fieldValueCategoryUserArray, $fieldValueNamespaceUserArray ) );
+
+										//store the notified users of change in template field to specific template value
+										$notifiedTemplateFieldUsers = array_merge( $notifiedTemplateFieldUsers, $fieldValueCategoryUserArray );
+
 										foreach ( $fieldValueCategoryUserArray as $notifyFieldValueCategoryUser ) {
-											self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value-namespace', $notifyFieldValueCategoryUser, $changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $fieldValueCategory );
+											//self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value-namespace', $notifyFieldValueCategoryUser, $changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $fieldValueCategory );
+										}
+										$templateFieldNotification = false;
+										unset( $fieldValueCategoryUserArray );
+									}
+								}
+							}
+
+							//store the notified users of change in template field to specific template value in namespace and category
+							$notifiedTemplateFieldUsers = array_merge( $notifiedTemplateFieldUsers, $fieldValueNamespaceUserArray );
+
+							foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
+
+								foreach ( $wgEditNotifyAlerts as $fieldValueAllPagesAlert ) {
+									//Checking if the 'action' is string or array of string
+									if ( is_array( $fieldValueAllPagesAlert['action'] ) ) {
+										if ( in_array( 'edit', $fieldValueAllPagesAlert['action'] ) ) {
+											$handleTemplateFieldAllPagesAlert = true;
+										}
+									} else {
+										if ( $fieldValueAllPagesAlert['action'] == 'edit' ) {
+											$handleTemplateFieldAllPagesAlert = true;
 										}
 									}
+									//check for template, template field and template value
+									if ( $handleTemplateFieldAllPagesAlert ) {
+										$handleTemplateFieldAllPagesAlert = false;
+
+										if ( array_key_exists( 'template', $fieldValueAllPagesAlert ) && array_key_exists( 'templateField', $fieldValueAllPagesAlert ) && array_key_exists( 'templateFieldValue', $fieldValueAllPagesAlert ) ) {
+											if ( $fieldValueAllPagesAlert['template'] == $template && $fieldValueAllPagesAlert['templateField'] == $changedFieldName && $fieldValueAllPagesAlert['templateFieldValue'] == $changedFieldValue ) {
+												$handleAllPagesNotification = true;
+											}
+										}
+
+										//getting users who signed up for all changes
+										if ( ( array_key_exists( 'template', $fieldValueAllPagesAlert ) && array_key_exists( 'templateField', $fieldValueAllPagesAlert ) ) == false ) {
+											$handleAllPagesNotification = true;
+										}
+
+										//Check for the namespace and get users from the array
+										if ( $handleAllPagesNotification ) {
+											$handleAllPagesNotification = false;
+
+											if ( ( array_key_exists( 'namespace', $fieldValueAllPagesAlert ) && array_key_exists( 'category', $fieldValueAllPagesAlert ) ) == false ) {
+
+												foreach ( $fieldValueAllPagesAlert['users'] as $fieldValueAllPagesUsername ) {
+													$fieldValueAllPagesUserArray[] = $fieldValueAllPagesUsername;
+												}
+											}
+										}
+									}
+								}
+								$fieldValueAllPagesUserArray = array_unique( array_diff( $fieldValueAllPagesUserArray, $notifiedTemplateFieldUsers ) );
+
+								foreach ( $fieldValueAllPagesUserArray as $fieldValueNamespaceUser ) {
+									self::TemplateFieldValueTrigger( $title, 'edit-notify-template-value', $fieldValueNamespaceUser, $changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], 'all pages' );
 								}
 							}
 						}
