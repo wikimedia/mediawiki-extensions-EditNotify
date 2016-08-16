@@ -42,6 +42,9 @@
 		],
 		"PageContentSave": [
 			"EditNotifyHooks::onPageContentSave"
+		],
+		"PageContentInsertComplete": [
+			"EditNotifyHooks::onPageContentInsertComplete"
 		]
 	},
 	"MessagesDirs": {
