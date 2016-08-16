@@ -245,7 +245,6 @@ class EditNotifyHooks {
 	 */
 	public static function onPageContentSave( WikiPage &$wikiPage, &$user, &$content, &$summary, $isMinor, $isWatch, $section, &$flags, &$status ) {
 
-		global $wgEditNotify;
 		global $wgEditNotifyAlerts;
 		$title = $wikiPage->getTitle();
 		$text = ContentHandler::getContentText( $content );
@@ -283,20 +282,20 @@ class EditNotifyHooks {
 			$fieldNames = array_unique( array_merge( $newFieldNames, $existingFieldNames ), SORT_REGULAR );
 			$changedFields = $addedFields = $removedFields = array();
 
-			foreach ( $fieldNames as $key => $Name ) {
+			foreach ( $fieldNames as $key => $name ) {
 
 				// Alert for modified fields
-				if ( isset( $newField[$Name] ) && isset( $existingField[$Name] ) ) {
-					if ( strcmp( $newField[$Name], $existingField[$Name] ) !== 0 ) {
-						$changedFields[$Name] = $newField[$Name];
+				if ( isset( $newField[$name] ) && isset( $existingField[$name] ) ) {
+					if ( strcmp( $newField[$name], $existingField[$name] ) !== 0 ) {
+						$changedFields[$name] = $newField[$name];
 					}
 				}
 				else {
-					if ( isset( $newField[$Name] ) ) {
-						$addedFields[$Name] = $newField[$Name];
+					if ( isset( $newField[$name] ) ) {
+						$addedFields[$name] = $newField[$name];
 					}
 					else {
-						$removedFields[$Name] = $existingField[$Name];
+						$removedFields[$name] = $existingField[$name];
 					}
 				}
 
@@ -488,11 +487,7 @@ class EditNotifyHooks {
 				}
 
 
-				/**
-				 *  Notify users for change in template field to specific template value in all pages
-				 * @var  $changedFieldName
-				 * @var  $changedFieldValue
-				 */
+				/** Notify users for change in template field to specific template value in all pages */
 				foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
 					foreach ( $wgEditNotifyAlerts as $fieldValueAllPagesAlert ) {
 						$handleTemplateFieldValueAllPagesAlert = false;
@@ -667,11 +662,7 @@ class EditNotifyHooks {
 					}
 				}
 
-				/**
-				 * To notify the users signed up for change in template field in all pages
-				 * @var  $changedFieldName
-				 * @var  $changedFieldValue
-				 */
+				/** Notify the users signed up for change in template field in all pages */
 				foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
 					foreach ( $wgEditNotifyAlerts as $fieldAllPagesAlert ) {
 						$handleTemplateFieldAllPagesAlert = false;
