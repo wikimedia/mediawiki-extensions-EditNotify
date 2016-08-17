@@ -293,8 +293,7 @@ class EditNotifyHooks {
 				else {
 					if ( isset( $newField[$name] ) ) {
 						$addedFields[$name] = $newField[$name];
-					}
-					else {
+					} else {
 						$removedFields[$name] = $existingField[$name];
 					}
 				}
@@ -344,8 +343,7 @@ class EditNotifyHooks {
 				$res = $dbr->query( $sql );
 
 				if ( $dbr->numRows( $res ) > 0 ) {
-					foreach ( $res as $row )
-					{
+					foreach ( $res as $row ) {
 						$templateCategories[$row->cl_to] = $title->getFullText();
 					}
 					$dbr->freeResult( $res );
@@ -708,7 +706,6 @@ class EditNotifyHooks {
 				}
 			}
 		} else {
-
 			/** Notification for edit in non template pages */
 
 			$handleNamespaceAlert = false;
@@ -882,7 +879,6 @@ class EditNotifyHooks {
 			$allPagesUserArray = array_unique( array_diff( $allPagesUserArray, $notifiedUsers ) );
 
 			$notifiedUsers = array_merge( $notifiedUsers, $allPagesUserArray );
-
 			if(empty($allPagesUserArray) == false) {
 
 				foreach ( $allPagesUserArray as $allPagesUser ) {
