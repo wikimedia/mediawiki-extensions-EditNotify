@@ -1,0 +1,31 @@
+{
+	"@metadata": {
+		"authors": [
+			"Abhinand"
+
+		]
+	},
+	"editnotify-desc": "Description of the extension.",
+	"editnotify-page-edit-label": "Label for the link to the edited page in alert messages in [[Special:Notifications]].",
+	"editnotify-title-message": "Label for message title for edit page notification.",
+	"editnotify-title-message-page-create": "Label for message title for page create notification.",
+	"editnotify-flyout-message": "Label for flyout message for edit page notification.",
+	"editnotify-flyout-message-page-create": "Label for flyout message for create page notification.",
+	"editnotify-primary-message": "Used as primary message in email notification.",
+	"editnotify-email-subject-message": "Used as label for subject in email notification for edit page event. Parameters:\n* $2 - name of the modified page",
+	"editnotify-email-subject-message-page-create": "Used as label for subject in email notification for page create event. Parameters:\n* $2 - name of newly created page",
+	"editnotify-email-subject-message-template": "Used as label for subject in email notification for change in template field. Parameters:\n* $2 - name of modified page\n* $3 - modified field \n* $4 - new field value",
+	"editnotify-email-body-message": "Description of the edit page event in email notification. Parameters:\n* $1 - name of modified page\n* $2 - page type of event",
+	"editnotify-email-body-message-page-create": "Description of the page create event in email notification. Parameters:\n* $1 - name of modified page",
+	"editnotify-email-body-message-template": "Description of the change in template field in email notification. Parameters:\n* $1 - modified field\n* $2 - existing field value\n* $3 - new field value\n* $4 - name of modified page\n* $5 - name of modified page\n* $6 - page type of event",
+	"notification-header-edit-notify-page-create": "Label for alert notification message for page creation. Parameters:\n* $2 - name of the newly created page",
+	"notification-header-edit-notify": "Used as alert notification message for edit page event in all pages. Parameters:\n* $3 - name of the modified page",
+	"notification-header-edit-notify-namespace": "Used as alert notification message for edit page event in page namepsace. Parameters:\n* $3 - name of the modified page",
+	"notification-header-edit-notify-category": "Used as alert notification message for edit page event in page categories. Parameters:\n* $3 - name of the modified page",
+	"notification-header-edit-notify-template": "Used as alert notification message for change in template field in all pages. Parameters:\n* $3 - modified field\n* $4 - existing field value\n* $5 - new field value\n* $6 - template name\n* $6 - name of modified page\n* $7 - page type of event",
+	"notification-header-edit-notify-template-namespace": "Used as alert notification message for change in template field in page namespace. Parameters:\n* $3 - modified field\n* $4 - existing field value\n* $5 - new field value\n* $6 - template name\n* $6 - name of modified page\n* $7 - page type of event",
+	"notification-header-edit-notify-template-category": "Used as alert notification message for change in template field in page category. Parameters:\n* $3 - modified field\n* $4 - existing field value\n* $5 - new field value\n* $6 - template name\n* $6 - name of modified page\n* $7 - page type of event",
+	"notification-header-edit-notify-template-value": "Used as alert notification message for change in template field to specific template value in all pages. Parameters:\n* $3 - modified field\n* $4 - existing field value\n* $5 - new field value\n* $6 - template name\n* $6 - name of modified page\n* $7 - page type of event",
+	"notification-header-edit-notify-template-value-namespace": "Used as alert notification message for change in template field to specific template value in page namespace. Parameters:\n* $3 - modified field\n* $4 - existing field value\n* $5 - new field value\n* $6 - template name\n* $6 - name of modified page\n* $7 - page type of event",
+	"notification-header-edit-notify-template-value-category": "Used as alert notification message for change in template field to specific template value in page categories. Parameters:\n* $3 - modified field\n* $4 - existing field value\n* $5 - new field value\n* $6 - template name\n* $6 - name of modified page\n* $7 - page type of event"
+}

@@ -19,7 +19,7 @@
   "editnotify-email-body-message-page-create": "Page $1 was created. You are getting this notification because you are watching for this activity in create pages.",
   "editnotify-email-body-message-template": "Value of $1 was changed from $2 to $3 in Template:$4 in page $5. You are getting this notification because you are watching for this activity in $6.",
   "notification-header-edit-notify-page-create": "Page $3 was created",
-  "notification-header-edit-notify": "An edit was done in page $3",
+  "notification-header-edit-notify": "Page $3 was modified",
   "notification-header-edit-notify-namespace": "Page $3 was modified",
   "notification-header-edit-notify-category": "Page $3 was modified",
   "notification-header-edit-notify-template": "Value of $3 was changed from $4 to $5 in Template:$6 in page $7",
