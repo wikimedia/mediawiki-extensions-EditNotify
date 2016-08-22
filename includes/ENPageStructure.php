@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Most most the code in this page is copied from Data Transfer extension. The code is a part of Data Transfer extension.
+ */
+
 class ENPageComponent {
 	var $mIsTemplate = false;
 	var $mTemplateName;

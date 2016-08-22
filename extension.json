@@ -1,6 +1,6 @@
 {
 	"name": "EditNotify",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"author": [
 		"Abhinand"
 	],
@@ -54,13 +54,8 @@
 	},
 	"ResourceModules": {
 		"ext.editNotify.foo": {
-			"scripts": [
-				"modules/ext.editNotify.js",
-				"modules/ext.editNotify.foo.js"
-			],
-			"styles": [
-				"modules/ext.editNotify.foo.css"
-			],
+			"scripts": [],
+			"styles": [],
 			"messages": [],
 			"dependencies": []
 		}
