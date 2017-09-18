@@ -5,7 +5,7 @@
 
 		]
 	},
-	"editnotify-desc": "Description of the extension.",
+	"editnotify-desc": "{{desc|name=EditNotify|url=https://www.mediawiki.org/wiki/Extension:EditNotify}}",
 	"editnotify-page-edit-label": "Label for the link to the edited page in alert messages in [[Special:Notifications]].",
 	"editnotify-title-message": "Label for message title for edit page notification.",
 	"editnotify-title-message-page-create": "Label for message title for page create notification.",
