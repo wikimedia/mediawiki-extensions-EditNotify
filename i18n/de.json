@@ -1,0 +1,31 @@
+{
+  "@metadata": {
+    "authors": [
+      "Markus Glaser"
+
+    ]
+  },
+  "editnotify-desc": "Erweiterung für Benachrichtigungen zu Seitenerstellungen oder -bearbeitungen",
+  "editnotify-page-edit-label": "Änderungen sehen",
+  "editnotify-title-message": "Die Seite wurde geändert",
+  "editnotify-title-message-page-create": "Die Seite wurde bearbeitet",
+  "editnotify-flyout-message": "Benachrichtigung über eine Bearbeitung",
+  "editnotify-flyout-message-page-create": "Benachrichtigung über eine Seitenerstellung",
+  "editnotify-primary-message": "Seite ansehen:",
+  "editnotify-email-subject-message": "Die Seite \"$2\" wurde verändert",
+  "editnotify-email-subject-message-page-create": "Die Seite \"$2\" wurde erstellt",
+  "editnotify-email-subject-message-template": "Seite \"$2\": der Wert von \"$3\" wurde zu \"$4\" geändert",
+  "editnotify-email-body-message": "Eine Bearbeitung wurde auf Seite \"$1\" vorgenommen. Du bekommst diese Benachrichtigung, weil du diese Aktivität in \"$2\" beobachtest.",
+  "editnotify-email-body-message-page-create": "Seite \"$1\" wurde erstellt. Du bekommst diese Benachrichtigung, weil du diese Aktivität in \"$2\" beim Seitenerstellen beobachtest.",
+  "editnotify-email-body-message-template": "Wert von \"$1\" wurde von \"$2\" zu \"$3\" geändert, im Template \"$4\" auf der Seite \"$5\". Du bekommst diese Benachrichtigung, weil du diese Aktivität in \"$6\" beobachtest.",
+  "notification-header-edit-notify-page-create": "Seite \"$3\" wurde erstellt",
+  "notification-header-edit-notify": "Seite \"$3\" wurde geändert",
+  "notification-header-edit-notify-namespace": "Seite \"$3\" wurde geändert",
+  "notification-header-edit-notify-category": "Seite \"$3\" wurde geändert",
+  "notification-header-edit-notify-template": "Wert von \"$3\" wurde im Template \"$6\" auf Seite \"$7\" von \"$4\" zu \"$5\" geändert",
+  "notification-header-edit-notify-template-namespace": "Wert von \"$3\" wurde im Template \"$6\" auf Seite \"$7\" von \"$4\" zu \"$5\" geändert",
+  "notification-header-edit-notify-template-category": "Wert von \"$3\" wurde im Template \"$6\" auf Seite \"$7\" von \"$4\" zu \"$5\" geändert",
+  "notification-header-edit-notify-template-value":"Wert von \"$3\" wurde im Template \"$6\" auf Seite \"$7\" von \"$4\" zu \"$5\" geändert",
+  "notification-header-edit-notify-template-value-namespace": "Wert von \"$3\" wurde im Template \"$6\" auf Seite \"$7\" von \"$4\" zu \"$5\" geändert",
+  "notification-header-edit-notify-template-value-category": "Wert von \"$3\" wurde im Template \"$6\" auf Seite \"$7\" von \"$4\" zu \"$5\" geändert"
+}

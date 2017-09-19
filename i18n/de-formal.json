@@ -1,0 +1,11 @@
+{
+  "@metadata": {
+    "authors": [
+      "Markus Glaser"
+
+    ]
+  },
+  "editnotify-email-body-message": "Eine Bearbeitung wurde auf Seite \"$1\" vorgenommen. Sie bekommen diese Benachrichtigung, weil Sie diese Aktivität in \"$2\" beobachten.",
+  "editnotify-email-body-message-page-create": "Seite \"$1\" wurde erstellt. Sie bekommen diese Benachrichtigung, weil Sie diese Aktivität in \"$2\" beim Seitenerstellen beobachten.",
+  "editnotify-email-body-message-template": "Wert von \"$1\" wurde von \"$2\" zu \"$3\" geändert, im Template \"$4\" auf der Seite \"$5\". Sie bekommen diese Benachrichtigung, weil Sie diese Aktivität in \"$6\" beobachten."
+}
