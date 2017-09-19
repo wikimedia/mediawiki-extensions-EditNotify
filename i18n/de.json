@@ -5,12 +5,12 @@
 
     ]
   },
-  "editnotify-desc": "Erweiterung für eine Benachrichtigung über Seitenerstellung oder -bearbeitung",
+  "editnotify-desc": "Erweiterung für Benachrichtigungen zu Seitenerstellungen oder -bearbeitungen",
   "editnotify-page-edit-label": "Änderungen sehen",
   "editnotify-title-message": "Die Seite wurde geändert",
   "editnotify-title-message-page-create": "Die Seite wurde bearbeitet",
   "editnotify-flyout-message": "Benachrichtigung über eine Bearbeitung",
-  "editnotify-flyout-message-page-create": "Benachrichtigung über eine Seitenerstellng",
+  "editnotify-flyout-message-page-create": "Benachrichtigung über eine Seitenerstellung",
   "editnotify-primary-message": "Seite ansehen:",
   "editnotify-email-subject-message": "Die Seite \"$2\" wurde verändert",
   "editnotify-email-subject-message-page-create": "Die Seite \"$2\" wurde erstellt",
