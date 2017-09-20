@@ -1,0 +1,25 @@
+{
+	"name": "mediawiki/edit-notify",
+	"type": "mediawiki-extension",
+	"description": "Extension for page creation or editing notification",
+	"require": {
+		"composer/installers": "~1.0"
+	},
+	"autoload": {
+		"files": [
+			"EditNotify.php"
+		]
+	},
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "0.9",
+		"mediawiki/mediawiki-codesniffer": "0.12",
+		"phpunit/phpunit": "4.8.*"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor",
+			"phpunit",
+			"phpcs -p -s -n"
+		]
+	}
+}
