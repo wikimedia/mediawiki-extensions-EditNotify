@@ -27,7 +27,8 @@
 		"EchoEditNotifyTemplateFormatter": "includes/formatters/EchoEditNotifyTemplateFormatter.php"
 	},
 	"config": {
-		"EditNotifyEnableFoo": true
+		"EditNotifyEnableFoo": true,
+		"EditNotifyAlerts": []
 	},
 	"ExtensionMessagesFiles": {
 		"EditNotifyAlias": "EditNotify.i18n.alias.php"
