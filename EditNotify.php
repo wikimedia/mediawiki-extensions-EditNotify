@@ -6,7 +6,7 @@ if ( function_exists( 'wfLoadExtension' ) ) {
 	$wgMessagesDirs['EditNotify'] = __DIR__ . '/i18n';
 	$wgExtensionMessagesFiles['EditNotifyAlias'] = __DIR__ . '/EditNotify.i18n.alias.php';
 	wfWarn(
-	    'Deprecated PHP entry point used for NotifyMe extension. Please use wfLoadExtension instead'
+	    'Deprecated PHP entry point used for EditNotify extension. Please use wfLoadExtension instead'
 	);
 	return true;
 } else {
