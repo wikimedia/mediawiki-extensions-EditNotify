@@ -881,14 +881,14 @@ class EditNotifyHooks {
 				if ( $handleAllPagesAlert ) {
 					$handleAllPages = false;
 
-					if ( ( array_key_exists( 'template', $allPagesAlert ) && array_key_exists( 'templateField', $allPagesAlert ) ) == false ) {
+					if ( ( array_key_exists( 'template', $allPagesAlert ) === false && array_key_exists( 'templateField', $allPagesAlert ) ) == false ) {
 						$handleAllPages = true;
 					}
 
 					//Check for the namespace and get users from the array
 					if ( $handleAllPages ) {
 
-						if (  array_key_exists( 'namespace', $allPagesAlert ) == false  && array_key_exists( 'category', $allPagesAlert )  == false ) {
+						if (  array_key_exists( 'namespace', $allPagesAlert ) || array_key_exists( 'category', $allPagesAlert ) ) {
 							foreach ( $allPagesAlert['users'] as $allPagesUsername ) {
 								$allPagesUserArray[] = $allPagesUsername;
 							}
