@@ -802,7 +802,7 @@ class EditNotifyHooks {
 			}
 
 			if ( $categories ) {
-				foreach ( $categories as $category => $title) {
+				foreach ( $categories as $category => $catTitle) {
 					$categoryUserArray = array();
 					foreach ( $wgEditNotifyAlerts as $categoryAlert ) {
 						$handleCategoryAlert = false;
