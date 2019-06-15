@@ -309,7 +309,7 @@ class EditNotifyHooks {
 				$templateNamespace = $wikiPage->getTitle()->getNsText();
 
 				$titleId = $title->getArticleId();
-				$dbr = wfGetDB( DB_SLAVE );
+				$dbr = wfGetDB( DB_REPLICA );
 				$categorylinks = $dbr->tableName( 'categorylinks' );
 
 
@@ -734,7 +734,7 @@ class EditNotifyHooks {
 			$categories = array();
 
 			$titleId = $title->getArticleId();
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			$categorylinks = $dbr->tableName( 'categorylinks' );
 
 			$sql = "SELECT * FROM $categorylinks" . " WHERE cl_from='$titleId'" . " AND cl_from <> '0'" . " ORDER BY cl_sortkey";
