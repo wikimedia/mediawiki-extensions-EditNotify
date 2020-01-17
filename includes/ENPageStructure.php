@@ -105,7 +105,7 @@ class ENPageComponent {
 				// Undo the escaping that happened before.
 				$freeText = str_replace( array( '&#123;', '&#125;' ), array( '{', '}' ), $freeText );
 				// Get rid of table of contents.
-				$mw = MagicWord::get( 'toc' );
+				$mw = \MediaWiki\MediaWikiServices::getInstance()->getMagicWordFactory()->get( 'toc' );
 				if ( $mw->match( $freeText ) ) {
 					$freeText = $mw->replace( '', $freeText );
 				}
