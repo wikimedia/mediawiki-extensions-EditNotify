@@ -37,18 +37,10 @@
 		"EditNotifyAlias": "EditNotify.i18n.alias.php"
 	},
 	"Hooks": {
-		"BeforeCreateEchoEvent": [
-			"EditNotifyHooks::onBeforeCreateEchoEvent"
-		],
-		"EchoGetDefaultNotifiedUsers": [
-			"EditNotifyHooks::onEchoGetDefaultNotifiedUsers"
-		],
-		"PageContentSave": [
-			"EditNotifyHooks::onPageContentSave"
-		],
-		"PageContentInsertComplete": [
-			"EditNotifyHooks::onPageContentInsertComplete"
-		]
+		"BeforeCreateEchoEvent": "EditNotifyHooks::onBeforeCreateEchoEvent",
+		"EchoGetDefaultNotifiedUsers": "EditNotifyHooks::onEchoGetDefaultNotifiedUsers",
+		"PageContentSave": "EditNotifyHooks::onPageContentSave",
+		"PageContentInsertComplete": "EditNotifyHooks::onPageContentInsertComplete"
 	},
 	"MessagesDirs": {
 		"EditNotify": [
