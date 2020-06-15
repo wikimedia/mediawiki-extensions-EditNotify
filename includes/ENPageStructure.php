@@ -116,7 +116,7 @@ class ENPageComponent {
 			} else {
 				$freeText = $this->mFreeText;
 			}
-			return XML::element( $free_text_str, array( 'id' => $this->mFreeTextID ), $freeText );
+			return Xml::element( $free_text_str, array( 'id' => $this->mFreeTextID ), $freeText );
 		}
 	}
 }
