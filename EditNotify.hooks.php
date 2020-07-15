@@ -909,8 +909,7 @@ class EditNotifyHooks {
 		return true;
 	}
 
-	public static function onPageContentInsertComplete( WikiPage $wikiPage, User $user, $content, $summary,
-		$isMinor,$isWatch, $section, $flags, Revision $revision ) {
+	public static function onPageSaveComplete( WikiPage $wikiPage ) {
 		global $wgEditNotifyAlerts;
 		$title = $wikiPage->getTitle();
 
