@@ -847,7 +847,7 @@ class EditNotifyHooks {
 					foreach ( $categoryUserArray as $categoryUser ) {
 						self::pageEditNotify( $title, 'edit-notify-category', $categoryUser, $category );
 					}
-					unset( $categoryUserArray );
+					$categoryUserArray = [];
 				}
 			}
 
