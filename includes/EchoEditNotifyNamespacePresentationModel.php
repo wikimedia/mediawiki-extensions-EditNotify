@@ -4,11 +4,12 @@ class EchoEditNotifyNamespacePresentationModel extends EchoEventPresentationMode
 	public function getIconType() {
 		return 'placeholder';
 	}
+
 	public function getPrimaryLink() {
-		return array(
-		    'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
-		    'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
-		);
+		return [
+			'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
+			'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
+		];
 	}
 
 	public function getHeaderMessage() {
@@ -19,4 +20,3 @@ class EchoEditNotifyNamespacePresentationModel extends EchoEventPresentationMode
 	}
 
 }
-

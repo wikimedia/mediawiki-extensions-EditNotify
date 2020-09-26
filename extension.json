@@ -12,9 +12,9 @@
 		"MediaWiki": ">= 1.35.0"
 	},
 	"AutoloadClasses": {
-		"EditNotifyHooks": "EditNotify.hooks.php",
+		"EditNotifyHooks": "includes/EditNotifyHooks.php",
 		"ENPageStructure": "includes/ENPageStructure.php",
-		"ENPageComponent": "includes/ENPageStructure.php",
+		"ENPageComponent": "includes/ENPageComponent.php",
 		"EchoEditNotifyPresentationModel": "includes/EchoEditNotifyPresentationModel.php",
 		"EchoEditNotifyNamespacePresentationModel": "includes/EchoEditNotifyNamespacePresentationModel.php",
 		"EchoEditNotifyCategoryPresentationModel": "includes/EchoEditNotifyCategoryPresentationModel.php",

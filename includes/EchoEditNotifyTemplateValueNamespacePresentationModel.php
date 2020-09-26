@@ -1,15 +1,15 @@
 <?php
 
-
 class EchoEditNotifyTemplateValueNamespacePresentationModel extends EchoEventPresentationModel {
 	public function getIconType() {
 		return 'placeholder';
 	}
+
 	public function getPrimaryLink() {
-		return array(
-		    'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
-		    'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
-		);
+		return [
+			'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
+			'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
+		];
 	}
 
 	public function getHeaderMessage() {
@@ -20,8 +20,7 @@ class EchoEditNotifyTemplateValueNamespacePresentationModel extends EchoEventPre
 		$msg->params( $this->event->getExtraParam( 'template' ) );
 		$msg->params( $this->event->getExtraParam( 'title' ) );
 		$msg->params( $this->event->getExtraParam( 'change' ) );
-		return $msg; 
+		return $msg;
 	}
 
 }
-
