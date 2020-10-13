@@ -157,6 +157,8 @@ class ENPageStructure {
 
 	/**
 	 * Helper function for mergeInPageStructure().
+	 *
+	 * @return array
 	 */
 	private function getSingleInstanceTemplates() {
 		$instancesPerTemplate = [];
