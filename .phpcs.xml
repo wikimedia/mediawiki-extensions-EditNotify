@@ -7,6 +7,7 @@
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingDocumentationPublic" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag" />
 		<exclude name="MediaWiki.Commenting.FunctionComment.NoParamType" />
+		<exclude name="MediaWiki.Commenting.PropertyDocumentation.MissingDocumentationPublic" />
 		<exclude name="MediaWiki.Usage.DbrQueryUsage.DbrQueryFound" />
 		<exclude name="MediaWiki.Usage.DeprecatedGlobalVariables.Deprecated$wgTitle" />
 		<exclude name="PSR2.Classes.PropertyDeclaration.ScopeMissing" />
