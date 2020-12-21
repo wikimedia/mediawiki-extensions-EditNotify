@@ -5,14 +5,24 @@
  */
 
 class ENPageStructure {
+	/** @var Title|null */
 	var $mPageTitle;
+	/** @var ENPageComponent[] */
 	var $mComponents = [];
 
-	function addComponent( $enPageComponent ) {
+	/**
+	 * @param ENPageComponent $enPageComponent
+	 */
+	private function addComponent( $enPageComponent ) {
 		$this->mComponents[] = $enPageComponent;
 		ENPageComponent::$mFreeTextIDCounter = 1;
 	}
 
+	/**
+	 * @param Title $pageTitle
+	 *
+	 * @return self
+	 */
 	public static function newFromTitle( $pageTitle ) {
 		$pageStructure = new ENPageStructure();
 		$pageStructure->mPageTitle = $pageTitle;
@@ -42,6 +52,8 @@ class ENPageStructure {
 	/**
 	 * Parses the contents of a wiki page, turning template calls into
 	 * an arracy of ENPageComponent objects.
+	 *
+	 * @param string $page_contents
 	 */
 	public function parsePageContents( $page_contents ) {
 		// escape out variables like "{{PAGENAME}}"
@@ -181,6 +193,11 @@ class ENPageStructure {
 		return $singleInstanceTemplates;
 	}
 
+	/**
+	 * @param string $templateName
+	 *
+	 * @return int|null
+	 */
 	private function getIndexOfTemplateName( $templateName ) {
 		foreach ( $this->mComponents as $i => $pageComponent ) {
 			if ( $pageComponent->mTemplateName == $templateName ) {
@@ -192,6 +209,8 @@ class ENPageStructure {
 
 	/**
 	 * Used when doing a "merge" in an XML or CSV import.
+	 *
+	 * @param self $secondPageStructure
 	 */
 	public function mergeInPageStructure( $secondPageStructure ) {
 		// If there are any templates that have one instance in both
