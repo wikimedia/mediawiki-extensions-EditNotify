@@ -1,10 +1,12 @@
 <?php
 
 class EchoEditNotifyTemplateCategoryPresentationModel extends EchoEventPresentationModel {
+	/** @inheritDoc */
 	public function getIconType() {
 		return 'placeholder';
 	}
 
+	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
 			'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
@@ -12,6 +14,7 @@ class EchoEditNotifyTemplateCategoryPresentationModel extends EchoEventPresentat
 		];
 	}
 
+	/** @inheritDoc */
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
 		$msg->params( $this->event->getExtraParam( 'field-name' ) );

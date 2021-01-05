@@ -239,6 +239,10 @@ class ENPageStructure {
 		return trim( $wikitext );
 	}
 
+	/**
+	 * @param bool $isSimplified
+	 * @return string
+	 */
 	public function toXML( $isSimplified ) {
 		$page_str = str_replace( ' ', '_', wfMessage( 'en_xml_page' )->inContentLanguage()->text() );
 		$id_str = str_replace( ' ', '_', wfMessage( 'en_xml_id' )->inContentLanguage()->text() );

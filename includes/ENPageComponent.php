@@ -3,14 +3,25 @@
 use MediaWiki\MediaWikiServices;
 
 class ENPageComponent {
+	/** @var bool */
 	var $mIsTemplate = false;
+	/** @var string|null */
 	var $mTemplateName;
+	/** @var int|null */
 	static $mUnnamedFieldCounter;
+	/** @var array|null */
 	var $mFields;
+	/** @var string|null */
 	var $mFreeText;
+	/** @var int */
 	static $mFreeTextIDCounter = 1;
+	/** @var string|null */
 	var $mFreeTextID;
 
+	/**
+	 * @param string $templateName
+	 * @return self
+	 */
 	public static function newTemplate( $templateName ) {
 		$enPageComponent = new ENPageComponent();
 		$enPageComponent->mTemplateName = trim( $templateName );
@@ -20,6 +31,10 @@ class ENPageComponent {
 		return $enPageComponent;
 	}
 
+	/**
+	 * @param string $freeText
+	 * @return self
+	 */
 	public static function newFreeText( $freeText ) {
 		$enPageComponent = new ENPageComponent();
 		$enPageComponent->mIsTemplate = false;
@@ -28,15 +43,25 @@ class ENPageComponent {
 		return $enPageComponent;
 	}
 
+	/**
+	 * @param string $fieldName
+	 * @param string $fieldValue
+	 */
 	public function addNamedField( $fieldName, $fieldValue ) {
 		$this->mFields[trim( $fieldName )] = trim( $fieldValue );
 	}
 
+	/**
+	 * @param string $fieldValue
+	 */
 	public function addUnnamedField( $fieldValue ) {
 		$fieldName = self::$mUnnamedFieldCounter++;
 		$this->mFields[$fieldName] = trim( $fieldValue );
 	}
 
+	/**
+	 * @return string
+	 */
 	public function toWikitext() {
 		if ( $this->mIsTemplate ) {
 			$wikitext = '{{' . $this->mTemplateName;
@@ -54,6 +79,10 @@ class ENPageComponent {
 		}
 	}
 
+	/**
+	 * @param bool $isSimplified
+	 * @return string
+	 */
 	public function toXML( $isSimplified ) {
 		global $wgDataTransferViewXMLParseFields;
 		global $wgDataTransferViewXMLParseFreeText;

@@ -2,8 +2,8 @@
 
 class EditNotifyHooks {
 	/**
-	 * @param &$echoNotifications
-	 * @param $echoNotificationCategories
+	 * @param array &$echoNotifications
+	 * @param array $echoNotificationCategories
 	 * @return bool
 	 */
 	public static function onBeforeCreateEchoEvent( &$echoNotifications, $echoNotificationCategories ) {
@@ -205,8 +205,8 @@ class EditNotifyHooks {
 	}
 
 	/**
-	 * @param $event
-	 * @param &$users
+	 * @param EchoEvent $event
+	 * @param User[] &$users
 	 * @return bool
 	 */
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
@@ -233,14 +233,14 @@ class EditNotifyHooks {
 
 	/**
 	 * @param WikiPage &$wikiPage
-	 * @param &$user
-	 * @param &$content
-	 * @param &$summary
-	 * @param $isMinor
-	 * @param $isWatch
-	 * @param $section
-	 * @param &$flags
-	 * @param &$status
+	 * @param User &$user
+	 * @param CommentStoreComment &$content
+	 * @param string &$summary
+	 * @param bool $isMinor
+	 * @param null $isWatch
+	 * @param null $section
+	 * @param int &$flags
+	 * @param StatusValue &$status
 	 * @return bool
 	 */
 	public static function onPageContentSave( WikiPage &$wikiPage, &$user, &$content, &$summary, $isMinor, $isWatch, $section, &$flags, &$status ) {
@@ -888,6 +888,9 @@ class EditNotifyHooks {
 		return true;
 	}
 
+	/**
+	 * @param WikiPage $wikiPage
+	 */
 	public static function onPageSaveComplete( WikiPage $wikiPage ) {
 		global $wgEditNotifyAlerts;
 		$title = $wikiPage->getTitle();
@@ -915,9 +918,9 @@ class EditNotifyHooks {
 	}
 
 	/**
-	 * @param $pageTitle
-	 * @param $pageType
-	 * @param $user
+	 * @param Title $pageTitle
+	 * @param string $pageType
+	 * @param string $user
 	 * @return bool
 	 */
 	public static function pageCreateNotify( $pageTitle, $pageType, $user ) {
@@ -933,10 +936,10 @@ class EditNotifyHooks {
 	}
 
 	/**
-	 * @param $pageTitle
-	 * @param $pageType
-	 * @param $user
-	 * @param $change
+	 * @param Title $pageTitle
+	 * @param string $pageType
+	 * @param string $user
+	 * @param string $change
 	 * @return bool
 	 */
 	public static function pageEditNotify( $pageTitle, $pageType, $user, $change ) {
@@ -953,14 +956,14 @@ class EditNotifyHooks {
 	}
 
 	/**
-	 * @param $pageTitle
-	 * @param $pageType
-	 * @param $user
-	 * @param $templateFieldName
-	 * @param $existingFieldValue
-	 * @param $template
-	 * @param $newFieldValue
-	 * @param $change
+	 * @param Title $pageTitle
+	 * @param string $pageType
+	 * @param string $user
+	 * @param string $templateFieldName
+	 * @param string $existingFieldValue
+	 * @param string $template
+	 * @param string $newFieldValue
+	 * @param string $change
 	 * @return bool
 	 */
 	public static function templateFieldNotify(
@@ -990,14 +993,14 @@ class EditNotifyHooks {
 	}
 
 	/**
-	 * @param $pageTitle
-	 * @param $pageType
-	 * @param $user
-	 * @param $templateFieldName
-	 * @param $existingFieldValue
-	 * @param $template
-	 * @param $newFieldValue
-	 * @param $change
+	 * @param Title $pageTitle
+	 * @param string $pageType
+	 * @param string $user
+	 * @param string $templateFieldName
+	 * @param string $existingFieldValue
+	 * @param string $template
+	 * @param string $newFieldValue
+	 * @param string $change
 	 * @return bool
 	 */
 	public static function templateFieldValueNotify(
