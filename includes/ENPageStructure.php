@@ -6,9 +6,9 @@
 
 class ENPageStructure {
 	/** @var Title|null */
-	var $mPageTitle;
+	public $mPageTitle;
 	/** @var ENPageComponent[] */
-	var $mComponents = [];
+	public $mComponents = [];
 
 	/**
 	 * @param ENPageComponent $enPageComponent

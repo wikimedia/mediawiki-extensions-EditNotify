@@ -4,19 +4,19 @@ use MediaWiki\MediaWikiServices;
 
 class ENPageComponent {
 	/** @var bool */
-	var $mIsTemplate = false;
+	public $mIsTemplate = false;
 	/** @var string|null */
-	var $mTemplateName;
+	public $mTemplateName;
 	/** @var int|null */
-	static $mUnnamedFieldCounter;
+	public static $mUnnamedFieldCounter;
 	/** @var array|null */
-	var $mFields;
+	public $mFields;
 	/** @var string|null */
-	var $mFreeText;
+	public $mFreeText;
 	/** @var int */
-	static $mFreeTextIDCounter = 1;
+	public static $mFreeTextIDCounter = 1;
 	/** @var string|null */
-	var $mFreeTextID;
+	public $mFreeTextID;
 
 	/**
 	 * @param string $templateName
