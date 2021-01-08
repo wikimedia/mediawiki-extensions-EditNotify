@@ -104,7 +104,7 @@ class ENPageComponent {
 					}
 				} elseif ( $wgDataTransferViewXMLParseFields ) {
 					// Avoid table of contents and "edit" links
-					$fieldValue = $parser->parse( "__NOTOC__ __NOEDITSECTION__\n" . $fieldValue, $wgTitle, new ParserOptions() )->getText();
+					$fieldValue = $parser->parse( "__NOTOC__ __NOEDITSECTION__\n" . $fieldValue, $wgTitle, ParserOptions::newFromAnon() )->getText();
 				}
 				if ( $isSimplified ) {
 					if ( is_numeric( $fieldName ) ) {
@@ -143,7 +143,7 @@ class ENPageComponent {
 					$freeText = $mw->replace( '', $freeText );
 				}
 				// Avoid "edit" links.
-				$freeText = $parser->parse( "__NOTOC__ __NOEDITSECTION__\n" . $freeText, $wgTitle, new ParserOptions() )->getText();
+				$freeText = $parser->parse( "__NOTOC__ __NOEDITSECTION__\n" . $freeText, $wgTitle, ParserOptions::newFromAnon() )->getText();
 			} else {
 				$freeText = $this->mFreeText;
 			}
