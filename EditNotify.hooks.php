@@ -485,7 +485,7 @@ class EditNotifyHooks {
 								self::templateFieldValueNotify( $title, 'edit-notify-template-value-category', $fieldValueCategoryUser,
 									$changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $fieldValueCategory );
 							}
-							unset( $fieldValueCategoryUserArray );
+							$fieldValueCategoryUserArray = [];
 						}
 					}
 				}
