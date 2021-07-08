@@ -303,7 +303,7 @@ class EditNotifyHooks {
 				return true;
 			}
 
-			$template = $wikiPage->getTitle()->getTemplateLinksFrom()[0]->mTextform;
+			$template = $wikiPage->getTitle()->getTemplateLinksFrom()[0]->getText();
 			$templateNamespace = $wikiPage->getTitle()->getNsText();
 
 			$titleId = $title->getArticleId();
