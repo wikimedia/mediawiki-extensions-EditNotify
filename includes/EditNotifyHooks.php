@@ -339,13 +339,8 @@ class EditNotifyHooks {
 
 			$res = $dbr->query( $sql );
 
-			if ( $dbr->numRows( $res ) > 0 ) {
-				foreach ( $res as $row ) {
-					$templateCategories[$row->cl_to] = $title->getFullText();
-				}
-				$dbr->freeResult( $res );
-			} else {
-				$templateCategories = [];
+			foreach ( $res as $row ) {
+				$templateCategories[$row->cl_to] = $title->getFullText();
 			}
 
 			/** Notify users for change in template field to specific template value in namespace */
@@ -728,13 +723,8 @@ class EditNotifyHooks {
 
 		$res = $dbr->query( $sql );
 
-		if ( $dbr->numRows( $res ) > 0 ) {
-			foreach ( $res as $row ) {
-				$categories[$row->cl_to] = $title->getFullText();
-			}
-			$dbr->freeResult( $res );
-		} else {
-			$categories = [];
+		foreach ( $res as $row ) {
+			$categories[$row->cl_to] = $title->getFullText();
 		}
 
 		$categoryUserArray = $namespaceUserArray = $notifiedUsers = $allPagesUserArray = [];
