@@ -304,7 +304,7 @@ class EditNotifyHooks {
 			}
 
 			$template = $wikiPage->getTitle()->getTemplateLinksFrom()[0]->getText();
-			$templateNamespace = $wikiPage->getTitle()->getNsText();
+			$pageNamespace = $wikiPage->getTitle()->getNsText();
 
 			$titleId = $title->getArticleId();
 			$dbr = wfGetDB( DB_REPLICA );
@@ -344,7 +344,7 @@ class EditNotifyHooks {
 			}
 
 			/** Notify users for change in template field to specific template value in namespace */
-			if ( $templateNamespace ) {
+			if ( $pageNamespace ) {
 				foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
 					foreach ( $wgEditNotifyAlerts as $fieldValueNamespaceAlert ) {
 						$handleTemplateFieldValueNamespaceAlert = false;
@@ -385,13 +385,13 @@ class EditNotifyHooks {
 								array_key_exists( 'namespace', $fieldValueNamespaceAlert )
 							) {
 								if ( is_array( $fieldValueNamespaceAlert['namespace'] ) ) {
-									if ( in_array( $templateNamespace, $fieldValueNamespaceAlert['namespace'] ) ) {
+									if ( in_array( $pageNamespace, $fieldValueNamespaceAlert['namespace'] ) ) {
 										foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsername ) {
 											$fieldValueNamespaceUserArray[] = $fieldValueNamespaceUsername;
 										}
 									}
 								} else {
-									if ( $fieldValueNamespaceAlert['namespace'] == $templateNamespace ) {
+									if ( $fieldValueNamespaceAlert['namespace'] == $pageNamespace ) {
 										foreach ( $fieldValueNamespaceAlert['users'] as $fieldValueNamespaceUsername ) {
 											$fieldValueNamespaceUserArray[] = $fieldValueNamespaceUsername;
 										}
@@ -404,7 +404,7 @@ class EditNotifyHooks {
 
 					foreach ( $fieldValueNamespaceUserArray as $fieldValueNamespaceUser ) {
 						self::templateFieldValueNotify( $title, 'edit-notify-template-value-namespace', $fieldValueNamespaceUser,
-							$changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $templateNamespace );
+							$changedFieldName, $changedFieldValue, $template, $existingField[$changedFieldName], $pageNamespace );
 					}
 				}
 			}
@@ -539,7 +539,7 @@ class EditNotifyHooks {
 			}
 
 			/** Notify users for change in template field in namespace */
-			if ( $templateNamespace ) {
+			if ( $pageNamespace ) {
 				foreach ( $changedFields as $changedFieldName => $changedFieldValue ) {
 					foreach ( $wgEditNotifyAlerts as $fieldNamespaceAlert ) {
 						$handleTemplateFieldNamespaceAlert = false;
@@ -572,13 +572,13 @@ class EditNotifyHooks {
 								array_key_exists( 'namespace', $fieldNamespaceAlert )
 							) {
 								if ( is_array( $fieldNamespaceAlert['namespace'] ) ) {
-									if ( in_array( $templateNamespace, $fieldNamespaceAlert['namespace'] ) ) {
+									if ( in_array( $pageNamespace, $fieldNamespaceAlert['namespace'] ) ) {
 										foreach ( $fieldNamespaceAlert['users'] as $fieldNamespaceUsername ) {
 											$fieldNamespaceUserArray[] = $fieldNamespaceUsername;
 										}
 									}
 								} else {
-									if ( $fieldNamespaceAlert['namespace'] == $templateNamespace ) {
+									if ( $fieldNamespaceAlert['namespace'] == $pageNamespace ) {
 										foreach ( $fieldNamespaceAlert['users'] as $fieldNamespaceUsername ) {
 											$fieldNamespaceUserArray[] = $fieldNamespaceUsername;
 										}
@@ -593,7 +593,7 @@ class EditNotifyHooks {
 
 					foreach ( $fieldNamespaceUserArray as $fieldNamespaceUser ) {
 						self::templateFieldNotify( $title, 'edit-notify-template-namespace', $fieldNamespaceUser, $changedFieldName,
-							$changedFieldValue, $template, $existingField[$changedFieldName], $templateNamespace );
+							$changedFieldValue, $template, $existingField[$changedFieldName], $pageNamespace );
 					}
 				}
 			}
