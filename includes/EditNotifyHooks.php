@@ -303,8 +303,15 @@ class EditNotifyHooks {
 				return true;
 			}
 
-			$template = $wikiPage->getTitle()->getTemplateLinksFrom()[0]->getText();
-			$pageNamespace = $wikiPage->getTitle()->getNsText();
+			$templatesOnThisPage = $title->getTemplateLinksFrom();
+			// This shouldn't happen, but if it does happen (due
+			// to some problem with storage in the templatelinks
+			// table), just exit.
+			if ( count( $templatesOnThisPage ) == 0 || $templatesOnThisPage[0] == null ) {
+				return true;
+			}
+			$template = $templatesOnThisPage[0]->getText();
+			$pageNamespace = $title->getNsText();
 
 			$titleId = $title->getArticleId();
 			$dbr = wfGetDB( DB_REPLICA );
