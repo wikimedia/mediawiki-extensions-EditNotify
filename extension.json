@@ -50,14 +50,6 @@
 			"i18n"
 		]
 	},
-	"ResourceModules": {
-		"ext.editNotify.foo": {
-			"scripts": [],
-			"styles": [],
-			"messages": [],
-			"dependencies": []
-		}
-	},
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
 		"remoteExtPath": "EditNotify"
