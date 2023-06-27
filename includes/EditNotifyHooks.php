@@ -4,7 +4,6 @@ class EditNotifyHooks {
 	/**
 	 * @param array &$echoNotifications
 	 * @param array $echoNotificationCategories
-	 * @return bool
 	 */
 	public static function onBeforeCreateEchoEvent( &$echoNotifications, $echoNotificationCategories ) {
 		// Echo notification for page edit
@@ -201,13 +200,11 @@ class EditNotifyHooks {
 			'email-body-batch-message' => 'editnotify-email-body-message-template',
 			'email-body-batch-params' => [ 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title', 'change' ]
 		];
-		return true;
 	}
 
 	/**
 	 * @param EchoEvent $event
 	 * @param User[] &$users
-	 * @return bool
 	 */
 	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
 		switch ( $event->getType() ) {
@@ -227,8 +224,6 @@ class EditNotifyHooks {
 				$users[$userId] = $user;
 				break;
 		}
-
-		return true;
 	}
 
 	/**
@@ -237,7 +232,6 @@ class EditNotifyHooks {
 	 * @param CommentStoreComment $summary
 	 * @param int $flags
 	 * @param Status $hookStatus
-	 * @return bool
 	 */
 	public static function onMultiContentSave( MediaWiki\Revision\RenderedRevision $renderedRevision, MediaWiki\User\UserIdentity $user,
 		CommentStoreComment $summary, $flags, Status $hookStatus ) {
@@ -249,7 +243,7 @@ class EditNotifyHooks {
 		if ( $content instanceof TextContent ) {
 			$text = $content->getText();
 		} else {
-			return true;
+			return;
 		}
 
 		$existingPageStructure = ENPageStructure::newFromTitle( $title );
@@ -258,17 +252,17 @@ class EditNotifyHooks {
 		$newPageStructure->parsePageContents( $text );
 
 		if ( !$title->exists() ) {
-			return true;
+			return;
 		}
 
 		if ( $newPageStructure == $existingPageStructure ) {
-			return true;
+			return;
 		}
 
 		$newPageComponent = $newPageStructure->mComponents;
 		$existingPageComponent = $existingPageStructure->mComponents;
 		if ( isset( $newPageComponent[0] ) == false ) {
-			return true;
+			return;
 		}
 
 		if ( $newPageComponent[0]->mIsTemplate ) {
@@ -304,7 +298,7 @@ class EditNotifyHooks {
 			}
 
 			if ( count( $changedFields ) + count( $addedFields ) + count( $removedFields ) <= 0 ) {
-				return true;
+				return;
 			}
 
 			$templatesOnThisPage = $title->getTemplateLinksFrom();
@@ -312,7 +306,7 @@ class EditNotifyHooks {
 			// to some problem with storage in the templatelinks
 			// table), just exit.
 			if ( count( $templatesOnThisPage ) == 0 || $templatesOnThisPage[0] == null ) {
-				return true;
+				return;
 			}
 			$template = $templatesOnThisPage[0]->getText();
 			$pageNamespace = $title->getNsText();
@@ -715,7 +709,7 @@ class EditNotifyHooks {
 						$changedFieldValue, $template, $existingField[$changedFieldName], 'all pages' );
 				}
 			}
-			return true;
+			return;
 		}
 
 		// essentially the "else" block, since the "if" returns true at the end
@@ -885,8 +879,6 @@ class EditNotifyHooks {
 				self::pageEditNotify( $title, 'edit-notify', $allPagesUser, 'all pages' );
 			}
 		}
-
-		return true;
 	}
 
 	/**
@@ -922,7 +914,6 @@ class EditNotifyHooks {
 	 * @param Title $pageTitle
 	 * @param string $pageType
 	 * @param string $user
-	 * @return bool
 	 */
 	public static function pageCreateNotify( $pageTitle, $pageType, $user ) {
 		EchoEvent::create( [
@@ -933,7 +924,6 @@ class EditNotifyHooks {
 			],
 			'title' => $pageTitle
 		] );
-		return true;
 	}
 
 	/**
@@ -941,7 +931,6 @@ class EditNotifyHooks {
 	 * @param string $pageType
 	 * @param string $user
 	 * @param string $change
-	 * @return bool
 	 */
 	public static function pageEditNotify( $pageTitle, $pageType, $user, $change ) {
 		EchoEvent::create( [
@@ -953,7 +942,6 @@ class EditNotifyHooks {
 			],
 			'title' => $pageTitle
 		] );
-		return true;
 	}
 
 	/**
@@ -965,7 +953,6 @@ class EditNotifyHooks {
 	 * @param string $template
 	 * @param string $newFieldValue
 	 * @param string $change
-	 * @return bool
 	 */
 	public static function templateFieldNotify(
 		$pageTitle,
@@ -990,7 +977,6 @@ class EditNotifyHooks {
 			],
 			'title' => $pageTitle
 		] );
-		return true;
 	}
 
 	/**
@@ -1002,7 +988,6 @@ class EditNotifyHooks {
 	 * @param string $template
 	 * @param string $newFieldValue
 	 * @param string $change
-	 * @return bool
 	 */
 	public static function templateFieldValueNotify(
 		$pageTitle,
@@ -1027,6 +1012,5 @@ class EditNotifyHooks {
 			],
 			'title' => $pageTitle
 		] );
-		return true;
 	}
 }
