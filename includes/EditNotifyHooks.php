@@ -232,28 +232,32 @@ class EditNotifyHooks {
 	}
 
 	/**
-	 * @param WikiPage &$wikiPage
-	 * @param User &$user
-	 * @param CommentStoreComment &$content
-	 * @param string &$summary
-	 * @param bool $isMinor
-	 * @param null $isWatch
-	 * @param null $section
-	 * @param int &$flags
-	 * @param StatusValue &$status
+	 * @param RenderedRevision $renderedRevision
+	 * @param UserIdentity $user
+	 * @param CommentStoreComment $summary
+	 * @param int $flags
+	 * @param Status $hookStatus
 	 * @return bool
 	 */
-	public static function onPageContentSave( WikiPage &$wikiPage, &$user, &$content, &$summary, $isMinor, $isWatch, $section, &$flags, &$status ) {
+	public static function onMultiContentSave( MediaWiki\Revision\RenderedRevision $renderedRevision, MediaWiki\User\UserIdentity $user,
+		CommentStoreComment $summary, $flags, Status $hookStatus ) {
 		global $wgEditNotifyAlerts;
-		$title = $wikiPage->getTitle();
-		$text = ContentHandler::getContentText( $content );
+
+		$revisionRecord = $renderedRevision->getRevision();
+		$title = $revisionRecord->getPage();
+		$content = $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN );
+		if ( $content instanceof TextContent ) {
+			$text = $content->getText();
+		} else {
+			return true;
+		}
 
 		$existingPageStructure = ENPageStructure::newFromTitle( $title );
 
 		$newPageStructure = new ENPageStructure;
 		$newPageStructure->parsePageContents( $text );
 
-		if ( !$wikiPage->exists() ) {
+		if ( !$title->exists() ) {
 			return true;
 		}
 
@@ -719,7 +723,7 @@ class EditNotifyHooks {
 
 		$handleNamespaceAlert = false;
 		$handleNamespace = false;
-		$namespace = $wikiPage->getTitle()->getNsText();
+		$namespace = $title->getNsText();
 		$categories = [];
 
 		$titleId = $title->getArticleId();
