@@ -42,7 +42,7 @@
 	"Hooks": {
 		"BeforeCreateEchoEvent": "EditNotifyHooks::onBeforeCreateEchoEvent",
 		"EchoGetDefaultNotifiedUsers": "EditNotifyHooks::onEchoGetDefaultNotifiedUsers",
-		"PageContentSave": "EditNotifyHooks::onPageContentSave",
+		"MultiContentSave": "EditNotifyHooks::onMultiContentSave",
 		"PageSaveComplete": "EditNotifyHooks::onPageSaveComplete"
 	},
 	"MessagesDirs": {
