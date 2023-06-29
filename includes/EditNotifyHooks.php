@@ -261,12 +261,11 @@ class EditNotifyHooks {
 
 		$newPageComponent = $newPageStructure->mComponents;
 		$existingPageComponent = $existingPageStructure->mComponents;
-		if ( isset( $newPageComponent[0] ) == false ) {
+		if ( !isset( $newPageComponent[0] ) || !isset( $existingPageComponent[0] ) ) {
 			return;
 		}
 
-		if ( $newPageComponent[0]->mIsTemplate ) {
-
+		if ( $newPageComponent[0]->mIsTemplate && $existingPageComponent[0]->mIsTemplate ) {
 			$newField = $newPageComponent[0]->mFields;
 			$existingField = $existingPageComponent[0]->mFields;
 
