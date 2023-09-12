@@ -889,21 +889,33 @@ class EditNotifyHooks {
 
 		foreach ( $wgEditNotifyAlerts as $pageCreateAlert ) {
 			$handlePageCreateAlert = false;
-
+			$handlePageEditAlert = false;
 			/** Checking if the 'action' is string or array of string */
 			if ( is_array( $pageCreateAlert['action'] ) ) {
 				if ( in_array( 'create', $pageCreateAlert['action'] ) ) {
 					$handlePageCreateAlert = true;
+				} elseif ( in_array( 'edit', $pageCreateAlert['action'] ) ) {
+					$handlePageEditAlert = true;
 				}
 			} else {
 				if ( $pageCreateAlert['action'] == 'create' ) {
 					$handlePageCreateAlert = true;
+				} elseif ( $pageCreateAlert['action'] == 'edit' ) {
+					$handlePageEditAlert = true;
 				}
 			}
 
 			if ( $handlePageCreateAlert ) {
-				foreach ( $pageCreateAlert['users'] as $pageCreateUser ) {
-					self::pageCreateNotify( $title, 'edit-notify-page-create', $pageCreateUser );
+				if ( $wikiPage->isNew() ) {
+					foreach ( $pageCreateAlert['users'] as $pageCreateUser ) {
+						self::pageCreateNotify( $title, 'edit-notify-page-create', $pageCreateUser );
+					}
+				}
+			} elseif ( $handlePageEditAlert ) {
+				if ( !$wikiPage->isNew() ) {
+					foreach ( $pageCreateAlert['users'] as $pageCreateUser ) {
+						self::pageEditNotify( $title, 'edit-notify', $pageCreateUser );
+					}
 				}
 			}
 		}
