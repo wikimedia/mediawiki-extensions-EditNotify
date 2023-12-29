@@ -1,5 +1,7 @@
 <?php
 
+use MediaWiki\MediaWikiServices;
+
 class EditNotifyHooks {
 	/**
 	 * @param array &$echoNotifications
@@ -227,6 +229,20 @@ class EditNotifyHooks {
 	}
 
 	/**
+	 * Helper function to get "replica database" connection.
+	 * @return IDatabase
+	 */
+	public static function getReadDB() {
+		$lbFactory = MediaWikiServices::getInstance()->getDBLoadBalancerFactory();
+		if ( method_exists( $lbFactory, 'getReplicaDatabase' ) ) {
+			// MW 1.40+
+			return $lbFactory->getReplicaDatabase();
+		} else {
+			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_REPLICA );
+		}
+	}
+
+	/**
 	 * @param RenderedRevision $renderedRevision
 	 * @param UserIdentity $user
 	 * @param CommentStoreComment $summary
@@ -311,7 +327,7 @@ class EditNotifyHooks {
 			$pageNamespace = $title->getNsText();
 
 			$titleId = $title->getArticleId();
-			$dbr = wfGetDB( DB_REPLICA );
+			$dbr = self::getReadDB();
 			$categorylinks = $dbr->tableName( 'categorylinks' );
 
 			$fieldValueNamespaceUserArray = [];
@@ -720,7 +736,7 @@ class EditNotifyHooks {
 		$categories = [];
 
 		$titleId = $title->getArticleId();
-		$dbr = wfGetDB( DB_REPLICA );
+		$dbr = self::getReadDB();
 		$categorylinks = $dbr->tableName( 'categorylinks' );
 
 		$sql = "SELECT * FROM $categorylinks" . " WHERE cl_from='$titleId'" . " AND cl_from <> '0'" . " ORDER BY cl_sortkey";
