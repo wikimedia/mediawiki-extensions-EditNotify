@@ -3,7 +3,7 @@
 use MediaWiki\MediaWikiServices;
 
 /**
- * Most most the code in this page is copied from Data Transfer extension. The code is a part of Data Transfer extension.
+ * Most of the code in this page is copied from the Data Transfer extension.
  */
 
 class ENPageStructure {
@@ -29,12 +29,7 @@ class ENPageStructure {
 		$pageStructure = new ENPageStructure();
 		$pageStructure->mPageTitle = $pageTitle;
 
-		if ( method_exists( MediaWikiServices::class, 'getWikiPageFactory' ) ) {
-			// MW 1.36+
-			$wiki_page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $pageTitle );
-		} else {
-			$wiki_page = WikiPage::factory( $pageTitle );
-		}
+		$wiki_page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $pageTitle );
 		$page_contents = ContentHandler::getContentText( $wiki_page->getContent() );
 		$pageStructure->parsePageContents( $page_contents );
 		// file_put_contents('php://stderr', print_r('tttttttt', TRUE));
