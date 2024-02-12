@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"editnotify-desc": "הרחבה ליצירת דפים או התראות על עריכה",
+	"editnotify-page-edit-label": "הצגת השינויים",
+	"editnotify-title-message": "הדף שוּנה",
+	"editnotify-title-message-page-create": "הדף נערך",
+	"editnotify-flyout-message": "התראה על עריכת דף",
+	"editnotify-flyout-message-page-create": "התראה על יצירת דף",
+	"editnotify-primary-message": "הצגת הדף:",
+	"editnotify-email-subject-message": "הדף \"$2\" שוּנה",
+	"editnotify-email-subject-message-page-create": "הדף \"$2\" נוצר",
+	"editnotify-email-subject-message-template": "הדף \"$2\": הערך של \"$3\" שוּנה אל \"$4\"",
+	"editnotify-email-body-message": "נעשתה עריכה בדף \"$1\". קיבלת את ההתראה הזאת מכיוון הפעילות הזאת \"$2\" נמצאת ברשימת מעקב שלך.",
+	"editnotify-email-body-message-page-create": "הדף \"$1\" נוצר. קיבלת את ההתראה הזאת כי הפעילות הזאת בדפים שנוצרו נמצאת ברשימת המעקב שלך.",
+	"editnotify-email-body-message-template": "הפרמטר \"$1\" שוּנה מהערך \"$2\" לערך \"$3\" בתבנית \"$4\" בדף \"$5\". קיבלת את ההתראה הזאת כי הפעילות הזאת \"$6\" נמצאת ברשימת המעקב שלך.",
+	"notification-header-edit-notify-page-create": "הדף \"$3\" נוצר",
+	"notification-header-edit-notify": "הדף \"$3\" שוּנה",
+	"notification-header-edit-notify-namespace": "הדף \"$3\" שוּנה",
+	"notification-header-edit-notify-category": "הדף \"$3\" שוּנה",
+	"notification-header-edit-notify-template": "הפרמטר \"$3\" שוּנה מהערך \"$4\" לערך \"$5\" בתבנית \"$6\" בדף \"$7\"",
+	"notification-header-edit-notify-template-namespace": "הפרמטר \"$3\" שוּנה מהערך \"$4\" לערך \"$5\" בתבנית \"$6\" בדף \"$7\"",
+	"notification-header-edit-notify-template-category": "הפרמטר \"$3\" שוּנה מהערך \"$4\" לערך \"$5\" בתבנית \"$6\" בדף \"$7\"",
+	"notification-header-edit-notify-template-value": "הפרמטר \"$3\" שוּנה מהערך \"$4\" לערך \"$5\" בתבנית \"$6\" בדף \"$7\"",
+	"notification-header-edit-notify-template-value-namespace": "הפרמטר \"$3\" שוּנה מהערך \"$4\" לערך \"$5\" בתבנית \"$6\" בדף \"$7\"",
+	"notification-header-edit-notify-template-value-category": "הפרמטר \"$3\" שוּנה מהערך \"$4\" לערך \"$5\" בתבנית \"$6\" בדף \"$7\""
+}
