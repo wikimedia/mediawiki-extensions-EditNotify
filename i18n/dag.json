@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kalakpagh"
+		]
+	},
+	"editnotify-desc": "Tirisibu zaŋ n-ti yaɣili yoobu bee maliniŋ lahabali nyɛbu",
+	"editnotify-page-edit-label": "Lihimi taɣibu nima",
+	"editnotify-title-message": "Yaɣili daa niŋ taɣibu",
+	"editnotify-title-message-page-create": "Yaɣili ŋɔ daa yihiya",
+	"editnotify-flyout-message": "Lahabali nyɛbu zaŋ n-ti yaɣili maliniŋ",
+	"editnotify-flyout-message-page-create": "Lahabali baŋbu zaŋ n-ti yaɣili nambu",
+	"editnotify-primary-message": "Lihimi yaɣili:",
+	"editnotify-email-subject-message": "Yaɣili \"$2\" daa niŋ taɣibu",
+	"editnotify-email-subject-message-page-create": "Yaɣili \"$2\" daa yooi",
+	"editnotify-email-subject-message-template": "Yaɣili \"$2\": darisa zaŋ n-ti \"$3\" taɣibu n-ti \"$4\"",
+	"editnotify-email-body-message": "Maliniŋ daa niŋ yaɣili \"$1\" puuni. A nyari la lahabali ŋɔ dama a lihiri la tuma ŋɔ\n\"$2\".",
+	"editnotify-email-body-message-page-create": "Yaɣili \"$1\" daa nam ya. A nyari la lahabali ŋɔ dama a a nyɛla ŋun lihiri tuma ŋɔ nambu yaɣa.",
+	"editnotify-email-body-message-template": "Darisa zaŋ n-ti \"$1\" daa taɣiya bin din gbaai \"$2\" hali ni \"$3\" tɛmplet \"$4\" yaɣili \"$5\" puuni. A nyari la lahabali ŋɔ dama a nyɛla ŋun lihiri tuma ŋɔ  \"$6\".",
+	"notification-header-edit-notify-page-create": "Yaɣili \"$3\" daa yooi",
+	"notification-header-edit-notify": "Yaɣili \"$3\" daa niŋ taɣibu",
+	"notification-header-edit-notify-namespace": "Yaɣili \"$3\" daa niŋ taɣibu",
+	"notification-header-edit-notify-category": "Yaɣili \"$3\" daa niŋ taɣibu",
+	"notification-header-edit-notify-template": "Darisa zaŋ n-ti \"$3\" daa taɣiya bin din gbaai \"$4\" hali ni \"$5\" tɛmplet \"$6\" yaɣili \"$7\"",
+	"notification-header-edit-notify-template-namespace": "Darisa zaŋ n-ti \"$3\" daa taɣiya bin din gbaai \"$4\" hali ni \"$5\" tɛmplet \"$6\" yaɣili \"$7\" puuni",
+	"notification-header-edit-notify-template-category": "Darisa zaŋ n-ti \"$3\" daa taɣiya bin din gbaai \"$4\" hali ni \"$5\" tɛmplet \"$6\" yaɣili \"$7\" puuni",
+	"notification-header-edit-notify-template-value": "Darisa zaŋ n-ti \"$3\" daa taɣiya bin din gbaai \"$4\" hali ni \"$5\" tɛmplet \"$6\" yaɣili \"$7\" puuni",
+	"notification-header-edit-notify-template-value-namespace": "Darisa zaŋ n-ti \"$3\" daa taɣiya bin din gbaai \"$4\" hali ni \"$5\" tɛmplet \"$6\" yaɣili puuni \"$7\"",
+	"notification-header-edit-notify-template-value-category": "Darisa zaŋ n-ti \"$3\" daa taɣiya bin din gbaai \"$4\" hali ni \"$5\" tɛmplet \"$6\" yaɣili \"$7\" puuni"
+}

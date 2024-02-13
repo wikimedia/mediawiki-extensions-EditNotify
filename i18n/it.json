@@ -1,0 +1,18 @@
+{
+	"@metadata": {
+		"authors": [
+			"Beta16"
+		]
+	},
+	"editnotify-page-edit-label": "Vedi modifiche",
+	"editnotify-title-message": "Pagina modificata",
+	"editnotify-title-message-page-create": "Pagina modificata",
+	"editnotify-primary-message": "Vedi pagina:",
+	"editnotify-email-subject-message": "La pagina \"$2\" è stata modificata",
+	"editnotify-email-subject-message-page-create": "La pagina \"$2\" è stata creata",
+	"editnotify-email-subject-message-template": "Pagina \"$2\": valore di \"$3\" cambiato in \"$4\"",
+	"notification-header-edit-notify-page-create": "La pagina \"$3\" è stata creata",
+	"notification-header-edit-notify": "La pagina \"$3\" è stata modificata",
+	"notification-header-edit-notify-namespace": "La pagina \"$3\" è stata modificata",
+	"notification-header-edit-notify-category": "La pagina \"$3\" è stata modificata"
+}
