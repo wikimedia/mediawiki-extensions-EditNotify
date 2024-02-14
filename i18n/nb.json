@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"editnotify-desc": "Utvidelse for varsler for sideoppretting eller -redigering",
+	"editnotify-page-edit-label": "Vis endringer",
+	"editnotify-title-message": "Side ble endret",
+	"editnotify-title-message-page-create": "Side ble redigert",
+	"editnotify-flyout-message": "Varsel for sideredigering",
+	"editnotify-flyout-message-page-create": "Varsel for sideoppretting",
+	"editnotify-primary-message": "Vis side:",
+	"editnotify-email-subject-message": "Siden «$2» ble endret",
+	"editnotify-email-subject-message-page-create": "Siden «$2» ble opprettet",
+	"editnotify-email-subject-message-template": "Siden «$2»: verdien til «$3» endret til «$4»",
+	"editnotify-email-body-message": "En redigering ble gjort på siden «$1». Du får dette varselet fordi du overvåker slik aktivitet i «$2».",
+	"editnotify-email-body-message-page-create": "Siden «$1» ble opprettet. Du får dette varselet fordi du overvåker slik aktivitet ved sideoppretting.",
+	"editnotify-email-body-message-template": "Verdien til «$1» ble endret fra «$2» til «$3» i malen «$4» på siden «$5». Du får dette varselet fordi du overvåker slik aktivitet i «$6».",
+	"notification-header-edit-notify-page-create": "Siden «$3» ble opprettet",
+	"notification-header-edit-notify": "Siden «$3» ble endret",
+	"notification-header-edit-notify-namespace": "Siden «$3» ble endret",
+	"notification-header-edit-notify-category": "Siden «$3» ble endret",
+	"notification-header-edit-notify-template": "Verdien til «$3» ble endret fra «$4» til «$5» i malen «$6» på siden «$7»",
+	"notification-header-edit-notify-template-namespace": "Verdien til «$3» ble endret fra «$4» til «$5» i malen «$6» på siden «$7»",
+	"notification-header-edit-notify-template-category": "Verdien til «$3» ble endret fra «$4» til «$5» i malen «$6» på siden «$7»",
+	"notification-header-edit-notify-template-value": "Verdien til «$3» ble endret fra «$4» til «$5» i malen «$6» på siden «$7»",
+	"notification-header-edit-notify-template-value-namespace": "Verdien til «$3» ble endret fra «$4» til «$5» i malen «$6» på siden «$7»",
+	"notification-header-edit-notify-template-value-category": "Verdien til «$3» ble endret fra $4» til «$5» i malen «$6» på siden «$7»"
+}

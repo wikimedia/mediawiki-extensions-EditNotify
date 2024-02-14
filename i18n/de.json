@@ -1,0 +1,28 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"editnotify-desc": "Erweiterung für die Seitenerstellungs- oder Bearbeitungsbenachrichtigung",
+	"editnotify-page-edit-label": "Änderungen zeigen",
+	"editnotify-title-message": "Seite wurde geändert",
+	"editnotify-title-message-page-create": "Seite wurde bearbeitet",
+	"editnotify-flyout-message": "Benachrichtigung zur Seitenbearbeitung",
+	"editnotify-flyout-message-page-create": "Benachrichtigung zur Seitenerstellung",
+	"editnotify-primary-message": "Seite ansehen:",
+	"editnotify-email-subject-message": "Seite „$2“ wurde geändert",
+	"editnotify-email-subject-message-page-create": "Seite „$2“ wurde erstellt",
+	"editnotify-email-subject-message-template": "Seite „$2“: Wert von „$3“ wurde in „$4“ geändert",
+	"editnotify-email-body-message": "Auf der Seite „$1“ wurde eine Bearbeitung vorgenommen. Du erhältst diese Benachrichtigung, weil du diese Aktivität in „$2“ beobachtest.",
+	"editnotify-email-body-message-page-create": "Seite „$1“ wurde erstellt. Du erhältst diese Benachrichtigung, weil du beim Erstellen von Seiten auf diese Aktivität achtest.",
+	"editnotify-email-body-message-template": "Der Wert von „$1“ wurde in der Vorlage „$4 “ auf der Seite „$5“ von „$2“ in „$3“ geändert. Du erhältst diese Benachrichtigung, weil du diese Aktivität in „$6“ beobachtest.",
+	"notification-header-edit-notify-page-create": "Seite „$3“ wurde erstellt",
+	"notification-header-edit-notify": "Seite „$3“ wurde geändert",
+	"notification-header-edit-notify-namespace": "Seite „$3“ wurde geändert",
+	"notification-header-edit-notify-category": "Seite „$3“ wurde geändert",
+	"notification-header-edit-notify-template": "Der Wert von „$3“ wurde in der Vorlage „$6“ auf der Seite „$7“ von „$4“ in „$5“ geändert.",
+	"notification-header-edit-notify-template-namespace": "Der Wert von „$3“ wurde in der Vorlage „$6“ auf der Seite „$7“ von „$4“ in „$5“ geändert.",
+	"notification-header-edit-notify-template-category": "Der Wert von „$3“ wurde in der Vorlage „$6“ auf der Seite „$7“ von „$4“ in „$5“ geändert.",
+	"notification-header-edit-notify-template-value": "Der Wert von „$3“ wurde in der Vorlage „$6“ auf der Seite „$7“ von „$4“ in „$5“ geändert.",
+	"notification-header-edit-notify-template-value-namespace": "Der Wert von „$3“ wurde in der Vorlage „$6“ auf der Seite „$7“ von „$4“ in „$5“ geändert.",
+	"notification-header-edit-notify-template-value-category": "Der Wert von „$3“ wurde in der Vorlage „$6“ auf der Seite „$7“ von „$4“ in „$5“ geändert."
+}

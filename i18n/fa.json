@@ -1,0 +1,25 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jeeputer"
+		]
+	},
+	"editnotify-desc": "افزونه‌ای برای آگاه‌سازی ایجاد یا ویرایش صفحه",
+	"editnotify-page-edit-label": "نمایش تغییرات",
+	"editnotify-title-message": "صفحه ویرایش شد",
+	"editnotify-flyout-message": "آگاه‌سازی ویرایش صفحه",
+	"editnotify-flyout-message-page-create": "آگاه‌سازی ایجاد صفحه",
+	"editnotify-primary-message": "مشاهدهٔ صفحه:",
+	"editnotify-email-subject-message": "صفحهٔ «$2» ویرایش شد",
+	"editnotify-email-subject-message-page-create": "صفحهٔ «$2» ایجاد شد",
+	"editnotify-email-body-message": "ویرایشی در صفحهٔ «$1» انجام شد. دلیل دریافت این آگاه‌سازی این است که این دست از فعالیت‌ها در «$2» را پی‌گیری می‌کنید.",
+	"editnotify-email-body-message-template": "مثدار «$1» در الگوی «$4» در صفحهٔ «$5» از «$2» به «$3» تغییر یافت. دلیل دریافت این آگاه‌سازی این است که این دست از فعالیت‌ها در «$6» را پی‌گیری می‌کنید.",
+	"notification-header-edit-notify-page-create": "صفحهٔ «$3» ایجاد شد",
+	"notification-header-edit-notify": "صفحهٔ «$3» ویرایش شد",
+	"notification-header-edit-notify-category": "صفحهٔ «$3» ویرایش شد",
+	"notification-header-edit-notify-template": "مقدار «$3» در الگوی «$6» در صفحهٔ «$7» از «$4» به «$5» تغییر یافت",
+	"notification-header-edit-notify-template-namespace": "مقدار «$3» در الگوی «$6» در صفحهٔ «$7» از «$4» به «$5» تغییر یافت",
+	"notification-header-edit-notify-template-category": "مقدار «$3» در الگوی «$6» در صفحهٔ «$7» از «$4» به «$5» تغییر یافت",
+	"notification-header-edit-notify-template-value": "مقدار «$3» در الگوی «$6» در صفحهٔ «$7» از «$4» به «$5» تغییر یافت",
+	"notification-header-edit-notify-template-value-namespace": "مثدار «$3» در الگوی «$6» در صفحهٔ «$7» از «$4» به «$5» تغییر یافت"
+}

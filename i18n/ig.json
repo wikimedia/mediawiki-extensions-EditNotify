@@ -1,0 +1,15 @@
+{
+	"@metadata": {
+		"authors": [
+			"Meritkosy"
+		]
+	},
+	"editnotify-desc": "Mgbatị maka imepụta ibe ma ọ bụ ọkwa ndezi",
+	"editnotify-page-edit-label": "Lelee mgbanwe",
+	"editnotify-title-message-page-create": "E dezigharịrị peeji",
+	"editnotify-flyout-message": "Ozi maka idezi peeji",
+	"editnotify-email-body-message-page-create": "E mepụtara peeji nke \"$1\" . Ị na-enweta ọkwa a n'ihi na ị na-ele anya maka ọrụ a na ịmepụta ibe.",
+	"notification-header-edit-notify-namespace": "A gbanwere peeji \"$3\"",
+	"notification-header-edit-notify-category": "A gbanwere peeji \"$3\"",
+	"notification-header-edit-notify-template-value-category": "A gbanwere ọnụ ahịa \"$3\" site na \"$4\" gaa na \"$5\" na template \"$6\" na peeji \"$7\""
+}

@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"editnotify-desc": "Додаток за создавање на страници или уредување на известување",
+	"editnotify-page-edit-label": "Погледајте ги промените",
+	"editnotify-title-message": "Страницата е изменета",
+	"editnotify-title-message-page-create": "Страницата е уредена",
+	"editnotify-flyout-message": "Известување за уредување на страница",
+	"editnotify-flyout-message-page-create": "Известување за создавање на страница",
+	"editnotify-primary-message": "Погледајте ја страницата:",
+	"editnotify-email-subject-message": "Страницата „$2“ е изменета",
+	"editnotify-email-subject-message-page-create": "Страницата „$2“ е создадена",
+	"editnotify-email-subject-message-template": "Страница „$2“: вредноста на „$3“ е променета во „$4“",
+	"editnotify-email-body-message": "Направено е уредување на страницата „$1“. Ова известување го добивате бидејќи ја набљудувате оваа активност на „$2“.",
+	"editnotify-email-body-message-page-create": "Создадена е страницата „$1“. Ова известување го добивате бидејќи го набљудувате создавањето на страници.",
+	"editnotify-email-body-message-template": "Вредноста на „$1“ е сменета од „$2“ во „$3“ во предлошката „$4“ на страницата „$5“. Ова известување го добивате бидејќи ја набљудувате оваа активност на „$6“.",
+	"notification-header-edit-notify-page-create": "Создадена е страницата „$3“",
+	"notification-header-edit-notify": "Изменета е страницата „$3“",
+	"notification-header-edit-notify-namespace": "Изменета е страницата „$3“",
+	"notification-header-edit-notify-category": "Изменета е страницата „$3“",
+	"notification-header-edit-notify-template": "Вредноста на „$3“ е сменета од „$4“ на „$5“ во предлошката „$6“ на страницата „$7“",
+	"notification-header-edit-notify-template-namespace": "Вредноста на „$3“ е сменета од „$4“ на „$5“ во предлошката „$6“ на страницата „$7“",
+	"notification-header-edit-notify-template-category": "Вредноста на „$3“ е сменета од „$4“ на „$5“ во предлошката „$6“ на страницата „$7“",
+	"notification-header-edit-notify-template-value": "Вредноста на „$3“ е сменета од „$4“ на „$5“ во предлошката „$6“ на страницата „$7“",
+	"notification-header-edit-notify-template-value-namespace": "Вредноста на „$3“ е сменета од „$4“ на „$5“ во предлошката „$6“ на страницата „$7“",
+	"notification-header-edit-notify-template-value-category": "Вредноста на „$3“ е сменета од „$4“ на „$5“ во предлошката „$6“ на страницата „$7“"
+}

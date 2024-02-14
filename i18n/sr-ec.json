@@ -1,0 +1,10 @@
+{
+	"@metadata": {
+		"authors": [
+			"Milicevic01"
+		]
+	},
+	"editnotify-page-edit-label": "Прикажи измене",
+	"editnotify-email-subject-message-page-create": "Страница „$2” је направљена",
+	"notification-header-edit-notify-page-create": "Страница „$3” је направљена"
+}
