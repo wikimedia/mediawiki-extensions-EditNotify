@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Hedda"
+		]
+	},
+	"editnotify-desc": "Sayfa oluşturma veya düzenleme bildirimi için uzantı",
+	"editnotify-page-edit-label": "Değişiklikleri görüntüle",
+	"editnotify-title-message": "Sayfa değiştirildi",
+	"editnotify-title-message-page-create": "Sayfa düzenlendi",
+	"editnotify-flyout-message": "Sayfa düzenleme bildirimi",
+	"editnotify-flyout-message-page-create": "Sayfa oluşturma bildirimi",
+	"editnotify-primary-message": "Sayfayı görüntüle:",
+	"editnotify-email-subject-message": "\"$2\" sayfası değiştirildi",
+	"editnotify-email-subject-message-page-create": "\"$2\" sayfası oluşturuldu",
+	"editnotify-email-subject-message-template": "\"$2\" sayfası: \"$3\" değeri \"$3\" olarak değiştirildi",
+	"editnotify-email-body-message": "\"$1\" sayfasında bir düzenleme yapıldı. \"$2\" sayfasındaki bu etkinliği izlediğiniz için bu bildirimi alıyorsunuz.",
+	"editnotify-email-body-message-page-create": "\"$1\" sayfası oluşturuldu. Sayfa oluşturmadaki bu etkinliği izlediğiniz için bu bildirimi alıyorsunuz.",
+	"editnotify-email-body-message-template": "\"$5\" sayfasındaki \"$4\" şablonundaki \"$1\" değeri, \"$2\" iken \"$3\" olarak değiştirildi. \"$6\" sayfasındaki bu etkinliği izlediğiniz için bu bildirimi alıyorsunuz.",
+	"notification-header-edit-notify-page-create": "\"$3\" sayfası oluşturuldu",
+	"notification-header-edit-notify": "\"$3\" sayfası değiştirildi",
+	"notification-header-edit-notify-namespace": "\"$3\" sayfası değiştirildi",
+	"notification-header-edit-notify-category": "\"$3\" sayfası değiştirildi",
+	"notification-header-edit-notify-template": "\"$7\" sayfasındaki \"$6\" şablonundaki \"$3\" değeri \"$4\" iken \"$5\" olarak değiştirildi.",
+	"notification-header-edit-notify-template-namespace": "\"$7\" sayfasındaki \"$6\" şablonundaki \"$3\" değeri \"$4\" iken \"$5\" olarak değiştirildi.",
+	"notification-header-edit-notify-template-category": "\"$7\" sayfasındaki \"$6\" şablonundaki \"$3\" değeri \"$4\" iken \"$5\" olarak değiştirildi.",
+	"notification-header-edit-notify-template-value": "\"$7\" sayfasındaki \"$6\" şablonundaki \"$3\" değeri \"$4\" iken \"$5\" olarak değiştirildi.",
+	"notification-header-edit-notify-template-value-namespace": "\"$7\" sayfasındaki \"$6\" şablonundaki \"$3\" değeri \"$4\" iken \"$5\" olarak değiştirildi.",
+	"notification-header-edit-notify-template-value-category": "\"$7\" sayfasındaki \"$6\" şablonundaki \"$3\" değeri \"$4\" iken \"$5\" olarak değiştirildi."
+}
