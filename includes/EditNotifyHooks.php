@@ -238,7 +238,7 @@ class EditNotifyHooks {
 			// MW 1.40+
 			return $lbFactory->getReplicaDatabase();
 		} else {
-			return $lbFactory->getMainLB()->getMaintenanceConnectionRef( DB_REPLICA );
+			return $lbFactory->getMainLB()->getConnection( DB_REPLICA );
 		}
 	}
 
