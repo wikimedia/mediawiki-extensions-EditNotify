@@ -5,6 +5,18 @@
 		]
 	},
 	"editnotify-page-edit-label": "Прикажи измене",
+	"editnotify-flyout-message": "Обавештења о уређивању страница",
+	"editnotify-flyout-message-page-create": "Обавештења о новим страницама",
+	"editnotify-primary-message": "Види страницу:",
 	"editnotify-email-subject-message-page-create": "Страница „$2” је направљена",
-	"notification-header-edit-notify-page-create": "Страница „$3” је направљена"
+	"editnotify-email-subject-message-template": "Страница „$2”: вредност „$3” промењена у „$4”",
+	"editnotify-email-body-message": "Страница „$1” је измењена. Добијате ово обавештење зато што надгледате ову активност у „$2”.",
+	"editnotify-email-body-message-template": "Вредност „$1” је промењена из „$2” у „$3” у шаблону „$4” на страници „$5”. Добијате ово обавештење зато што надгледате ову активност у „$6”.",
+	"notification-header-edit-notify-page-create": "Страница „$3” је направљена",
+	"notification-header-edit-notify-template": "Вредност „$3” је промењена из „$4” у „$5” у шаблону „$6” на страници „$7”",
+	"notification-header-edit-notify-template-namespace": "Вредност „$3” је промењена из „$4” у „$5” у шаблону „$6” на страници „$7”",
+	"notification-header-edit-notify-template-category": "Вредност „$3” је промењена из „$4” у „$5” у шаблону „$6” на страници „$7”",
+	"notification-header-edit-notify-template-value": "Вредност „$3” је промењена из „$4” у „$5” у шаблону „$6” на страници „$7”",
+	"notification-header-edit-notify-template-value-namespace": "Вредност „$3” је промењена из „$4” у „$5” у шаблону „$6” на страници „$7”",
+	"notification-header-edit-notify-template-value-category": "Вредност „$3” је промењена из „$4” у „$5” у шаблону „$6” на страници „$7”"
 }

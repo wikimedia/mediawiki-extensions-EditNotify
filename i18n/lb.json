@@ -1,9 +1,31 @@
 {
 	"@metadata": {
 		"authors": [
-			"Volvox"
+			"Volvox",
+			"Robby"
 		]
 	},
+	"editnotify-desc": "Erweiderung fir Notifikatioune fir Säiten déi ugeluecht oder geännert ginn",
 	"editnotify-page-edit-label": "Ännerunge weisen",
-	"notification-header-edit-notify-category": "D'Säit „$3“ gouf geännert"
+	"editnotify-title-message": "Säit gouf geännert",
+	"editnotify-title-message-page-create": "Säit gouf geännert",
+	"editnotify-flyout-message": "Notifikatioun fir d'Ännerung vu Säiten",
+	"editnotify-flyout-message-page-create": "Notifikatioun fir d'Uleeë vu Säiten",
+	"editnotify-primary-message": "Säit weisen",
+	"editnotify-email-subject-message": "D'Säit \"$2\" gouf geännert",
+	"editnotify-email-subject-message-page-create": "D'Säit \"$2\" gouf ugeluecht",
+	"editnotify-email-subject-message-template": "Säit \"$2\": Wäert vun \"$3\" op \"$4\" geännert",
+	"editnotify-email-body-message": "Op der Säit \"$1\" gouf eppes geännert. Dir kritt dës Notifikatioun well Dir dës Aktivitéit op der Säit \"$2\" iwwerwaacht.",
+	"editnotify-email-body-message-page-create": "D'Säit \"$1\" gouf ugeluecht. Dir kritt dës Notifikatioun well Dir bäi Säiten déi ugeluecht ginn dës Aktivitéit iwwerwaacht.",
+	"editnotify-email-body-message-template": "De Wäert \"$1\" gouf op der Säit \"$5\" an der Schabloun \"$4\" vun \"$2\" op \"$3\" geännert. Dir kritt dës Notifikatioun well Dir dës Aktivitéit an den \"$6\" iwwerwaacht.",
+	"notification-header-edit-notify-page-create": "D'Säit \"$3\" gouf ugeluecht",
+	"notification-header-edit-notify": "D'Säit \"$3\" gouf geännert",
+	"notification-header-edit-notify-namespace": "D'Säit \"$3\" gouf geännert",
+	"notification-header-edit-notify-category": "D'Säit „$3“ gouf geännert",
+	"notification-header-edit-notify-template": "De Wäert vun \"$3\" gouf an der Schabloun \"$6\" op der Säit \"$7\" vun \"$4\" op \"$5\" geännert",
+	"notification-header-edit-notify-template-namespace": "De Wäert vun \"$3\" gouf an der Schabloun \"$6\" op der Säit \"$7\" vun \"$4\" op \"$5\" geännert",
+	"notification-header-edit-notify-template-category": "De Wäert vun \"$3\" gouf an der Schabloun \"$6\" op der Säit \"$7\" vun \"$4\" op \"$5\" geännert",
+	"notification-header-edit-notify-template-value": "De Wäert vun \"$3\" gouf an der Schabloun \"$6\" op der Säit \"$7\" vun \"$4\" op \"$5\" geännert",
+	"notification-header-edit-notify-template-value-namespace": "De Wäert vun \"$3\" gouf an der Schabloun \"$6\" op der Säit \"$7\" vun \"$4\" op \"$5\" geännert",
+	"notification-header-edit-notify-template-value-category": "De Wäert vun \"$3\" gouf an der Schabloun \"$6\" op der Säit \"$7\" vun \"$4\" op \"$5\" geännert"
 }

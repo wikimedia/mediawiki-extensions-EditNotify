@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"SleaY"
+		]
+	},
+	"editnotify-page-edit-label": "Afficher les modifications",
+	"notification-header-edit-notify-namespace": "La page « $3 » a été modifiée"
+}
