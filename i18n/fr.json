@@ -1,9 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
-			"SleaY"
+			"SleaY",
+			"MacOS Weed"
 		]
 	},
 	"editnotify-page-edit-label": "Afficher les modifications",
+	"editnotify-title-message": "La page a été modifiée",
+	"editnotify-title-message-page-create": "La page a été modifiée",
+	"editnotify-primary-message": "Afficher la page :",
+	"editnotify-email-subject-message": "La page « $2 » a été modifiée",
 	"notification-header-edit-notify-namespace": "La page « $3 » a été modifiée"
 }
