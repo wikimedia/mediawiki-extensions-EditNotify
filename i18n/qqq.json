@@ -2,7 +2,8 @@
 	"@metadata": {
 		"authors": [
 			"Abhinand",
-			"Amire80"
+			"Amire80",
+			"McDutchie"
 		]
 	},
 	"editnotify-desc": "{{desc|name=EditNotify|url=https://www.mediawiki.org/wiki/Extension:EditNotify}}\n\n\"Editing notification\" means \"notification about editing\".",
@@ -18,7 +19,7 @@
 	"editnotify-email-body-message": "Description of the edit page event in email notification. Parameters:\n* $1 - name of modified page\n* $2 - page type of event",
 	"editnotify-email-body-message-page-create": "Description of the page create event in email notification. Parameters:\n* $1 - name of modified page",
 	"editnotify-email-body-message-template": "Description of the change in template field in email notification. Parameters:\n* $1 - modified field\n* $2 - existing field value\n* $3 - new field value\n* $4 - name of modified page\n* $5 - name of modified page\n* $6 - page type of event",
-	"notification-header-edit-notify-page-create": "Label for alert notification message for page creation. Parameters:\n* $2 - name of the newly created page",
+	"notification-header-edit-notify-page-create": "Label for alert notification message for page creation. Parameters:\n* $3 - name of the newly created page",
 	"notification-header-edit-notify": "Used as alert notification message for edit page event in all pages. Parameters:\n* $3 - name of the modified page",
 	"notification-header-edit-notify-namespace": "Used as alert notification message for edit page event in page namepsace. Parameters:\n* $3 - name of the modified page",
 	"notification-header-edit-notify-category": "Used as alert notification message for edit page event in page categories. Parameters:\n* $3 - name of the modified page",
