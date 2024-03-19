@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"editnotify-desc": "Extension pro notificationes concernente le creation o modification de paginas",
+	"editnotify-page-edit-label": "Monstrar cambiamentos",
+	"editnotify-title-message": "Le pagina ha essite modificate",
+	"editnotify-title-message-page-create": "Le pagina ha essite modificate",
+	"editnotify-flyout-message": "Notification concernente le modification de un pagina",
+	"editnotify-flyout-message-page-create": "Notification concernente le creation de un pagina",
+	"editnotify-primary-message": "Monstrar pagina:",
+	"editnotify-email-subject-message": "Le pagina “$2” ha essite modificate",
+	"editnotify-email-subject-message-page-create": "Le pagina “$2” ha essite create",
+	"editnotify-email-subject-message-template": "Pagina “$2”: valor de “$3” cambiate a “$4”",
+	"editnotify-email-body-message": "Un modification ha essite effectuate sur le pagina “$1”. Tu recipe iste notification perque tu ha iste activitate in “$2” sub observation.",
+	"editnotify-email-body-message-page-create": "Le pagina “$1” ha essite create. Tu recipe iste notification perque tu ha le activitate de creation de paginas sub observation.",
+	"editnotify-email-body-message-template": "Le valor de “$1” ha essite cambiate de “$2” a “$3” in le patrono “$4” sur le pagina “$5”. Tu recipe iste notification perque tu ha iste activitate in “$6” sub observation.",
+	"notification-header-edit-notify-page-create": "Le pagina “$3” ha essite create",
+	"notification-header-edit-notify": "Le pagina “$3” ha essite modificate",
+	"notification-header-edit-notify-namespace": "Le pagina “$3” ha essite modificate",
+	"notification-header-edit-notify-category": "Le pagina “$3” ha essite modificate",
+	"notification-header-edit-notify-template": "Le valor de “$3” ha essite cambiate de “$4” a “$5” in le patrono “$6” sur le pagina “$7”",
+	"notification-header-edit-notify-template-namespace": "Le valor de “$3” ha essite cambiate de “$4” a “$5” in le patrono “$6” sur le pagina “$7”",
+	"notification-header-edit-notify-template-category": "Le valor de “$3” ha essite cambiate de “$4” a “$5” in le patrono “$6” sur le pagina “$7”",
+	"notification-header-edit-notify-template-value": "Le valor de “$3” ha essite cambiate de “$4” a “$5” in le patrono “$6” sur le pagina “$7”",
+	"notification-header-edit-notify-template-value-namespace": "Le valor de “$3” ha essite cambiate de “$4” a “$5” in le patrono “$6” sur le pagina “$7”",
+	"notification-header-edit-notify-template-value-category": "Le valor de “$3” ha essite cambiate de “$4” a “$5” in le patrono “$6” sur le pagina “$7”"
+}
