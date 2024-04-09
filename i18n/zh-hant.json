@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Kly"
+		]
+	},
+	"editnotify-desc": "用於頁面建立或編輯通知的擴充功能",
+	"editnotify-page-edit-label": "檢視更改",
+	"editnotify-title-message": "已變動頁面",
+	"editnotify-title-message-page-create": "已編輯頁面",
+	"editnotify-flyout-message": "頁面編輯通知",
+	"editnotify-flyout-message-page-create": "頁面建立通知",
+	"editnotify-primary-message": "檢視頁面：",
+	"editnotify-email-subject-message": "已變動頁面「$2」",
+	"editnotify-email-subject-message-page-create": "已建立頁面「$2」",
+	"editnotify-email-subject-message-template": "頁面「$2」：「$3」的值更改成「$4」",
+	"editnotify-email-body-message": "已在頁面「$1」完成編輯。您會收到此通知是因為您正在查看在「$2」的此行動。",
+	"editnotify-email-body-message-page-create": "已建立頁面「$1」。您會收到此通知是因為您正在查看建立頁面的此行動。",
+	"editnotify-email-body-message-template": "在頁面「$5」的模板「$4」裡，「$1」的值從「$2」更改成「$3」。您會收到此通知是因為您正在查看「$6」中的此行動。",
+	"notification-header-edit-notify-page-create": "已建立頁面「$3」",
+	"notification-header-edit-notify": "已變動頁面「$3」",
+	"notification-header-edit-notify-namespace": "已變動頁面「$3」",
+	"notification-header-edit-notify-category": "已變動頁面「$3」",
+	"notification-header-edit-notify-template": "在頁面「$7」的模板「$6」裡，「$3」的值從「$4」更改成「$5」",
+	"notification-header-edit-notify-template-namespace": "在頁面「$7」的模板「$6」裡，「$3」的值從「$4」更改成「$5」",
+	"notification-header-edit-notify-template-category": "在頁面「$7」的模板「$6」裡，「$3」的值從「$4」更改成「$5」",
+	"notification-header-edit-notify-template-value": "在頁面「$7」的模板「$6」裡，「$3」的值從「$4」更改成「$5」",
+	"notification-header-edit-notify-template-value-namespace": "在頁面「$7」的模板「$6」裡，「$3」的值從「$4」更改成「$5」",
+	"notification-header-edit-notify-template-value-category": "在頁面「$7」的模板「$6」裡，「$3」的值從「$4」更改成「$5」"
+}
