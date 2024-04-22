@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"沈澄心"
+		]
+	},
+	"editnotify-desc": "用于页面创建或编辑通知的扩展",
+	"editnotify-page-edit-label": "查看更改",
+	"editnotify-title-message": "页面已修改",
+	"editnotify-title-message-page-create": "页面已编辑",
+	"editnotify-flyout-message": "页面编辑通知",
+	"editnotify-flyout-message-page-create": "页面创建通知",
+	"editnotify-primary-message": "查看页面：",
+	"editnotify-email-subject-message": "页面“$2”已修改",
+	"editnotify-email-subject-message-page-create": "页面“$2”已创建",
+	"editnotify-email-subject-message-template": "页面“$2”：“$3”的值更改为“$4”",
+	"editnotify-email-body-message": "页面“$1”已完成一笔编辑。您收到此通知是因为您正在监视“$2”中的此行动。",
+	"editnotify-email-body-message-page-create": "页面“$1”已创建。您收到此通知是因为您正在监视建立页面的此行动。",
+	"editnotify-email-body-message-template": "在页面“$5”的模板“$4”中，“$1”的值从“$2”更改为“$3”。您收到此通知是因为您正在监视“$6”中的此行动。",
+	"notification-header-edit-notify-page-create": "页面“$3”已创建",
+	"notification-header-edit-notify": "页面“$3”已修改",
+	"notification-header-edit-notify-namespace": "页面“$3”已修改",
+	"notification-header-edit-notify-category": "页面“$3”已修改",
+	"notification-header-edit-notify-template": "在页面“$7”的模板“$6”中，“$3”的值从“$4”更改为“$5”",
+	"notification-header-edit-notify-template-namespace": "在页面“$7”的模板“$6”中，“$3”的值从“$4”更改为“$5”",
+	"notification-header-edit-notify-template-category": "在页面“$7”的模板“$6”中，“$3”的值从“$4”更改为“$5”",
+	"notification-header-edit-notify-template-value": "在页面“$7”的模板“$6”中，“$3”的值从“$4”更改为“$5”",
+	"notification-header-edit-notify-template-value-namespace": "在页面“$7”的模板“$6”中，“$3”的值从“$4”更改为“$5”",
+	"notification-header-edit-notify-template-value-category": "在页面“$7”的模板“$6”中，“$3”的值从“$4”更改为“$5”"
+}
