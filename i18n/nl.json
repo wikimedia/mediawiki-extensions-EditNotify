@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"McDutchie"
+		]
+	},
+	"editnotify-desc": "Uitbreiding voor meldingen over het aanmaken of bewerken van pagina’s",
+	"editnotify-page-edit-label": "Wijzigingen bekijken",
+	"editnotify-title-message": "De pagina is gewijzigd",
+	"editnotify-title-message-page-create": "De pagina is bewerkt",
+	"editnotify-flyout-message": "Melding voor paginabewerking",
+	"editnotify-flyout-message-page-create": "Melding voor pagina-aanmaak",
+	"editnotify-primary-message": "Pagina bekijken:",
+	"editnotify-email-subject-message": "De pagina “$2” is gewijzigd",
+	"editnotify-email-subject-message-page-create": "De pagina “$2” is aangemaakt",
+	"editnotify-email-subject-message-template": "Pagina “$2”: waarde van “$3” gewijzigd in “$4”",
+	"editnotify-email-body-message": "Er is een bewerking aangebracht op de pagina “$1”. U ontvangt deze melding omdat u deze activiteit in “$2” volgt.",
+	"editnotify-email-body-message-page-create": "De pagina “$1” is aangemaakt. U ontvangt deze melding omdat u het aanmaken van pagina’s volgt.",
+	"editnotify-email-body-message-template": "De waarde van “$1” is gewijzigd van “$2” in “$3” in het sjabloon “$4” op de pagina “$5”. U ontvangt deze melding omdat u deze activiteit in “$6” volgt.",
+	"notification-header-edit-notify-page-create": "De pagina “$3” is aangemaakt",
+	"notification-header-edit-notify": "De pagina “$3” is gewijzigd",
+	"notification-header-edit-notify-namespace": "De pagina “$3” is gewijzigd",
+	"notification-header-edit-notify-category": "De pagina “$3” is gewijzigd",
+	"notification-header-edit-notify-template": "De waarde van “$3” is gewijzigd van “$4” in “$5” in het sjabloon “$6” op de pagina “$7”",
+	"notification-header-edit-notify-template-namespace": "De waarde van “$3” is gewijzigd van “$4” in “$5” in het sjabloon “$6” op de pagina “$7”",
+	"notification-header-edit-notify-template-category": "De waarde van “$3” is gewijzigd van “$4” in “$5” in het sjabloon “$6” op de pagina “$7”",
+	"notification-header-edit-notify-template-value": "De waarde van “$3” is gewijzigd van “$4” in “$5” in het sjabloon “$6” op de pagina “$7”",
+	"notification-header-edit-notify-template-value-namespace": "De waarde van “$3” is gewijzigd van “$4” in “$5” in het sjabloon “$6” op de pagina “$7”",
+	"notification-header-edit-notify-template-value-category": "De waarde van “$3” is gewijzigd van “$4” in “$5” in het sjabloon “$6” op de pagina “$7”"
+}
