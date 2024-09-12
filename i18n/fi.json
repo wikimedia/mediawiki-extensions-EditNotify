@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Samoasambia"
+		]
+	},
+	"editnotify-desc": "Laajennus ilmoituksille sivujen luomisesta tai muokkaamisesta",
+	"editnotify-page-edit-label": "Näytä muutokset",
+	"editnotify-title-message": "Sivua muutettiin",
+	"editnotify-title-message-page-create": "Sivua muokattiin",
+	"editnotify-flyout-message": "Ilmoitus sivun muokkauksesta",
+	"editnotify-flyout-message-page-create": "Ilmoitus sivun luomisesta",
+	"editnotify-primary-message": "Näytä sivu:",
+	"editnotify-email-subject-message": "Sivua ”$2” muutettiin",
+	"editnotify-email-subject-message-page-create": "Sivu ”$2” luotiin",
+	"editnotify-email-subject-message-template": "Sivu ”$2”: kentän ”$3” arvoksi vaihdettiin ”$4”",
+	"notification-header-edit-notify-page-create": "Sivu ”$3” luotiin",
+	"notification-header-edit-notify": "Sivua ”$3” muutettiin",
+	"notification-header-edit-notify-namespace": "Sivua ”$3” muutettiin",
+	"notification-header-edit-notify-category": "Sivua ”$3” muutettiin",
+	"notification-header-edit-notify-template": "Mallineen ”$6” kentän ”$3” arvo muutettiin arvosta ”$4” arvoon ”$5” sivulla ”$7”",
+	"notification-header-edit-notify-template-namespace": "Mallineen ”$6” kentän ”$3” arvo muutettiin arvosta ”$4” arvoon ”$5” sivulla ”$7”",
+	"notification-header-edit-notify-template-category": "Mallineen ”$6” kentän ”$3” arvo muutettiin arvosta ”$4” arvoon ”$5” sivulla ”$7”",
+	"notification-header-edit-notify-template-value": "Mallineen ”$6” kentän ”$3” arvo muutettiin arvosta ”$4” arvoon ”$5” sivulla ”$7”",
+	"notification-header-edit-notify-template-value-namespace": "Mallineen ”$6” kentän ”$3” arvo muutettiin arvosta ”$4” arvoon ”$5” sivulla ”$7”",
+	"notification-header-edit-notify-template-value-category": "Mallineen ”$6” kentän ”$3” arvo muutettiin arvosta ”$4” arvoon ”$5” sivulla ”$7”"
+}
