@@ -30,8 +30,11 @@ class ENPageStructure {
 		$pageStructure->mPageTitle = $pageTitle;
 
 		$wiki_page = MediaWikiServices::getInstance()->getWikiPageFactory()->newFromTitle( $pageTitle );
-		$page_contents = ContentHandler::getContentText( $wiki_page->getContent() );
-		$pageStructure->parsePageContents( $page_contents );
+		$pageContent = $wiki_page->getContent();
+		if ( !$pageContent instanceof TextContent ) {
+			return $pageStructure;
+		}
+		$pageStructure->parsePageContents( $pageContent->getText() );
 		// file_put_contents('php://stderr', print_r('tttttttt', TRUE));
 		// Now, go through the field values and see if any of them
 		// hold template calls - if any of them do, parse the value
