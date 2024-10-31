@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Къарачайлы"
+		]
+	},
+	"editnotify-desc": "Бетни болдуруу неда тюзетиу хапарландырыу ючюн кенгериу",
+	"editnotify-page-edit-label": "Тюрлениулени кёр",
+	"editnotify-title-message": "Бет тюрлендирилди",
+	"editnotify-title-message-page-create": "Бет тюзетилди",
+	"editnotify-flyout-message": "Бет тюзетиуню хапарландырыуу",
+	"editnotify-flyout-message-page-create": "Бет болдурууну хапарландырыуу",
+	"editnotify-primary-message": "Бетни кёр:",
+	"editnotify-email-subject-message": "\"$2\" бет тюрлендирилди",
+	"editnotify-email-subject-message-page-create": "\"$2\" бет болдурулду",
+	"editnotify-email-subject-message-template": "\"$2\" бет: \"$3\" магъанадан \"$4\" магъанагъа тюрленди",
+	"editnotify-email-body-message": "\"$1\" бетде тюзетиу этилди. \"$2\" бетдеги бу этиуге къарагъаныгъыз ючюн бу хапарландырыуну аласыз.",
+	"editnotify-email-body-message-page-create": "\"$1\" бет болдурулду. Бет болдурууда бу этиуге къарагъаныгъыз ючюн бу хапарландырыуну аласыз.",
+	"editnotify-email-body-message-template": "\"$5\" бетдеги \"$4\" шаблондагъы \"$1\" магъана, \"$2\" эди \"$3\" болуб тюрлендирилди. \"$6\" бетдеги бу этиуню къарагъаныгъыз ючюн бу хапарландырыуну аласыз.",
+	"notification-header-edit-notify-page-create": "\"$3\" бет болдурулду",
+	"notification-header-edit-notify": "\"$3\" бет тюрлендирилди",
+	"notification-header-edit-notify-namespace": "\"$3\" бет тюрлендирилди",
+	"notification-header-edit-notify-category": "\"$3\" бет тюрлендирилди",
+	"notification-header-edit-notify-template": "\"$7\" бетдеги \"$6\" шаблондагъы \"$3\" магъана \"$4\" эди \"$5\" болуб тюрлендирилди.",
+	"notification-header-edit-notify-template-namespace": "\"$7\" бетдеги \"$6\" шаблондагъы \"$3\" магъана \"$4\" эди \"$5\" болуб тюрлендирилди.",
+	"notification-header-edit-notify-template-category": "\"$7\" бетдеги \"$6\" шаблондагъы \"$3\" магъана \"$4\" эди \"$5\" болуб тюрлендирилди.",
+	"notification-header-edit-notify-template-value": "\"$7\" бетдеги \"$6\" шаблондагъы \"$3\" магъана \"$4\" эди \"$5\" болуб тюрлендирилди.",
+	"notification-header-edit-notify-template-value-namespace": "\"$7\" бетдеги \"$6\" шаблондагъы \"$3\" магъана \"$4\" эди \"$5\" болуб тюрлендирилди.",
+	"notification-header-edit-notify-template-value-category": "\"$7\" бетдеги \"$6\" шаблондагъы \"$3\" магъана \"$4\" эди \"$5\" болуб тюрлендирилди."
+}
