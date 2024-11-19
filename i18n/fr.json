@@ -2,13 +2,31 @@
 	"@metadata": {
 		"authors": [
 			"MacOS Weed",
-			"SleaY"
+			"SleaY",
+			"Mahabarata"
 		]
 	},
+	"editnotify-desc": "Extension pour la création de page ou la notification de modifications",
 	"editnotify-page-edit-label": "Afficher les modifications",
 	"editnotify-title-message": "La page a été modifiée",
 	"editnotify-title-message-page-create": "La page a été modifiée",
+	"editnotify-flyout-message": "Notification lorsqu'une page a été modifiée",
+	"editnotify-flyout-message-page-create": "Notification lorsqu'une page a été créée",
 	"editnotify-primary-message": "Afficher la page :",
 	"editnotify-email-subject-message": "La page « $2 » a été modifiée",
-	"notification-header-edit-notify-namespace": "La page « $3 » a été modifiée"
+	"editnotify-email-subject-message-page-create": "La page « $2 » a été créée",
+	"editnotify-email-subject-message-template": "Page « $2 » : la valeur de « $3 » a été modifiée en « $4 »",
+	"editnotify-email-body-message": "Une modification a été effectuée sur la page « $1 ». Vous recevez cette notification car vous surveillez l'activité « $2 ».",
+	"editnotify-email-body-message-page-create": "La page « $1 » a été créée. Vous recevez cette notification car vous surveillez l'activité de création de pages.",
+	"editnotify-email-body-message-template": "La valeur de « $1 » a été modifiée de « $2 » à « $3 » dans le modèle « $4 » de la page « $5 ». Vous recevez cette notification car vous surveillez l'activité « $6 ».",
+	"notification-header-edit-notify-page-create": "La page « $3 » a été créée",
+	"notification-header-edit-notify": "La page « $3 » a été modifiée",
+	"notification-header-edit-notify-namespace": "La page « $3 » a été modifiée",
+	"notification-header-edit-notify-category": "La page « $3 » a été modifiée",
+	"notification-header-edit-notify-template": "La valeur de « $3 » a été modifiée de « $4 » à « $5 » dans le modèle « $6 » de la page « $7 »",
+	"notification-header-edit-notify-template-namespace": "La valeur de « $3 » a été modifiée de « $4 » à « $5 » dans le modèle « $6 » de la page « $7 »",
+	"notification-header-edit-notify-template-category": "La valeur de « $3 » a été modifiée de « $4 » à « $5 » dans le modèle « $6 » de la page « $7 »",
+	"notification-header-edit-notify-template-value": "La valeur de « $3 » a été modifiée de « $4 » à « $5 » dans le modèle « $6 » de la page « $7 »",
+	"notification-header-edit-notify-template-value-namespace": "La valeur de « $3 » a été modifiée de « $4 » à « $5 » dans le modèle « $6 » de la page « $7 »",
+	"notification-header-edit-notify-template-value-category": "La valeur de « $3 » a été modifiée de « $4 » à « $5 » dans le modèle « $6 » de la page « $7 »"
 }
