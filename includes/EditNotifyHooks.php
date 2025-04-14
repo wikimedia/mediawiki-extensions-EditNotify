@@ -254,13 +254,15 @@ class EditNotifyHooks {
 		global $wgEditNotifyAlerts;
 
 		$revisionRecord = $renderedRevision->getRevision();
-		$title = $revisionRecord->getPage();
 		$content = $revisionRecord->getContent( MediaWiki\Revision\SlotRecord::MAIN );
 		if ( $content instanceof TextContent ) {
 			$text = $content->getText();
 		} else {
 			return;
 		}
+
+		$pageIdentity = $revisionRecord->getPage();
+		$title = MediaWiki\Title\Title::newFromPageIdentity( $pageIdentity );
 
 		$existingPageStructure = ENPageStructure::newFromTitle( $title );
 
