@@ -41,7 +41,6 @@
 	},
 	"Hooks": {
 		"BeforeCreateEchoEvent": "EditNotifyHooks::onBeforeCreateEchoEvent",
-		"EchoGetDefaultNotifiedUsers": "EditNotifyHooks::onEchoGetDefaultNotifiedUsers",
 		"MultiContentSave": "EditNotifyHooks::onMultiContentSave",
 		"PageSaveComplete": "EditNotifyHooks::onPageSaveComplete"
 	},

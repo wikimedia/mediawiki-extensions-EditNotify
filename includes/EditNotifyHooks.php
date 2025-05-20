@@ -1,5 +1,7 @@
 <?php
 
+use EchoAttributeManager as AttributeManager;
+use EchoUserLocator as UserLocator;
 use MediaWiki\MediaWikiServices;
 
 class EditNotifyHooks {
@@ -8,8 +10,16 @@ class EditNotifyHooks {
 	 * @param array $echoNotificationCategories
 	 */
 	public static function onBeforeCreateEchoEvent( &$echoNotifications, $echoNotificationCategories ) {
+		$locators = [
+			[
+				[ UserLocator::class, 'locateFromEventExtra' ],
+				[ 'user-id' ]
+			],
+		];
+
 		// Echo notification for page edit
 		$echoNotifications['edit-notify-page-create'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -30,6 +40,7 @@ class EditNotifyHooks {
 
 		// Echo notification for page edit
 		$echoNotifications['edit-notify'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -50,6 +61,7 @@ class EditNotifyHooks {
 
 		// echo notification for namespace in non template page
 		$echoNotifications['edit-notify-namespace'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -70,6 +82,7 @@ class EditNotifyHooks {
 
 		// echo notification for included categories in non template page
 		$echoNotifications['edit-notify-category'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -89,6 +102,7 @@ class EditNotifyHooks {
 		];
 		// Echo notification for template change
 		$echoNotifications['edit-notify-template'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -109,6 +123,7 @@ class EditNotifyHooks {
 
 		// echo notification for namespace in template page
 		$echoNotifications['edit-notify-template-namespace'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -128,6 +143,7 @@ class EditNotifyHooks {
 		];
 		// echo notification for included categories in template page
 		$echoNotifications['edit-notify-template-category'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -147,6 +163,7 @@ class EditNotifyHooks {
 		];
 		// notifiation for template field name to specific template value for all pages
 		$echoNotifications['edit-notify-template-value'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -166,6 +183,7 @@ class EditNotifyHooks {
 		];
 		// notification for change in template field to a specific template value in a namespace
 		$echoNotifications['edit-notify-template-value-namespace'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -185,6 +203,7 @@ class EditNotifyHooks {
 		];
 		// notification for change in template field to a specific template value in a category
 		$echoNotifications['edit-notify-template-value-category'] = [
+			AttributeManager::ATTR_LOCATORS => $locators,
 			'category' => 'system',
 			'section' => 'alert',
 			'primary-link' => [
@@ -202,30 +221,6 @@ class EditNotifyHooks {
 			'email-body-batch-message' => 'editnotify-email-body-message-template',
 			'email-body-batch-params' => [ 'field-name', 'existing-field-value', 'new-field-value', 'template', 'title', 'change' ]
 		];
-	}
-
-	/**
-	 * @param EchoEvent $event
-	 * @param User[] &$users
-	 */
-	public static function onEchoGetDefaultNotifiedUsers( $event, &$users ) {
-		switch ( $event->getType() ) {
-			case 'edit-notify':
-			case 'edit-notify-namespace':
-			case 'edit-notify-category':
-			case 'edit-notify-template':
-			case 'edit-notify-template-namespace':
-			case 'edit-notify-template-category':
-			case 'edit-notify-template-value':
-			case 'edit-notify-template-value-namespace':
-			case 'edit-notify-template-value-category':
-			case 'edit-notify-page-create':
-				$extra = $event->getExtra();
-				$userId = $extra['user-id'];
-				$user = User::newFromId( $userId );
-				$users[$userId] = $user;
-				break;
-		}
 	}
 
 	/**
