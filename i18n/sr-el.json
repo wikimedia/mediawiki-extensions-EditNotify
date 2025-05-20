@@ -1,0 +1,20 @@
+{
+	"@metadata": {
+		"authors": []
+	},
+	"editnotify-page-edit-label": "Prikaži izmene",
+	"editnotify-flyout-message": "Obaveštenja o uređivanju stranica",
+	"editnotify-flyout-message-page-create": "Obaveštenja o novim stranicama",
+	"editnotify-primary-message": "Vidi stranicu:",
+	"editnotify-email-subject-message-page-create": "Stranica „$2” je napravljena",
+	"editnotify-email-subject-message-template": "Stranica „$2”: vrednost „$3” promenjena u „$4”",
+	"editnotify-email-body-message": "Stranica „$1” je izmenjena. Dobijate ovo obaveštenje zato što nadgledate ovu aktivnost u „$2”.",
+	"editnotify-email-body-message-template": "Vrednost „$1” je promenjena iz „$2” u „$3” u šablonu „$4” na stranici „$5”. Dobijate ovo obaveštenje zato što nadgledate ovu aktivnost u „$6”.",
+	"notification-header-edit-notify-page-create": "Stranica „$3” je napravljena",
+	"notification-header-edit-notify-template": "Vrednost „$3” je promenjena iz „$4” u „$5” u šablonu „$6” na stranici „$7”",
+	"notification-header-edit-notify-template-namespace": "Vrednost „$3” je promenjena iz „$4” u „$5” u šablonu „$6” na stranici „$7”",
+	"notification-header-edit-notify-template-category": "Vrednost „$3” je promenjena iz „$4” u „$5” u šablonu „$6” na stranici „$7”",
+	"notification-header-edit-notify-template-value": "Vrednost „$3” je promenjena iz „$4” u „$5” u šablonu „$6” na stranici „$7”",
+	"notification-header-edit-notify-template-value-namespace": "Vrednost „$3” je promenjena iz „$4” u „$5” u šablonu „$6” na stranici „$7”",
+	"notification-header-edit-notify-template-value-category": "Vrednost „$3” je promenjena iz „$4” u „$5” u šablonu „$6” na stranici „$7”"
+}
