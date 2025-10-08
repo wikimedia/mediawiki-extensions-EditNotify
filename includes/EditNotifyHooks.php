@@ -322,10 +322,7 @@ class EditNotifyHooks {
 			}
 			$template = $templatesOnThisPage[0]->getText();
 			$pageNamespace = $title->getNsText();
-
-			$titleId = $title->getArticleId();
-			$dbr = self::getReadDB();
-			$categorylinks = $dbr->tableName( 'categorylinks' );
+			$templateCategories = $title->getParentCategories();
 
 			$fieldValueNamespaceUserArray = [];
 			$fieldValueCategoryUserArray = [];
@@ -347,18 +344,6 @@ class EditNotifyHooks {
 			$handleNamespaceNotification = false;
 			$handleCategoryNotification = false;
 			$handleAllPagesNotification = false;
-
-			/**
-			 * Get the categories of the page
-			 */
-			$templateCategories = [];
-			$sql = "SELECT * FROM $categorylinks" . " WHERE cl_from='$titleId'" . " AND cl_from <> '0'" . " ORDER BY cl_sortkey";
-
-			$res = $dbr->query( $sql );
-
-			foreach ( $res as $row ) {
-				$templateCategories[$row->cl_to] = $title->getFullText();
-			}
 
 			/** Notify users for change in template field to specific template value in namespace */
 			if ( $pageNamespace ) {
@@ -730,19 +715,7 @@ class EditNotifyHooks {
 		$handleNamespaceAlert = false;
 		$handleNamespace = false;
 		$namespace = $title->getNsText();
-		$categories = [];
-
-		$titleId = $title->getArticleId();
-		$dbr = self::getReadDB();
-		$categorylinks = $dbr->tableName( 'categorylinks' );
-
-		$sql = "SELECT * FROM $categorylinks" . " WHERE cl_from='$titleId'" . " AND cl_from <> '0'" . " ORDER BY cl_sortkey";
-
-		$res = $dbr->query( $sql );
-
-		foreach ( $res as $row ) {
-			$categories[$row->cl_to] = $title->getFullText();
-		}
+		$categories = $title->getParentCategories();
 
 		$categoryUserArray = $namespaceUserArray = $notifiedUsers = $allPagesUserArray = [];
 
