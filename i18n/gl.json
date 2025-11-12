@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"editnotify-desc": "Extensión para a notificación de creación ou edición de páxinas",
+	"editnotify-page-edit-label": "Ver os cambios",
+	"editnotify-title-message": "Modificouse a páxina",
+	"editnotify-title-message-page-create": "Editouse a páxina",
+	"editnotify-flyout-message": "Notificación para a edición dunha páxina",
+	"editnotify-flyout-message-page-create": "Notificación para a creación dunha páxina",
+	"editnotify-primary-message": "Ollar a páxina:",
+	"editnotify-email-subject-message": "Modificouse a páxina «$2»",
+	"editnotify-email-subject-message-page-create": "Creouse a páxina «$2»",
+	"editnotify-email-subject-message-template": "Páxina «$2»: o valor de «$3» cambiou a «$4»",
+	"editnotify-email-body-message": "Realizouse unha edición na páxina «$1». Recibes esta notificación porque estás a vixiar esta actividade en «$2».",
+	"editnotify-email-body-message-page-create": "Creouse a páxina «$1». Recibes esta notificación porque estás a vixiar a actividade de creación de páxinas.",
+	"editnotify-email-body-message-template": "O valor de «$1» cambiou de «$2» a «$3» no modelo «$4» da páxina «$5». Recibes esta notificación porque estás a vixiar esta actividade en «$6».",
+	"notification-header-edit-notify-page-create": "Creouse a páxina «$3»",
+	"notification-header-edit-notify": "Modificouse a páxina «$3»",
+	"notification-header-edit-notify-namespace": "Modificouse a páxina «$3»",
+	"notification-header-edit-notify-category": "Modificouse a páxina «$3»",
+	"notification-header-edit-notify-template": "O valor de «$3» cambiou de «$4» a «$5» no modelo «$6» da páxina «$7»",
+	"notification-header-edit-notify-template-namespace": "O valor de «$3» cambiou de «$4» a «$5» no modelo «$6» da páxina «$7»",
+	"notification-header-edit-notify-template-category": "O valor de «$3» cambiou de «$4» a «$5» no modelo «$6» da páxina «$7»",
+	"notification-header-edit-notify-template-value": "O valor de «$3» cambiou de «$4» a «$5» no modelo «$6» da páxina «$7»",
+	"notification-header-edit-notify-template-value-namespace": "O valor de «$3» cambiou de «$4» a «$5» no modelo «$6» da páxina «$7»",
+	"notification-header-edit-notify-template-value-category": "O valor de «$3» cambiou de «$4» a «$5» no modelo «$6» da páxina «$7»"
+}
