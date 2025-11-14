@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hedda"
+			"Hedda",
+			"SaldırganSincap"
 		]
 	},
 	"editnotify-desc": "Sayfa oluşturma veya düzenleme bildirimi için uzantı",
@@ -13,7 +14,7 @@
 	"editnotify-primary-message": "Sayfayı görüntüle:",
 	"editnotify-email-subject-message": "\"$2\" sayfası değiştirildi",
 	"editnotify-email-subject-message-page-create": "\"$2\" sayfası oluşturuldu",
-	"editnotify-email-subject-message-template": "\"$2\" sayfası: \"$3\" değeri \"$3\" olarak değiştirildi",
+	"editnotify-email-subject-message-template": "\"$2\" sayfası: \"$3\" değeri \"$4\" olarak değiştirildi",
 	"editnotify-email-body-message": "\"$1\" sayfasında bir düzenleme yapıldı. \"$2\" sayfasındaki bu etkinliği izlediğiniz için bu bildirimi alıyorsunuz.",
 	"editnotify-email-body-message-page-create": "\"$1\" sayfası oluşturuldu. Sayfa oluşturmadaki bu etkinliği izlediğiniz için bu bildirimi alıyorsunuz.",
 	"editnotify-email-body-message-template": "\"$5\" sayfasındaki \"$4\" şablonundaki \"$1\" değeri, \"$2\" iken \"$3\" olarak değiştirildi. \"$6\" sayfasındaki bu etkinliği izlediğiniz için bu bildirimi alıyorsunuz.",
