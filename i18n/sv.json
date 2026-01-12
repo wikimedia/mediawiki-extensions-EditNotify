@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"Stefan2255"
+		]
+	},
+	"editnotify-desc": "Tillägg för avisering om skapande eller redigering av sidor",
+	"editnotify-page-edit-label": "Visa ändringar",
+	"editnotify-title-message": "Sidan har ändrats",
+	"editnotify-title-message-page-create": "Sidan redigerades",
+	"editnotify-flyout-message": "Avisering om sidredigering",
+	"editnotify-flyout-message-page-create": "Avisering om skapande av sida",
+	"editnotify-primary-message": "Visa sida:",
+	"editnotify-email-subject-message": "Sidan \"$2\" har ändrats",
+	"editnotify-email-subject-message-page-create": "Sidan \"$2\" skapades",
+	"editnotify-email-subject-message-template": "Sidan \"$2\": värdet på \"$3\" har ändrats till \"$4\"",
+	"editnotify-email-body-message": "En redigering gjordes på sidan \"$1\". Du får den här aviseringen eftersom du letar efter den här aktiviteten på sidan \"$2\".",
+	"editnotify-email-body-message-page-create": "Sidan \"$1\" skapades. Du får den här aviseringen eftersom du håller utkik efter den här aktiviteten i skapade sidor.",
+	"editnotify-email-body-message-template": "Värdet på \"$1\" har ändrats från \"$2\" till \"$3\" i mallen \"$4\" på sidan \"$5\". Du får den här aviseringen eftersom du letar efter den här aktiviteten i \"$6\".",
+	"notification-header-edit-notify-page-create": "Sidan \"$3\" skapades",
+	"notification-header-edit-notify": "Sidan \"$3\" har ändrats",
+	"notification-header-edit-notify-namespace": "Sidan \"$3\" har ändrats",
+	"notification-header-edit-notify-category": "Sidan \"$3\" har ändrats",
+	"notification-header-edit-notify-template": "Värdet på \"$3\" ändrades från \"$4\" till \"$5\" i mallen \"$6\" på sidan \"$7\"",
+	"notification-header-edit-notify-template-namespace": "Värdet på \"$3\" ändrades från \"$4\" till \"$5\" i mallen \"$6\" på sidan \"$7\"",
+	"notification-header-edit-notify-template-category": "Värdet på \"$3\" ändrades från \"$4\" till \"$5\" i mallen \"$6\" på sidan \"$7\"",
+	"notification-header-edit-notify-template-value": "Värdet på \"$3\" ändrades från \"$4\" till \"$5\" i mallen \"$6\" på sidan \"$7\"",
+	"notification-header-edit-notify-template-value-namespace": "Värdet på \"$3\" ändrades från \"$4\" till \"$5\" i mallen \"$6\" på sidan \"$7\"",
+	"notification-header-edit-notify-template-value-category": "Värdet på \"$3\" ändrades från \"$4\" till \"$5\" i mallen \"$6\" på sidan \"$7\""
+}
