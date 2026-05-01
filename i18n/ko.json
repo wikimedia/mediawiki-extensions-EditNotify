@@ -1,0 +1,27 @@
+{
+	"@metadata": {
+		"authors": [
+			"Tensama0415"
+		]
+	},
+	"editnotify-desc": "문서 생성 또는 편집 알림을 위한 확장 기능",
+	"editnotify-page-edit-label": "변경사항 보기",
+	"editnotify-title-message": "문서가 수정되었습니다",
+	"editnotify-title-message-page-create": "문서가 편집되었습니다",
+	"editnotify-flyout-message": "문서 편집 알림",
+	"editnotify-flyout-message-page-create": "문서 생성 알림",
+	"editnotify-primary-message": "문서 보기:",
+	"editnotify-email-subject-message": "\"$2\" 문서가 수정되었습니다",
+	"editnotify-email-subject-message-page-create": "\"$2\" 문서가 생성되었습니다",
+	"editnotify-email-subject-message-template": "\"$2\" 문서: \"$3\" 값이 \"$4\"(으)로 변경됨",
+	"notification-header-edit-notify-page-create": "\"$3\" 문서가 생성되었습니다",
+	"notification-header-edit-notify": "\"$3\" 문서가 수정되었습니다",
+	"notification-header-edit-notify-namespace": "\"$3\" 문서가 수정되었습니다",
+	"notification-header-edit-notify-category": "\"$3\" 문서가 수정되었습니다",
+	"notification-header-edit-notify-template": "문서 \"$7\"의 틀 \"$6\"의 \"$3\" 값이 \"$4\"에서 \"$5\"(으)로 변경되었습니다",
+	"notification-header-edit-notify-template-namespace": "문서 \"$7\"의 틀 \"$6\"의 \"$3\" 값이 \"$4\"에서 \"$5\"(으)로 변경되었습니다",
+	"notification-header-edit-notify-template-category": "문서 \"$7\"의 틀 \"$6\"의 \"$3\" 값이 \"$4\"에서 \"$5\"(으)로 변경되었습니다",
+	"notification-header-edit-notify-template-value": "문서 \"$7\"의 틀 \"$6\"의 \"$3\" 값이 \"$4\"에서 \"$5\"(으)로 변경되었습니다",
+	"notification-header-edit-notify-template-value-namespace": "문서 \"$7\"의 틀 \"$6\"의 \"$3\" 값이 \"$4\"에서 \"$5\"(으)로 변경되었습니다",
+	"notification-header-edit-notify-template-value-category": "문서 \"$7\"의 틀 \"$6\"의 \"$3\" 값이 \"$4\"에서 \"$5\"(으)로 변경되었습니다"
+}
