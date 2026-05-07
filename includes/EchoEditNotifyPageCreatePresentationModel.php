@@ -9,7 +9,7 @@ class EchoEditNotifyPageCreatePresentationModel extends EchoEventPresentationMod
 	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
-			'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
+			'url' => $this->event->getTitle()->getFullURL(),
 			'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
 		];
 	}
@@ -17,7 +17,7 @@ class EchoEditNotifyPageCreatePresentationModel extends EchoEventPresentationMod
 	/** @inheritDoc */
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
-		$msg->params( $this->event->getExtraParam( 'title' ) );
+		$msg->params( $this->event->getTitle() );
 		return $msg;
 	}
 

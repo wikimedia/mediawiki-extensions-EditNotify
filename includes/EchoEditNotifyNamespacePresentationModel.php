@@ -9,7 +9,7 @@ class EchoEditNotifyNamespacePresentationModel extends EchoEventPresentationMode
 	/** @inheritDoc */
 	public function getPrimaryLink() {
 		return [
-			'url' => $this->event->getExtraParam( 'title' )->getFullURL(),
+			'url' => $this->event->getTitle()->getFullURL(),
 			'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
 		];
 	}
@@ -17,7 +17,7 @@ class EchoEditNotifyNamespacePresentationModel extends EchoEventPresentationMode
 	/** @inheritDoc */
 	public function getHeaderMessage() {
 		$msg = parent::getHeaderMessage();
-		$msg->params( $this->event->getExtraParam( 'title' ) );
+		$msg->params( $this->event->getTitle() );
 		$msg->params( $this->event->getExtraParam( 'change' ) );
 		return $msg;
 	}

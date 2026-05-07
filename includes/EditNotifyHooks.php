@@ -916,7 +916,6 @@ class EditNotifyHooks {
 		EchoEvent::create( [
 			'type' => $pageType,
 			'extra' => [
-				'title' => $pageTitle,
 				'user-id' => User::newFromName( $user )->getId(),
 			],
 			'title' => $pageTitle
@@ -933,7 +932,6 @@ class EditNotifyHooks {
 		EchoEvent::create( [
 			'type' => $pageType,
 			'extra' => [
-				'title' => $pageTitle,
 				'user-id' => User::newFromName( $user )->getId(),
 				'change' => $change
 			],
@@ -964,7 +962,6 @@ class EditNotifyHooks {
 		EchoEvent::create( [
 			'type' => $pageType,
 			'extra' => [
-				'title' => $pageTitle,
 				'user-id' => User::newFromName( $user )->getId(),
 				'field-name' => $templateFieldName,
 				'new-field-value' => $existingFieldValue,
@@ -999,7 +996,6 @@ class EditNotifyHooks {
 		EchoEvent::create( [
 			'type' => $pageType,
 			'extra' => [
-				'title' => $pageTitle,
 				'user-id' => User::newFromName( $user )->getId(),
 				'field-name' => $templateFieldName,
 				'new-field-value' => $existingFieldValue,
