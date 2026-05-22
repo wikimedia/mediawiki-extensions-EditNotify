@@ -8,8 +8,9 @@ class EchoEditNotifyPresentationModel extends EchoEventPresentationModel {
 
 	/** @inheritDoc */
 	public function getPrimaryLink() {
+		$eventTitle = $this->event->getTitle();
 		return [
-			'url' => $this->event->getTitle()->getFullURL(),
+			'url' => $eventTitle ? $eventTitle->getFullURL() : '',
 			'label' => $this->msg( 'editnotify-page-edit-label' )->text(),
 		];
 	}
