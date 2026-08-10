@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jeeputer"
+			"Jeeputer",
+			"LordProfo"
 		]
 	},
 	"editnotify-desc": "افزونه‌ای برای آگاه‌سازی ایجاد یا ویرایش صفحه",
@@ -12,8 +13,8 @@
 	"editnotify-primary-message": "مشاهدهٔ صفحه:",
 	"editnotify-email-subject-message": "صفحهٔ «$2» ویرایش شد",
 	"editnotify-email-subject-message-page-create": "صفحهٔ «$2» ایجاد شد",
-	"editnotify-email-body-message": "ویرایشی در صفحهٔ «$1» انجام شد. دلیل دریافت این آگاه‌سازی این است که این دست از فعالیت‌ها در «$2» را پی‌گیری می‌کنید.",
-	"editnotify-email-body-message-template": "مثدار «$1» در الگوی «$4» در صفحهٔ «$5» از «$2» به «$3» تغییر یافت. دلیل دریافت این آگاه‌سازی این است که این دست از فعالیت‌ها در «$6» را پی‌گیری می‌کنید.",
+	"editnotify-email-body-message": "ویرایشی در صفحهٔ «$1» انجام شد. شما این آگاه‌سازی را دریافت می‌کنید چون این فعالیت را در «$2» پیگیری می‌کنید.",
+	"editnotify-email-body-message-template": "مقدار «$1» در الگوی «$4» در صفحهٔ «$5» از «$2» به «$3» تغییر یافت. دلیل دریافت این آگاه‌سازی این است که این دست از فعالیت‌ها در «$6» را پیگیری می‌کنید.",
 	"notification-header-edit-notify-page-create": "صفحهٔ «$3» ایجاد شد",
 	"notification-header-edit-notify": "صفحهٔ «$3» ویرایش شد",
 	"notification-header-edit-notify-category": "صفحهٔ «$3» ویرایش شد",
