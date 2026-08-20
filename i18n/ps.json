@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"شاه زمان پټان"
+		]
+	},
+	"editnotify-desc": "د مخ جوړولو يا سمولو خبرتيا لپاره شاتاړی",
+	"editnotify-page-edit-label": "بدلونونه کتل",
+	"editnotify-title-message": "مخ بدل شول",
+	"editnotify-title-message-page-create": "مخ سم شو",
+	"editnotify-flyout-message": "د مخ سمونې خبرتيا",
+	"editnotify-flyout-message-page-create": "د مخ جوړونې خبرتيا",
+	"editnotify-primary-message": "مخ کتل:",
+	"editnotify-email-subject-message": "\"$2\" مخ بدل شو",
+	"editnotify-email-subject-message-page-create": "\"$2\" مخ جوړ شو",
+	"editnotify-email-subject-message-template": "\"$2\" مخ: \"$3\" ارزښت \"$4\" ته بدل شو",
+	"editnotify-email-body-message": "\"$1\" مخ کې يو سمون ترسره شو.\nتاسو دا خبرتيا ځکه ترلاسه کوئ، چې تاسو د \"$2\" کارندتياوې څارئ.",
+	"editnotify-email-body-message-page-create": "\"$1\" مخ جوړ شو. تاسو دا خبرتيا ځکه ترلاسه کوئ، چې تاسو د مخونو جوړولو کارندتياوې څارئ.",
+	"editnotify-email-body-message-template": "د \"$1\" ارزښت له \"$2\" څخه \"$3\" ته په \"$4\" کينډۍ او \"$5\" مخ کې بدل شو. تاسو دا خبرتيا ځکه ترلاسه کوئ چې تاسو په \"$6\" کې د دې کارندتيا څارئ.",
+	"notification-header-edit-notify-page-create": "\"$3\" مخ جوړ شو",
+	"notification-header-edit-notify": "\"$3\" مخ بدل شو",
+	"notification-header-edit-notify-namespace": "\"$3\" مخ بدل شو",
+	"notification-header-edit-notify-category": "\"$3\" مخ بدل شو",
+	"notification-header-edit-notify-template": "د \"$3\" ارزښت له \"$4\" څخه \"$5\" ته په \"$6\" کينډۍ او \"$7\" مخ کې بدل شو",
+	"notification-header-edit-notify-template-namespace": "د \"$3\" ارزښت له \"$4\" څخه \"$5\" ته په \"$6\" کينډۍ او \"$7\" مخ کې بدل شو",
+	"notification-header-edit-notify-template-category": "د \"$3\" ارزښت له \"$4\" څخه \"$5\" ته په \"$6\" کينډۍ او \"$7\" مخ کې بدل شو",
+	"notification-header-edit-notify-template-value": "د \"$3\" ارزښت له \"$4\" څخه \"$5\" ته په \"$6\" کينډۍ او \"$7\" مخ کې بدل شو",
+	"notification-header-edit-notify-template-value-namespace": "د \"$3\" ارزښت له \"$4\" څخه \"$5\" ته په \"$6\" کينډۍ او \"$7\" مخ کې بدل شو",
+	"notification-header-edit-notify-template-value-category": "د \"$3\" ارزښت له \"$4\" څخه \"$5\" ته په \"$6\" کينډۍ او \"$7\" مخ کې بدل شو"
+}
