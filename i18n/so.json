@@ -1,0 +1,30 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"editnotify-desc": "Kordhin loogu talagalay ogeysiisyada abuurista ama tafatirka bogagga",
+	"editnotify-page-edit-label": "Eeg isbeddellada",
+	"editnotify-title-message": "Bogga waa la beddelay",
+	"editnotify-title-message-page-create": "Bogga waa la tafatiray",
+	"editnotify-flyout-message": "Ogeysiiska tafatirka bogga",
+	"editnotify-flyout-message-page-create": "Ogeysiiska abuurista bogga",
+	"editnotify-primary-message": "Eeg bogga:",
+	"editnotify-email-subject-message": "Bogga \"$2\" waa la beddelay",
+	"editnotify-email-subject-message-page-create": "Bogga \"$2\" waa la abuuray",
+	"editnotify-email-subject-message-template": "Bogga \"$2\": qiimaha \"$3\" waxaa loo beddelay \"$4\"",
+	"editnotify-email-body-message": "Tafatir ayaa lagu sameeyay bogga \"$1\". Ogeysiiskan waxaa laguu soo diray sababtoo ah waxaad ku daawanaysaa hawshan \"$2\".",
+	"editnotify-email-body-message-page-create": "Bogga \"$1\" waa la abuuray. Ogeysiiskan waxaa laguu soo diray sababtoo ah waxaad ku daawanaysaa hawshan abuurista bogagga.",
+	"editnotify-email-body-message-template": "Qiimaha \"$1\" waxaa laga beddelay \"$2\" loona beddelay \"$3\" ee ku jira qaabka \"$4\" ee bogga \"$5\". Ogeysiiskan waxaa laguu soo diray sababtoo ah waxaad ku daawanaysaa hawshan \"$6\".",
+	"notification-header-edit-notify-page-create": "Bogga \"$3\" waa la abuuray",
+	"notification-header-edit-notify": "Bogga \"$3\" waa la beddelay",
+	"notification-header-edit-notify-namespace": "Bogga \"$3\" waa la beddelay",
+	"notification-header-edit-notify-category": "Bogga \"$3\" waa la beddelay",
+	"notification-header-edit-notify-template": "Qiimaha \"$3\" waxaa laga beddelay \"$4\" loona beddelay \"$5\" ee ku jira tusmada \"$6\" ee bogga \"$7\"",
+	"notification-header-edit-notify-template-namespace": "Qiimaha \"$3\" waxaa laga beddelay \"$4\" loona beddelay \"$5\" ee ku jira tusmada \"$6\" ee bogga \"$7\"",
+	"notification-header-edit-notify-template-category": "Qiimaha \"$3\" waxaa laga beddelay \"$4\" loona beddelay \"$5\" ee ku jira tusmada \"$6\" ee bogga \"$7\"",
+	"notification-header-edit-notify-template-value": "Qiimaha \"$3\" waxaa laga beddelay \"$4\" loona beddelay \"$5\" ee ku jira tusmada \"$6\" ee bogga \"$7\"",
+	"notification-header-edit-notify-template-value-namespace": "Qiimaha \"$3\" waxaa laga beddelay \"$4\" loona beddelay \"$5\" ee ku jira tusmada \"$6\" ee bogga \"$7\"",
+	"notification-header-edit-notify-template-value-category": "Qiimaha \"$3\" waxaa laga beddelay \"$4\" loona beddelay \"$5\" ee ku jira tusmada \"$6\" ee bogga \"$7\""
+}
